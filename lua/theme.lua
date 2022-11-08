@@ -17,6 +17,8 @@ local dark = {
   tag = hsl("#3691FF"),
   attribute = hsl("#FF936A"),
   property = hsl("#CE9887"),
+  parameter = hsl("#8bcdef"),
+  label = hsl("#50acae")
 }
 
 local light = {
@@ -34,6 +36,8 @@ local light = {
   tag = hsl("#275FE4"),
   attribute = hsl("#DF631C"),
   property = hsl("#A05A48"),
+  parameter = hsl("#40B8C5"),
+  label = hsl("#3a8ab2")
 }
 
 local t = dark
@@ -45,7 +49,9 @@ end
 -- Call lush with our lush-spec.
 -- ignore the "theme" variable for now
 ---@diagnostic disable: undefined-global
-local theme = lush(function()
+local theme = lush(function(injected_functions)
+  local sym = injected_functions.sym
+
   return {
     -- It's recommended to disable wrapping with `setlocal nowrap`, each
     -- group in this tutorial is appended by it's description for ease of use,
@@ -70,11 +76,11 @@ local theme = lush(function()
 
     -- Set a highlight group from hsl variables
     -- Uncomment "Normal"
-    Normal { bg = t.bg, fg = t.fg }, -- normal text
+    Normal { fg = t.fg }, -- normal text
     CursorLine { bg = t.bg.lighten(5) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Visual { bg = CursorLine.bg, },
     -- CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    -- Whitespace { fg = Normal.bg.desaturate(25).lighten(25) },
+    -- Whitespace { fg = Normal.fg.darken(25) },
     Comment { fg = t.comment },
     LineNr { Comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { Comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -146,13 +152,14 @@ local theme = lush(function()
 
     Identifier { fg = t.fg }, -- (preferred) any variable name
     Function { fg = t.method }, -- function name (also: methods for classes)
-
+    Property { fg = t.property },
+    Parameter { fg = t.parameter },
     Statement { fg = t.keyword }, -- (preferred) any statement
     -- Conditional    { }, --  if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --    case, default, etc.
     Operator { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
-    -- Keyword        { }, --  any other keyword
+    -- Keyword        { Statement }, --  any other keyword
     -- Exception      { }, --  try, catch, throw
 
     PreProc { fg = t.keyword }, -- (preferred) generic Preprocessor
@@ -165,17 +172,16 @@ local theme = lush(function()
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
-
-    Special { fg = t.punctuation }, -- (preferred) any special symbol
+    Special { Character }, -- (preferred) any special symbol
     -- SpecialChar {}, --  special character in a constant
-    -- Tag {}, --    you can use CTRL-] on this
+    Tag { fg = t.tag, gui = "underline" }, --    you can use CTRL-] on this
     -- Delimiter {}, --  character that needs attention
     -- SpecialComment { }, -- special things inside a comment
     -- Debug          { }, --    debugging statements
 
-    -- Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
-    -- Bold       { gui = "bold" },
-    -- Italic     { gui = "italic" },
+    Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
+    Bold { gui = "bold" },
+    Italic { gui = "italic" },
 
     -- ("Ignore", below, may be invisible...)
     -- Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
@@ -209,50 +215,76 @@ local theme = lush(function()
     -- TSError -> Error for example, so you do not have to define these unless
     -- you explicitly want to support Treesitter's improved syntax awareness.
 
+
     -- TSError              { }, -- For syntax/parser errors.
-    TSPunctDelimiter { fg = t.punctuation }, -- For delimiters ie: `.`
-    TSPunctBracket { fg = t.punctuation }, -- For brackets and parens.
-    TSPunctSpecial { fg = t.punctuation }, -- For special punctutation that does not fall in the catagories before.
+    sym("@punctuation") { fg = t.punctuation },
+    sym("@punctuation.bracket") { fg = t.punctuation },
+    sym("@punctuation.delimiter") { fg = t.punctuation },
+    sym("@punctuation.special") { fg = t.punctuation },
+    -- TSPunctDelimiter {}, -- For delimiters ie: `.`
+    -- TSPunctBracket {}, -- For brackets and parens.
+    -- TSPunctSpecial {}, -- For special punctutation that does not fall in the catagories before.
     -- TSConstant           { }, -- For constants
-    TSConstBuiltin { fg = t.keyword }, -- For constant that are built in the language: `nil` in Lua.
+    sym("@constant.builtin") { fg = t.keyword },
+    -- TSConstBuiltin { fg = t.keyword }, -- For constant that are built in the language: `nil` in Lua.
     -- TSConstMacro         { }, -- For constants that are defined by macros: `NULL` in C.
     -- TSString             { }, -- For strings.
     -- TSStringRegex        { }, -- For regexes.
-    -- TSStringEscape       { }, -- For escape characters within a string.
+    sym("@string.escape") { Character },
+    -- TSStringEscape { Character }, -- For escape characters within a string.
     -- TSCharacter          { }, -- For characters.
     -- TSNumber             { }, -- For integers.
     -- TSBoolean            { }, -- For booleans.
     -- TSFloat              { }, -- For floats.
     -- TSFunction           { }, -- For function (calls and definitions).
-    TSFuncBuiltin {}, -- For builtin functions: `table.insert` in Lua.
-    -- TSFuncMacro          { }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
-    -- TSParameter          { }, -- For parameters of a function.
+    sym("@function") { fg = t.method },
+    -- TSFuncBuiltin {}, -- For builtin functions: `table.insert` in Lua.
+    -- TSFuncMacro {}, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+    sym("@parameter") { fg = t.parameter },
+    -- TSParameter { fg = t.parameter }, -- For parameters of a function.
     -- TSParameterReference { }, -- For references to parameters of a function.
     -- TSMethod             { }, -- For method calls and definitions.
-    -- TSField              { }, -- For fields.
-    -- TSProperty           { }, -- Same as `TSField`.
-    -- TSConstructor        { }, -- For constructor calls and definitions: `                                                                       { }` in Lua, and Java constructors.
+    sym("@field") { Property },
+    -- TSField { fg = t.property }, -- For fields.
+    sym("@property") { Property },
+    -- TSProperty { fg = t.property }, -- Same as `TSField`.
+    sym("@constructor") { fg = t.type },
+    -- TSConstructor { Type }, -- For constructor calls and definitions: `                                                                       { }` in Lua, and Java constructors.
     -- TSConditional        { }, -- For keywords related to conditionnals.
     -- TSRepeat             { }, -- For keywords related to loops.
-    -- TSLabel              { }, -- For labels: `label:` in C and `:label:` in Lua.
+    sym("@label") { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
+    sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
+    -- TSLabel { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSOperator           { }, -- For any operator: `+`, but also `->` and `*` in C.
     -- TSKeyword            { }, -- For keywords that don't fall in previous categories.
     -- TSKeywordFunction    { }, -- For keywords used to define a fuction.
     -- TSException          { }, -- For exception related keywords.
     -- TSType               { }, -- For types.
-    -- TSTypeBuiltin        { }, -- For builtin types (you guessed it, right ?).
+    sym("@type") { Type },
+    sym("@type.builtin") { Statement },
+    -- TSTypeBuiltin { Statement }, -- For builtin types (you guessed it, right ?).
+    sym("@namespace") { Statement },
     -- TSNamespace          { }, -- For identifiers referring to modules and namespaces.
     -- TSInclude            { }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
-    -- TSAnnotation         { }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
-    -- TSText               { }, -- For strings considered text in a markup language.
-    -- TSStrong             { }, -- For text to be represented with strong.
-    -- TSEmphasis           { }, -- For text to be represented with emphasis.
-    -- TSUnderline          { }, -- For text to be represented with an underline.
-    -- TSTitle              { }, -- Text that is part of a title.
-    -- TSLiteral            { }, -- Literal text.
-    -- TSURI                { }, -- Any URI like a link or email.
-    -- TSVariable           { }, -- Any variable name that does not have another highlight.
-    -- TSVariableBuiltin    { }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
+    -- TSAnnotation { TSLabel }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
+    sym("@text") { Normal },
+    -- TSText { Normal }, -- For strings considered text in a markup language.
+    sym("@text.strong") { Bold },
+    -- TSStrong {}, -- For text to be represented with strong.
+    sym("@text.italic") { Italic },
+    -- TSEmphasis {}, -- For text to be represented with emphasis.
+    sym("@text.underline") { Underlined },
+    -- TSUnderline { underline = true }, -- For text to be represented with an underline.
+    sym("@text.title") { Statement },
+    -- TSTitle { Statement }, -- Text that is part of a title.
+    sym("@text.literal") { Normal },
+    -- TSLiteral            { Normal }, -- Literal text.
+    TSURI { fg = t.tag, underline = true }, -- Any URI like a link or email.
+    sym("@variable") { Normal }, -- Variable names that are defined by the languages, like `this` or `self`.
+    -- TSVariable { Normal }, -- Any variable name that does not have another highlight.
+    sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
+    -- TSVariableBuiltin {}, -- Variable names that are defined by the languages, like `this` or `self`.
   }
 end)
 return theme
