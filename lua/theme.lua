@@ -124,10 +124,10 @@ local theme = lush(function(injected_functions)
 
     NormalFloat { Normal }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
-    -- Conceal      { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    -- Cursor       { }, -- character under the cursor
-    -- lCursor      { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    -- CursorIM     { }, -- like Cursor, but used when in IME mode |CursorIM|
+    Conceal { Normal }, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor { Normal }, -- character under the cursor
+    lCursor { Normal }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM { Normal }, -- like Cursor, but used when in IME mode |CursorIM|
     -- Directory    { }, -- directory names (and other special names in listings)
     -- DiffAdd      { }, -- diff mode: Added line |diff.txt|
     -- DiffChange   { }, -- diff mode: Changed line |diff.txt|
