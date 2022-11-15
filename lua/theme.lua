@@ -21,7 +21,8 @@ local dark = {
   parameter = hsl("#8bcdef"),
   label = hsl("#50acae"),
   -- workspace
-  selection = hsl("#0084ff")
+  selection = hsl("#0084ff"),
+  search = hsl("#226143"),
 }
 
 local light = {
@@ -43,7 +44,7 @@ local light = {
   label = hsl("#3a8ab2"),
   -- workspace
   selection = hsl("#d2ecff"),
-  search = hsl("#9EE6C5")
+  search = hsl("#B1EACF")
 }
 
 local t = dark
@@ -118,7 +119,7 @@ local theme = lush(function(injected_functions)
     LineNr { Comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { Comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     Search { bg = t.search },
-    IncSearch { bg = t.search.mix(hsl("#ffff00"), 50), gui = "bold" },
+    IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg, gui = "bold" },
     CurSearch { Search, gui = "bold" },
 
     NormalFloat { Normal }, -- Normal text in floating windows.
