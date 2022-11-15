@@ -3,6 +3,7 @@ local hsl = lush.hsl
 
 
 local dark = {
+  -- syntax
   bg = hsl("#282C34"),
   fg = hsl("#ABB2BF"),
   cursor = hsl("#FFCC00"),
@@ -18,7 +19,9 @@ local dark = {
   attribute = hsl("#FF936A"),
   property = hsl("#CE9887"),
   parameter = hsl("#8bcdef"),
-  label = hsl("#50acae")
+  label = hsl("#50acae"),
+  -- workspace
+  selection = hsl("#0084ff")
 }
 
 local light = {
@@ -37,7 +40,9 @@ local light = {
   attribute = hsl("#DF631C"),
   property = hsl("#A05A48"),
   parameter = hsl("#40B8C5"),
-  label = hsl("#3a8ab2")
+  label = hsl("#3a8ab2"),
+  -- workspace
+  selection = hsl("#d2ecff"),
 }
 
 local t = dark
@@ -87,9 +92,9 @@ local theme = lush(function(injected_functions)
     Normal { fg = t.fg }, -- normal text
     CursorLine { bg = shade(t.bg, 3) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     -- CursorLine { bg = t.bg.darken(5) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    Visual { bg = CursorLine.bg, },
     -- CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     -- Whitespace { fg = Normal.fg.darken(25) },
+    Visual { bg = t.selection },
     Comment { fg = t.comment },
     LineNr { Comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { Comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
