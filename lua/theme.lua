@@ -121,7 +121,7 @@ local theme = lush(function(injected_functions)
     IncSearch { bg = t.search.mix(hsl("#ffff00"), 50), gui = "bold" },
     CurSearch { Search, gui = "bold" },
 
-    -- NormalFloat  { }, -- Normal text in floating windows.
+    NormalFloat { Normal }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     -- Conceal      { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor       { }, -- character under the cursor
