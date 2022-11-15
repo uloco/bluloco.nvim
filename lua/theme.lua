@@ -1,5 +1,5 @@
 local lush = require('lush')
-local hsl = lush.hsl
+local hsl = lush.hsluv
 
 
 local dark = {
@@ -59,6 +59,25 @@ local function shade(color, value)
   end
 end
 
+t.shade1 = shade(t.bg, 1)
+t.shade2 = shade(t.bg, 2)
+t.shade3 = shade(t.bg, 3)
+t.shade4 = shade(t.bg, 4)
+t.shade5 = shade(t.bg, 5)
+t.shade6 = shade(t.bg, 6)
+t.shade7 = shade(t.bg, 7)
+t.shade8 = shade(t.bg, 8)
+t.shade9 = shade(t.bg, 9)
+t.shade10 = shade(t.bg, 10)
+t.shade20 = shade(t.bg, 20)
+t.shade30 = shade(t.bg, 30)
+t.shade40 = shade(t.bg, 40)
+t.shade50 = shade(t.bg, 50)
+t.shade60 = shade(t.bg, 60)
+t.shade70 = shade(t.bg, 70)
+t.shade80 = shade(t.bg, 80)
+t.shade90 = shade(t.bg, 90)
+
 -- Call lush with our lush-spec.
 -- ignore the "theme" variable for now
 ---@diagnostic disable: undefined-global
@@ -90,11 +109,10 @@ local theme = lush(function(injected_functions)
     -- Set a highlight group from hsl variables
     -- Uncomment "Normal"
     Normal { fg = t.fg }, -- normal text
-    CursorLine { bg = shade(t.bg, 3) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    -- CursorLine { bg = t.bg.darken(5) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    -- CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    -- Whitespace { fg = Normal.fg.darken(25) },
+    CursorLine { bg = t.shade3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Visual { bg = t.selection },
+    CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    Whitespace { fg = t.shade10 },
     Comment { fg = t.comment },
     LineNr { Comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { Comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -298,7 +316,7 @@ local theme = lush(function(injected_functions)
     -- TSVariable { Normal }, -- Any variable name that does not have another highlight.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
     -- TSVariableBuiltin {}, -- Variable names that are defined by the languages, like `this` or `self`.
-    
+
 
 
     -- Language Overrides
