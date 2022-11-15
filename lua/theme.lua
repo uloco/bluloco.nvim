@@ -43,6 +43,7 @@ local light = {
   label = hsl("#3a8ab2"),
   -- workspace
   selection = hsl("#d2ecff"),
+  search = hsl("#9EE6C5")
 }
 
 local t = dark
@@ -116,8 +117,9 @@ local theme = lush(function(injected_functions)
     Comment { fg = t.comment },
     LineNr { Comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { Comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    -- Search       { search_base },
-    -- IncSearch    { bg = search_base.bg.rotate(-20), fg = search_base.fg.darken(90) },
+    Search { bg = t.search },
+    IncSearch { bg = t.search.mix(hsl("#ffff00"), 50), gui = "bold" },
+    CurSearch { Search, gui = "bold" },
 
     -- NormalFloat  { }, -- Normal text in floating windows.
     -- ColorColumn  { }, -- used for the columns set with 'colorcolumn'
