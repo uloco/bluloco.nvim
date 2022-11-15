@@ -122,7 +122,7 @@ local theme = lush(function(injected_functions)
     CurSearch { Search, gui = "bold" },
 
     -- NormalFloat  { }, -- Normal text in floating windows.
-    -- ColorColumn  { }, -- used for the columns set with 'colorcolumn'
+    ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     -- Conceal      { }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor       { }, -- character under the cursor
     -- lCursor      { }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
