@@ -262,7 +262,6 @@ local theme = lush(function(injected_functions)
     -- TSConditional        { }, -- For keywords related to conditionnals.
     -- TSRepeat             { }, -- For keywords related to loops.
     sym("@label") { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
-    sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSLabel { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
     -- TSOperator           { }, -- For any operator: `+`, but also `->` and `*` in C.
     -- TSKeyword            { }, -- For keywords that don't fall in previous categories.
@@ -294,6 +293,12 @@ local theme = lush(function(injected_functions)
     -- TSVariable { Normal }, -- Any variable name that does not have another highlight.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
     -- TSVariableBuiltin {}, -- Variable names that are defined by the languages, like `this` or `self`.
+    
+
+
+    -- Language Overrides
+    -- JSON
+    sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
   }
 end)
 return theme
