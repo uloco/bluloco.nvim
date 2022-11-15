@@ -21,8 +21,8 @@ local dark = {
   parameter = hsl("#8bcdef"),
   label = hsl("#50acae"),
   -- workspace
-  selection = hsl("#0084ff"),
-  search = hsl("#226143"),
+  selection = hsl("#274670"),
+  search = hsl("#1A7247"),
 }
 
 local light = {
