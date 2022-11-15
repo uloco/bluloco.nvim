@@ -46,6 +46,14 @@ if (vim.o.background == "light") then
   t = light
 end
 
+local function shade(color, value)
+  if (vim.o.background == "light") then
+    return color.darken(value)
+  else
+    return color.lighten(value)
+  end
+end
+
 -- Call lush with our lush-spec.
 -- ignore the "theme" variable for now
 ---@diagnostic disable: undefined-global
@@ -77,7 +85,8 @@ local theme = lush(function(injected_functions)
     -- Set a highlight group from hsl variables
     -- Uncomment "Normal"
     Normal { fg = t.fg }, -- normal text
-    CursorLine { bg = t.bg.lighten(5) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine { bg = shade(t.bg, 3) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    -- CursorLine { bg = t.bg.darken(5) }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     Visual { bg = CursorLine.bg, },
     -- CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     -- Whitespace { fg = Normal.fg.darken(25) },
