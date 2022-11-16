@@ -62,6 +62,7 @@ local dark = {
   diffText    = hsl("#10415B").lighten(12),
   error       = hsl("#ff2e3f"),
   warning     = hsl("#da7a43"),
+  info        = hsl("#3691ff"),
 }
 
 local light = {
@@ -91,7 +92,8 @@ local light = {
   diffDelete  = hsl("#fac1c6"),
   diffText    = hsl("#C2E4FF").darken(4),
   error       = hsl("#ff0000"),
-  warning     = hsl("#ff8f3a")
+  warning     = hsl("#ff8f3a"),
+  info        = hsl("#0099e1"),
 }
 
 local t = dark
@@ -121,13 +123,6 @@ t.shade10 = shade(t.bg, 10)
 t.shade20 = shade(t.bg, 20)
 t.shade25 = shade(t.bg, 25)
 t.shade30 = shade(t.bg, 30)
--- t.shade40 = shade(t.bg, 40)
--- t.shade50 = shade(t.bg, 50)
--- t.shade60 = shade(t.bg, 60)
--- t.shade70 = shade(t.bg, 70)
--- t.shade80 = shade(t.bg, 80)
--- t.shade90 = shade(t.bg, 90)
-
 
 t.grey3 = t.shade3.mix(t.primary, 3)
 t.grey5 = t.shade5.mix(t.primary, 5)
@@ -137,6 +132,7 @@ t.grey25 = t.shade25.mix(t.primary, 10)
 t.grey30 = t.shade30.mix(t.primary, 10)
 
 t.white = hsl("#ffffff")
+t.green = hsl("#008200")
 
 -- Call lush with our lush-spec.
 -- ignore the "theme" variable for now
@@ -175,7 +171,7 @@ local theme = lush(function(injected_functions)
     SignColumn { Normal }, -- column where |signs| are displayed
     FoldColumn { SignColumn }, -- 'foldcolumn'
     Substitute { IncSearch }, -- |:substitute| replacement text highlighting
-    MatchParen { gui="reverse"}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen { gui = "reverse" }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg { Normal }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea { Normal }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -187,18 +183,20 @@ local theme = lush(function(injected_functions)
     PmenuSbar { bg = t.grey10 }, -- Popup menu: scrollbar.
     PmenuThumb { bg = t.grey25 }, -- Popup menu: Thumb of the scrollbar.
     Question { fg = t.primary }, -- |hit-enter| prompt and yes/no questions
-    QuickFixLine { bg = t.primary, fg = t.white}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    SpecialKey   { fg = t.attribute }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+    QuickFixLine { bg = t.primary, fg = t.white }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    SpecialKey { fg = t.attribute }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+    -- TODO: spelling
     -- SpellBad     { gui = "undercurl", sp = t.error  }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    -- StatusLine { Normal }, -- status line of current window
-    -- StatusLineNC { Normal }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 
-    TabLine      { bg = t.grey3, fg=t.grey30 }, -- tab pages line, not active tab page label
-    TabLineFill  { bg = t.bg }, -- tab pages line, where there are no labels
-    TabLineSel   { bg = t.grey10, sp = t.primary, gui="underline" }, -- tab pages line, active tab page label
+    StatusLine { bg = t.grey10, gui = "" }, -- status line of current window
+    StatusLineNC { bg = t.grey3 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+
+    TabLine { bg = t.grey3, fg = t.grey30 }, -- tab pages line, not active tab page label
+    TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
+    TabLineSel { bg = t.grey10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
 
     Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
     Visual { bg = t.selection }, -- Visual mode selection
@@ -241,13 +239,10 @@ local theme = lush(function(injected_functions)
     Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
     Bold { gui = "bold" },
     Italic { gui = "italic" },
-
     -- ("Ignore", below, may be invisible...)
-    -- Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
-
-    -- Error          { }, -- (preferred) any erroneous construct
-
-    -- Todo           { }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Ignore { fg = t.bg }, -- (preferred) left blank, hidden  |hl-Ignore|
+    Error { ErrorMsg }, -- (preferred) any erroneous construct
+    Todo { bg = t.green, fg = t.white }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client. Some other LSP clients may use
     -- these groups, or use their own. Consult your LSP client's documentation.
