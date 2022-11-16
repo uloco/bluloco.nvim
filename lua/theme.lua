@@ -1,50 +1,76 @@
 local lush = require('lush')
 local hsl = lush.hsluv
 
+-- Lush.hsl provides a number of convenience functions for:
+--
+--   Relative adjustment (rotate(), saturate(), desaturate(), lighten(), darken())
+--   Absolute adjustment (prefix above with abs_)
+--   Combination         (mix())
+--   Overrides           (hue(), saturation(), lightness())
+--   Access              (.h, .s, .l)
+--   Coercion            (tostring(), "Concatination: " .. color)
+--   Helpers             (readable())
+--
+--   Adjustment functions have shortcut aliases, ro, sa, de, li, da
+--                                               abs_sa, abs_de, abs_li, abs_da
+
+
 
 local dark = {
   -- syntax
-  bg = hsl("#282C34"),
-  fg = hsl("#ABB2BF"),
-  cursor = hsl("#FFCC00"),
-  keyword = hsl("#10B1FE"),
-  comment = hsl("#636D83"),
+  bg          = hsl("#282C34"),
+  fg          = hsl("#ABB2BF"),
+  cursor      = hsl("#FFCC00"),
+  keyword     = hsl("#10B1FE"),
+  comment     = hsl("#636D83"),
   punctuation = hsl("#7A82DA"),
-  method = hsl("#3FC56B"),
-  type = hsl("#FF6480"),
-  string = hsl("#F9C859"),
-  number = hsl("#FF78F8"),
-  constant = hsl("#9F7EFE"),
-  tag = hsl("#3691FF"),
-  attribute = hsl("#FF936A"),
-  property = hsl("#CE9887"),
-  parameter = hsl("#8bcdef"),
-  label = hsl("#50acae"),
+  method      = hsl("#3FC56B"),
+  type        = hsl("#FF6480"),
+  string      = hsl("#F9C859"),
+  number      = hsl("#FF78F8"),
+  constant    = hsl("#9F7EFE"),
+  tag         = hsl("#3691FF"),
+  attribute   = hsl("#FF936A"),
+  property    = hsl("#CE9887"),
+  parameter   = hsl("#8bcdef"),
+  label       = hsl("#50acae"),
   -- workspace
-  selection = hsl("#274670"),
-  search = hsl("#1A7247"),
+  primary     = hsl("#3691ff"),
+  selection   = hsl("#274670"),
+  search      = hsl("#1A7247"),
+  diffAdd     = hsl("#105B3D"),
+  diffChange  = hsl("#10415B"),
+  diffDelete  = hsl("#522E34"),
+  diffText    = hsl("#10415B").lighten(12),
+  error       = hsl("#ff2e3f")
 }
 
 local light = {
-  bg = hsl("#F9F9F9"),
-  fg = hsl("#383A42"),
-  cursor = hsl("#F31459"),
-  keyword = hsl("#0098DD"),
-  comment = hsl("#A0A1A7"),
+  bg          = hsl("#F9F9F9"),
+  fg          = hsl("#383A42"),
+  cursor      = hsl("#F31459"),
+  keyword     = hsl("#0098DD"),
+  comment     = hsl("#A0A1A7"),
   punctuation = hsl("#7A82DA"),
-  method = hsl("#23974A"),
-  type = hsl("#D52753"),
-  string = hsl("#C5A332"),
-  number = hsl("#CE33C0"),
-  constant = hsl("#823FF1"),
-  tag = hsl("#275FE4"),
-  attribute = hsl("#DF631C"),
-  property = hsl("#A05A48"),
-  parameter = hsl("#40B8C5"),
-  label = hsl("#3a8ab2"),
+  method      = hsl("#23974A"),
+  type        = hsl("#D52753"),
+  string      = hsl("#C5A332"),
+  number      = hsl("#CE33C0"),
+  constant    = hsl("#823FF1"),
+  tag         = hsl("#275FE4"),
+  attribute   = hsl("#DF631C"),
+  property    = hsl("#A05A48"),
+  parameter   = hsl("#40B8C5"),
+  label       = hsl("#3a8ab2"),
   -- workspace
-  selection = hsl("#d2ecff"),
-  search = hsl("#B1EACF")
+  primary     = hsl("#0099e1"),
+  selection   = hsl("#d2ecff"),
+  search      = hsl("#b1eacf"),
+  diffAdd     = hsl("#c5f6c8"),
+  diffChange  = hsl("#C2E4FF"),
+  diffDelete  = hsl("#fac1c6"),
+  diffText    = hsl("#C2E4FF").darken(4),
+  error       = hsl("#ff0000")
 }
 
 local t = dark
@@ -91,17 +117,6 @@ local theme = lush(function(injected_functions)
     -- group in this tutorial is appended by it's description for ease of use,
     -- but the wrapping may be distracting.
     --
-    -- You may also receive (mostly ignorable) linter/lsp warnings,
-    -- because our lua is a bit more dynamic than they expect.
-    -- You may also wish to disable those while editing your theme
-    -- they produce a lot of visual noise.
-
-    -- lush-spec statements are in the form:
-    --
-    --   <HighlightGroupName> { bg = <hsl>|<string>,
-    --                          fg = <hsl>|<string>,
-    --                          sp = <hsl>|<string>,
-    --                          gui = <string> },
     --
     -- Any vim highlight group name is valid, and any unrecognized key is
     -- omitted.
@@ -122,46 +137,51 @@ local theme = lush(function(injected_functions)
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg, gui = "bold" },
     CurSearch { Search, gui = "bold" },
 
-    NormalFloat { Normal }, -- Normal text in floating windows.
+    NormalFloat { bg = t.shade3.mix(t.primary, 10) }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
-    Conceal { Normal }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor { Normal }, -- character under the cursor
+    Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
     lCursor { Normal }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM { Normal }, -- like Cursor, but used when in IME mode |CursorIM|
-    -- Directory    { }, -- directory names (and other special names in listings)
-    -- DiffAdd      { }, -- diff mode: Added line |diff.txt|
-    -- DiffChange   { }, -- diff mode: Changed line |diff.txt|
-    -- DiffDelete   { }, -- diff mode: Deleted line |diff.txt|
-    -- DiffText     { }, -- diff mode: Changed text within a changed line |diff.txt|
-    -- EndOfBuffer  { }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-    -- TermCursor   { }, -- cursor in a focused terminal
-    -- TermCursorNC { }, -- cursor in an unfocused terminal
-    -- ErrorMsg     { }, -- error messages on the command line
-    -- VertSplit    { }, -- the column separating vertically split windows
+    Directory { bg = t.type }, -- directory names (and other special names in listings)
+    DiffAdd { bg = t.diffAdd }, -- diff mode: Added line |diff.txt|
+    DiffChange { bg = t.diffChange }, -- diff mode: Changed line |diff.txt|
+    DiffDelete { bg = t.diffDelete }, -- diff mode: Deleted line |diff.txt|
+    DiffText { bg = t.diffText }, -- diff mode: Changed text within a changed line |diff.txt|
+    EndOfBuffer { Normal }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    TermCursor { Cursor }, -- cursor in a focused terminal
+    TermCursorNC {}, -- cursor in an unfocused terminal
+    ErrorMsg { fg = t.error }, -- error messages on the command line
+    VertSplit { fg = t.shade30 }, -- the column separating vertically split windows
+
     -- Folded       { }, -- line used for closed folds
     -- FoldColumn   { }, -- 'foldcolumn'
-    -- SignColumn   { }, -- column where |signs| are displayed
-    -- Substitute   { }, -- |:substitute| replacement text highlighting
-    -- MatchParen   { }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    -- ModeMsg      { }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    -- MsgArea      { }, -- Area for messages and cmdline
+    SignColumn { Normal }, -- column where |signs| are displayed
+    Substitute { IncSearch }, -- |:substitute| replacement text highlighting
+
+    -- MatchParen { bg = t.punctuation, fg = t.bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen { bg = t.punctuation, fg = hsl(0, 0, 100) }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    ModeMsg { Normal }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    MsgArea { Normal }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    -- MoreMsg      { }, -- |more-prompt|
-    -- NonText      { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    -- NormalNC     { }, -- normal text in non-current windows
-    -- Pmenu        { }, -- Popup menu: normal item.
-    -- PmenuSel     { }, -- Popup menu: selected item.
-    -- PmenuSbar    { }, -- Popup menu: scrollbar.
-    -- PmenuThumb   { }, -- Popup menu: Thumb of the scrollbar.
-    -- Question     { }, -- |hit-enter| prompt and yes/no questions
+    MoreMsg { fg = t.primary }, -- |more-prompt|
+    NonText { fg = t.shade30 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+
+    NormalNC { Normal }, -- normal text in non-current windows
+    Pmenu { bg = t.bg.darken(5) },
+    PmenuSel { bg = t.selection }, -- Popup menu: selected item.
+    PmenuSbar { bg = t.bg.darken(20) }, -- Popup menu: scrollbar.
+    PmenuThumb { bg = t.bg.darken(30) }, -- Popup menu: Thumb of the scrollbar.
+
+    Question { fg = t.primary }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     -- SpecialKey   { }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-    -- StatusLine   { }, -- status line of current window
-    -- StatusLineNC { }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    -- StatusLine { Normal }, -- status line of current window
+    -- StatusLineNC { Normal }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     -- TabLine      { }, -- tab pages line, not active tab page label
     -- TabLineFill  { }, -- tab pages line, where there are no labels
     -- TabLineSel   { }, -- tab pages line, active tab page label
