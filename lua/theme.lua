@@ -14,6 +14,24 @@ local hsl = lush.hsl
 --   Adjustment functions have shortcut aliases, ro, sa, de, li, da
 --                                               abs_sa, abs_de, abs_li, abs_da
 
+-- gui:   a string containing any of the following format modifier
+--        values, separated by space or comma.
+
+-- bold:          boolean, enables or disables bold.
+-- italic:        boolean, enables or disables italics.
+-- underline:     boolean, enables or disables underline.
+-- underlineline: boolean, enables or disables double underline.
+-- underdouble:   boolean, underlineline in nvim 0.8
+-- undercurl:     boolean, enables or disables undercurl.
+-- underdot:      boolean, enables or disables underdot.
+-- underdotted:   boolean, underdot in nvim 0.8
+-- underdash:     boolean, enables or disables underdash.
+-- underdashed:   boolean, underdash in nvim 0.8
+-- strikethrough: boolean, enables or disables strikethrough.
+-- reverse:       boolean, enables or disables flipping fg and bg values.
+-- standout:      boolean, enables or disables standout.
+-- nocombine:     boolean, enables or disables nocombine.
+
 
 
 local dark = {
