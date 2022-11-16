@@ -1,5 +1,5 @@
 local lush = require('lush')
-local hsl = lush.hsluv
+local hsl = lush.hsl
 
 -- Lush.hsl provides a number of convenience functions for:
 --
@@ -118,7 +118,7 @@ t.grey20 = t.shade20.mix(t.primary, 10)
 t.grey25 = t.shade25.mix(t.primary, 10)
 t.grey30 = t.shade30.mix(t.primary, 10)
 
-t.white = hsl(0,0,100)
+t.white = hsl("#ffffff")
 
 -- Call lush with our lush-spec.
 -- ignore the "theme" variable for now
