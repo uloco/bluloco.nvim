@@ -157,9 +157,7 @@ local theme = lush(function(injected_functions)
     SignColumn { Normal }, -- column where |signs| are displayed
     FoldColumn { SignColumn }, -- 'foldcolumn'
     Substitute { IncSearch }, -- |:substitute| replacement text highlighting
-
-    -- MatchParen { bg = t.punctuation, fg = t.bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    MatchParen { bg = t.punctuation, fg = t.white }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen { gui="reverse"}, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg { Normal }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea { Normal }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
@@ -173,7 +171,7 @@ local theme = lush(function(injected_functions)
     Question { fg = t.primary }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine { bg = t.primary, fg = t.white}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     SpecialKey   { fg = t.attribute }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    SpellBad     { gui = "undercurl"  }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    -- SpellBad     { gui = "undercurl", sp = t.error  }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
@@ -333,6 +331,16 @@ local theme = lush(function(injected_functions)
     -- Language Overrides
     -- JSON
     sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
+
+
+    -- TODO: todo comments
+    -- TODO: Lualine
+    -- TODO: Bufferline
+    -- TODO: Telescope
+    -- TODO: lspsaga
+    -- TODO: gitsigns
+    -- TODO: trouble
+
   }
 end)
 return theme
