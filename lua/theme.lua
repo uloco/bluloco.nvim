@@ -65,6 +65,7 @@ local light = {
   label       = hsl("#3a8ab2"),
   -- workspace
   primary     = hsl("#0099e1"),
+  -- TODO: fix selection + diff change clash
   selection   = hsl("#d2ecff"),
   search      = hsl("#b1eacf"),
   diffAdd     = hsl("#c5f6c8"),
@@ -89,8 +90,8 @@ local function shade(color, value)
   end
 end
 
-t.shade1 = shade(t.bg, 1)
-t.shade2 = shade(t.bg, 2)
+-- t.shade1 = shade(t.bg, 1)
+-- t.shade2 = shade(t.bg, 2)
 t.shade3 = shade(t.bg, 3)
 t.shade4 = shade(t.bg, 4)
 t.shade5 = shade(t.bg, 5)
@@ -100,13 +101,24 @@ t.shade8 = shade(t.bg, 8)
 t.shade9 = shade(t.bg, 9)
 t.shade10 = shade(t.bg, 10)
 t.shade20 = shade(t.bg, 20)
+t.shade25 = shade(t.bg, 25)
 t.shade30 = shade(t.bg, 30)
-t.shade40 = shade(t.bg, 40)
-t.shade50 = shade(t.bg, 50)
-t.shade60 = shade(t.bg, 60)
-t.shade70 = shade(t.bg, 70)
-t.shade80 = shade(t.bg, 80)
-t.shade90 = shade(t.bg, 90)
+-- t.shade40 = shade(t.bg, 40)
+-- t.shade50 = shade(t.bg, 50)
+-- t.shade60 = shade(t.bg, 60)
+-- t.shade70 = shade(t.bg, 70)
+-- t.shade80 = shade(t.bg, 80)
+-- t.shade90 = shade(t.bg, 90)
+
+
+t.grey3 = t.shade3.mix(t.primary, 3)
+t.grey5 = t.shade5.mix(t.primary, 5)
+t.grey10 = t.shade10.mix(t.primary, 10)
+t.grey20 = t.shade20.mix(t.primary, 10)
+t.grey25 = t.shade25.mix(t.primary, 10)
+t.grey30 = t.shade30.mix(t.primary, 10)
+
+t.white = hsl(0,0,100)
 
 -- Call lush with our lush-spec.
 -- ignore the "theme" variable for now
@@ -115,29 +127,17 @@ local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
 
   return {
-    -- It's recommended to disable wrapping with `setlocal nowrap`, each
-    -- group in this tutorial is appended by it's description for ease of use,
-    -- but the wrapping may be distracting.
-    --
-    --
-    -- Any vim highlight group name is valid, and any unrecognized key is
-    -- omitted.
-    --
-    -- Lets define our "Normal" highlight group, using our sea colours.
-
-    -- Set a highlight group from hsl variables
-    -- Uncomment "Normal"
     Normal { fg = t.fg }, -- normal text
-    CursorLine { bg = t.shade3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine { bg = t.grey3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    Whitespace { fg = t.shade10 },
+    Whitespace { fg = t.grey10 },
     Comment { fg = t.comment },
-    LineNr { Comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr { fg = t.grey30 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { Comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     Search { bg = t.search },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg, gui = "bold" },
     CurSearch { Search, gui = "bold" },
-    NormalFloat { bg = t.shade3.mix(t.primary, 10) }, -- Normal text in floating windows.
+    NormalFloat { bg = t.grey3 }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
@@ -152,29 +152,28 @@ local theme = lush(function(injected_functions)
     TermCursor { Cursor }, -- cursor in a focused terminal
     TermCursorNC {}, -- cursor in an unfocused terminal
     ErrorMsg { fg = t.error }, -- error messages on the command line
-    VertSplit { fg = t.shade30 }, -- the column separating vertically split windows
-
+    VertSplit { fg = t.grey30 }, -- the column separating vertically split windows
+    Folded { bg = t.grey10, fg = t.bg }, -- line used for closed folds
     SignColumn { Normal }, -- column where |signs| are displayed
     FoldColumn { SignColumn }, -- 'foldcolumn'
     Substitute { IncSearch }, -- |:substitute| replacement text highlighting
 
     -- MatchParen { bg = t.punctuation, fg = t.bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    MatchParen { bg = t.punctuation, fg = hsl(0, 0, 100) }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+    MatchParen { bg = t.punctuation, fg = t.white }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg { Normal }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea { Normal }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg { fg = t.primary }, -- |more-prompt|
     NonText { fg = t.shade30 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalNC { Normal }, -- normal text in non-current windows
-    Pmenu { bg = t.shade5 },
-
+    Pmenu { bg = t.grey5 },
     PmenuSel { bg = t.selection }, -- Popup menu: selected item.
-    PmenuSbar { bg = t.shade10 }, -- Popup menu: scrollbar.
-    PmenuThumb { bg = t.shade25 }, -- Popup menu: Thumb of the scrollbar.
+    PmenuSbar { bg = t.grey10 }, -- Popup menu: scrollbar.
+    PmenuThumb { bg = t.grey25 }, -- Popup menu: Thumb of the scrollbar.
     Question { fg = t.primary }, -- |hit-enter| prompt and yes/no questions
-    -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    -- SpecialKey   { }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
-    -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+    QuickFixLine { bg = t.primary, fg = t.white}, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+    SpecialKey   { fg = t.attribute }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+    SpellBad     { gui = "undercurl"  }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
@@ -189,19 +188,12 @@ local theme = lush(function(injected_functions)
     WarningMsg { fg = t.warning }, -- warning messages
     WildMenu { bg = t.selection }, -- current match in 'wildmenu' completion
 
-    -- These groups are not listed as default vim groups,
-    -- but they are defacto standard group names for syntax highlighting.
-    -- commented out groups should chain up to their "preferred" group by
-    -- default,
-    -- Uncomment and edit if you want more specific syntax highlighting.
-
     Constant { fg = t.constant }, -- (preferred) any constant
     String { fg = t.string }, --   a string constant: "this is a string"
     Character { fg = t.attribute }, --  a character constant: 'c', '\n'
     Number { fg = t.number }, --   a number constant: 234, 0xff
     Boolean { fg = t.keyword }, --  a boolean constant: TRUE, false
     -- Float          { }, --    a floating point constant: 2.3e10
-
     Identifier { fg = t.fg }, -- (preferred) any variable name
     Function { fg = t.method }, -- function name (also: methods for classes)
     Property { fg = t.property },
@@ -213,13 +205,11 @@ local theme = lush(function(injected_functions)
     Operator { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
     -- Keyword        { Statement }, --  any other keyword
     -- Exception      { }, --  try, catch, throw
-
     PreProc { fg = t.keyword }, -- (preferred) generic Preprocessor
     -- Include        { }, --  preprocessor #include
     -- Define         { }, --   preprocessor #define
     -- Macro          { }, --    same as Define
     -- PreCondit      { }, --  preprocessor #if, #else, #endif, etc.
-
     Type { fg = t.type }, -- (preferred) int, long, char, etc.
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
@@ -230,7 +220,6 @@ local theme = lush(function(injected_functions)
     -- Delimiter {}, --  character that needs attention
     -- SpecialComment { }, -- special things inside a comment
     -- Debug          { }, --    debugging statements
-
     Underlined { gui = "underline" }, -- (preferred) text that stands out, HTML links
     Bold { gui = "bold" },
     Italic { gui = "italic" },
