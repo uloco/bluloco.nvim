@@ -42,7 +42,8 @@ local dark = {
   diffChange  = hsl("#10415B"),
   diffDelete  = hsl("#522E34"),
   diffText    = hsl("#10415B").lighten(12),
-  error       = hsl("#ff2e3f")
+  error       = hsl("#ff2e3f"),
+  warning     = hsl("#da7a43"),
 }
 
 local light = {
@@ -70,7 +71,8 @@ local light = {
   diffChange  = hsl("#C2E4FF"),
   diffDelete  = hsl("#fac1c6"),
   diffText    = hsl("#C2E4FF").darken(4),
-  error       = hsl("#ff0000")
+  error       = hsl("#ff0000"),
+  warning     = hsl("#ff8f3a")
 }
 
 local t = dark
@@ -127,7 +129,6 @@ local theme = lush(function(injected_functions)
     -- Uncomment "Normal"
     Normal { fg = t.fg }, -- normal text
     CursorLine { bg = t.shade3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    Visual { bg = t.selection },
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Whitespace { fg = t.shade10 },
     Comment { fg = t.comment },
@@ -136,14 +137,13 @@ local theme = lush(function(injected_functions)
     Search { bg = t.search },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg, gui = "bold" },
     CurSearch { Search, gui = "bold" },
-
     NormalFloat { bg = t.shade3.mix(t.primary, 10) }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
     lCursor { Normal }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM { Normal }, -- like Cursor, but used when in IME mode |CursorIM|
-    Directory { bg = t.type }, -- directory names (and other special names in listings)
+    Directory { fg = t.primary }, -- directory names (and other special names in listings)
     DiffAdd { bg = t.diffAdd }, -- diff mode: Added line |diff.txt|
     DiffChange { bg = t.diffChange }, -- diff mode: Changed line |diff.txt|
     DiffDelete { bg = t.diffDelete }, -- diff mode: Deleted line |diff.txt|
@@ -154,9 +154,8 @@ local theme = lush(function(injected_functions)
     ErrorMsg { fg = t.error }, -- error messages on the command line
     VertSplit { fg = t.shade30 }, -- the column separating vertically split windows
 
-    -- Folded       { }, -- line used for closed folds
-    -- FoldColumn   { }, -- 'foldcolumn'
     SignColumn { Normal }, -- column where |signs| are displayed
+    FoldColumn { SignColumn }, -- 'foldcolumn'
     Substitute { IncSearch }, -- |:substitute| replacement text highlighting
 
     -- MatchParen { bg = t.punctuation, fg = t.bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -166,13 +165,12 @@ local theme = lush(function(injected_functions)
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg { fg = t.primary }, -- |more-prompt|
     NonText { fg = t.shade30 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-
     NormalNC { Normal }, -- normal text in non-current windows
-    Pmenu { bg = t.bg.darken(5) },
-    PmenuSel { bg = t.selection }, -- Popup menu: selected item.
-    PmenuSbar { bg = t.bg.darken(20) }, -- Popup menu: scrollbar.
-    PmenuThumb { bg = t.bg.darken(30) }, -- Popup menu: Thumb of the scrollbar.
+    Pmenu { bg = t.shade5 },
 
+    PmenuSel { bg = t.selection }, -- Popup menu: selected item.
+    PmenuSbar { bg = t.shade10 }, -- Popup menu: scrollbar.
+    PmenuThumb { bg = t.shade25 }, -- Popup menu: Thumb of the scrollbar.
     Question { fg = t.primary }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     -- SpecialKey   { }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
@@ -185,12 +183,11 @@ local theme = lush(function(injected_functions)
     -- TabLine      { }, -- tab pages line, not active tab page label
     -- TabLineFill  { }, -- tab pages line, where there are no labels
     -- TabLineSel   { }, -- tab pages line, active tab page label
-    -- Title        { }, -- titles for output from ":set all", ":autocmd" etc.
-    -- Visual       { }, -- Visual mode selection
-    -- VisualNOS    { }, -- Visual mode selection when vim is "Not Owning the Selection".
-    -- WarningMsg   { }, -- warning messages
-    -- Whitespace   { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
-    -- WildMenu     { }, -- current match in 'wildmenu' completion
+    Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
+    Visual { bg = t.selection }, -- Visual mode selection
+    VisualNOS { bg = t.type }, -- Visual mode selection when vim is "Not Owning the Selection".
+    WarningMsg { fg = t.warning }, -- warning messages
+    WildMenu { bg = t.selection }, -- current match in 'wildmenu' completion
 
     -- These groups are not listed as default vim groups,
     -- but they are defacto standard group names for syntax highlighting.
