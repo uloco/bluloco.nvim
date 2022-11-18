@@ -61,8 +61,12 @@ local dark = {
   diffDelete  = hsl("#522E34"),
   diffText    = hsl("#10415B").lighten(12),
   error       = hsl("#ff2e3f"),
+  errorBG     = hsl("#FDCFD1"),
   warning     = hsl("#da7a43"),
+  warningBG   = hsl("#F2DBCF"),
   info        = hsl("#3691ff"),
+  infoBG      = hsl("#D4E3FA"),
+  hint        = hsl("#7982DA")
 }
 
 local light = {
@@ -92,8 +96,12 @@ local light = {
   diffDelete  = hsl("#fac1c6"),
   diffText    = hsl("#C2E4FF").darken(4),
   error       = hsl("#ff0000"),
+  errorBG     = hsl("#FCE4E4"),
   warning     = hsl("#ff8f3a"),
+  warningBG   = hsl("#FBE4D5"),
   info        = hsl("#0099e1"),
+  infoBG      = hsl("#D2ECFF"),
+  hint        = hsl("#7982DA"),
 }
 
 local t = dark
@@ -167,6 +175,7 @@ local theme = lush(function(injected_functions)
     TermCursorNC {}, -- cursor in an unfocused terminal
     ErrorMsg { fg = t.error }, -- error messages on the command line
     VertSplit { fg = t.grey30 }, -- the column separating vertically split windows
+    Winseparator { VertSplit }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     Folded { bg = t.grey10, fg = t.bg }, -- line used for closed folds
     SignColumn { Normal }, -- column where |signs| are displayed
     FoldColumn { SignColumn }, -- 'foldcolumn'
@@ -200,7 +209,7 @@ local theme = lush(function(injected_functions)
 
     Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
     Visual { bg = t.selection }, -- Visual mode selection
-    VisualNOS { bg = t.type }, -- Visual mode selection when vim is "Not Owning the Selection".
+    VisualNOS { bg = t.selection }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg { fg = t.warning }, -- warning messages
     WildMenu { bg = t.selection }, -- current match in 'wildmenu' completion
 
@@ -230,7 +239,7 @@ local theme = lush(function(injected_functions)
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
-    Special { Character }, -- (preferred) any special symbol
+    -- Special { Character }, -- (preferred) any special symbol
     -- SpecialChar {}, --  special character in a constant
     Tag { fg = t.tag, gui = "underline" }, --    you can use CTRL-] on this
     -- Delimiter {}, --  character that needs attention
@@ -244,24 +253,41 @@ local theme = lush(function(injected_functions)
     Error { ErrorMsg }, -- (preferred) any erroneous construct
     Todo { bg = t.green, fg = t.white }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
-    -- These groups are for the native LSP client. Some other LSP clients may use
-    -- these groups, or use their own. Consult your LSP client's documentation.
+    -- These groups are for the native LSP client and diagnostic system. Some
+    -- other LSP clients may use these groups, or use their own. Consult your
+    -- LSP client's documentation.
 
-    -- LspDiagnosticsError               { }, -- used for "Error" diagnostic virtual text
-    -- LspDiagnosticsErrorSign           { }, -- used for "Error" diagnostic signs in sign column
-    -- LspDiagnosticsErrorFloating       { }, -- used for "Error" diagnostic messages in the diagnostics float
-    -- LspDiagnosticsWarning             { }, -- used for "Warning" diagnostic virtual text
-    -- LspDiagnosticsWarningSign         { }, -- used for "Warning" diagnostic signs in sign column
-    -- LspDiagnosticsWarningFloating     { }, -- used for "Warning" diagnostic messages in the diagnostics float
-    -- LspDiagnosticsInformation         { }, -- used for "Information" diagnostic virtual text
-    -- LspDiagnosticsInformationSign     { }, -- used for "Information" signs in sign column
-    -- LspDiagnosticsInformationFloating { }, -- used for "Information" diagnostic messages in the diagnostics float
-    -- LspDiagnosticsHint                { }, -- used for "Hint" diagnostic virtual text
-    -- LspDiagnosticsHintSign            { }, -- used for "Hint" diagnostic signs in sign column
-    -- LspDiagnosticsHintFloating        { }, -- used for "Hint" diagnostic messages in the diagnostics float
-    -- LspReferenceText                  { }, -- used for highlighting "text" references
-    -- LspReferenceRead                  { }, -- used for highlighting "read" references
-    -- LspReferenceWrite                 { }, -- used for highlighting "write" references
+    -- See :h lsp-highlight, some groups may not be listed, submit a PR fix to lush-template!
+    --
+    -- LspReferenceText            { } , -- Used for highlighting "text" references
+    -- LspReferenceRead            { } , -- Used for highlighting "read" references
+    -- LspReferenceWrite           { } , -- Used for highlighting "write" references
+    -- LspCodeLens                 { } , -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
+    -- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.
+    -- LspSignatureActiveParameter { } , -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
+
+    -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
+    --
+    DiagnosticError { Error }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn { WarningMsg }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo { fg = t.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint { fg = t.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticVirtualTextError { DiagnosticError, bg = t.bg.mix(t.error, 20) }, -- Used for "Error" diagnostic virtual text.
+    DiagnosticVirtualTextWarn { DiagnosticWarn, bg = t.bg.mix(t.warning, 20) }, -- Used for "Warn" diagnostic virtual text.
+    DiagnosticVirtualTextInfo { DiagnosticInfo, bg = t.bg.mix(t.info, 20) }, -- Used for "Info" diagnostic virtual text.
+    DiagnosticVirtualTextHint { DiagnosticHint, bg = t.bg.mix(t.hint, 20) }, -- Used for "Hint" diagnostic virtual text.
+    DiagnosticUnderlineError { gui = "undercurl", sp = t.error }, -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn { gui = "undercurl", sp = t.warning }, -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo { gui = "undercurl", sp = t.info }, -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint { gui = "undercurl", sp = t.hint }, -- Used to underline "Hint" diagnostics.
+    -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
+    -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
+    -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
+    -- DiagnosticFloatingHint     { } , -- Used to color "Hint" diagnostic messages in diagnostics float.
+    -- DiagnosticSignError        { } , -- Used for "Error" signs in sign column.
+    -- DiagnosticSignWarn         { } , -- Used for "Warn" signs in sign column.
+    -- DiagnosticSignInfo         { } , -- Used for "Info" signs in sign column.
+    -- DiagnosticSignHint         { } , -- Used for "Hint" signs in sign column.
 
     -- These groups are for the neovim tree-sitter highlights.
     -- As of writing, tree-sitter support is a WIP, group names may change.
@@ -271,89 +297,59 @@ local theme = lush(function(injected_functions)
 
 
     -- TSError              { }, -- For syntax/parser errors.
+    sym("@constructor") { fg = t.type },
     sym("@punctuation") { fg = t.punctuation },
     sym("@punctuation.bracket") { fg = t.punctuation },
     sym("@punctuation.delimiter") { fg = t.punctuation },
     sym("@punctuation.special") { fg = t.punctuation },
-    -- TSPunctDelimiter {}, -- For delimiters ie: `.`
-    -- TSPunctBracket {}, -- For brackets and parens.
-    -- TSPunctSpecial {}, -- For special punctutation that does not fall in the catagories before.
-    -- TSConstant           { }, -- For constants
+    sym("@symbol") { fg = t.constant },
+    sym("@constant") { fg = t.constant },
     sym("@constant.builtin") { fg = t.keyword },
-    -- TSConstBuiltin { fg = t.keyword }, -- For constant that are built in the language: `nil` in Lua.
-    -- TSConstMacro         { }, -- For constants that are defined by macros: `NULL` in C.
-    -- TSString             { }, -- For strings.
-    -- TSStringRegex        { }, -- For regexes.
     sym("@string.escape") { Character },
-    -- TSStringEscape { Character }, -- For escape characters within a string.
-    -- TSCharacter          { }, -- For characters.
-    -- TSNumber             { }, -- For integers.
-    -- TSBoolean            { }, -- For booleans.
-    -- TSFloat              { }, -- For floats.
-    -- TSFunction           { }, -- For function (calls and definitions).
     sym("@function") { fg = t.method },
-    -- TSFuncBuiltin {}, -- For builtin functions: `table.insert` in Lua.
-    -- TSFuncMacro {}, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
+    sym("@function.builtin") { fg = t.method },
     sym("@parameter") { fg = t.parameter },
-    -- TSParameter { fg = t.parameter }, -- For parameters of a function.
-    -- TSParameterReference { }, -- For references to parameters of a function.
-    -- TSMethod             { }, -- For method calls and definitions.
     sym("@field") { Property },
-    -- TSField { fg = t.property }, -- For fields.
     sym("@property") { Property },
-    -- TSProperty { fg = t.property }, -- Same as `TSField`.
-    sym("@constructor") { fg = t.type },
-    -- TSConstructor { Type }, -- For constructor calls and definitions: `                                                                       { }` in Lua, and Java constructors.
-    -- TSConditional        { }, -- For keywords related to conditionnals.
-    -- TSRepeat             { }, -- For keywords related to loops.
     sym("@label") { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSLabel { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSOperator           { }, -- For any operator: `+`, but also `->` and `*` in C.
-    -- TSKeyword            { }, -- For keywords that don't fall in previous categories.
-    -- TSKeywordFunction    { }, -- For keywords used to define a fuction.
-    -- TSException          { }, -- For exception related keywords.
-    -- TSType               { }, -- For types.
     sym("@type") { Type },
     sym("@type.builtin") { Statement },
-    -- TSTypeBuiltin { Statement }, -- For builtin types (you guessed it, right ?).
     sym("@namespace") { Statement },
-    -- TSNamespace          { }, -- For identifiers referring to modules and namespaces.
-    -- TSInclude            { }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
-    -- TSAnnotation { TSLabel }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
     sym("@text") { Normal },
-    -- TSText { Normal }, -- For strings considered text in a markup language.
     sym("@text.strong") { Bold },
-    -- TSStrong {}, -- For text to be represented with strong.
     sym("@text.italic") { Italic },
-    -- TSEmphasis {}, -- For text to be represented with emphasis.
     sym("@text.underline") { Underlined },
-    -- TSUnderline { underline = true }, -- For text to be represented with an underline.
     sym("@text.title") { Statement },
-    -- TSTitle { Statement }, -- Text that is part of a title.
-    sym("@text.literal") { Normal },
-    -- TSLiteral            { Normal }, -- Literal text.
-    TSURI { fg = t.tag, underline = true }, -- Any URI like a link or email.
+    sym("@text.literal") { Property },
+    sym("@text.uri") { fg = t.tag, underline = true }, -- Any URI like a link or email.
     sym("@variable") { Normal }, -- Variable names that are defined by the languages, like `this` or `self`.
-    -- TSVariable { Normal }, -- Any variable name that does not have another highlight.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
-    -- TSVariableBuiltin {}, -- Variable names that are defined by the languages, like `this` or `self`.
-
-
+    --     -- sym"@string.special"    { }, -- SpecialChar
+    --     -- sym"@character.special" { }, -- SpecialChar
+    --     -- sym"@function.macro"    { }, -- Macro
+    --     -- sym"@debug"             { }, -- Debug
 
     -- Language Overrides
     -- JSON
     sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
 
+    -- help files
+    sym("@label.help") { sym "@text.uri" },
 
-    -- TODO: todo comments
+
+    -- TODO: gitsigns
     -- TODO: Lualine
     -- TODO: Bufferline
     -- TODO: Telescope
+    -- TODO: todo comments
     -- TODO: lspsaga
-    -- TODO: gitsigns
     -- TODO: trouble
 
   }
 end)
 return theme
+
+
+
+-- -- vi:nowrap
