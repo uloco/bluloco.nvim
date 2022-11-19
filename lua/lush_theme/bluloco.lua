@@ -212,6 +212,7 @@ local theme = lush(function(injected_functions)
 
     TabLine { bg = t.shade3, fg = t.shade30 }, -- tab pages line, not active tab page label
     TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
+    -- TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
     TabLineSel { bg = t.primary, fg = t.shade3 }, -- tab pages line, active tab page label
 
     Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
@@ -350,10 +351,34 @@ local theme = lush(function(injected_functions)
     GitSignsChange { fg = t.changed },
     GitSignsDelete { fg = t.delted },
 
+    -- TODO: improve bufferline
+
+    -- BufferLineSeparatorSelected { fg = t.type, sp = t.primary, gui = "underline" },
+    -- BufferLineWarningDiagnosticSelected { fg = t.warning, sp = t.primary, gui = "underline" },
+    -- BufferLineErrorDiagnosticSelected { fg = t.error, sp = t.primary, gui = "underline" },
+    -- BufferLineInfoDiagnosticSelected { fg = t.info, sp = t.primary, gui = "underline" },
+    -- BufferLineHintDiagnosticSelected { fg = t.hint, sp = t.primary, gui = "underline" },
+    -- BufferLineTabSeparatorSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineCloseButtonSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineDiagnosticSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineDevIconLuaSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineIndicatorSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineDuplicateSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineModifiedSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineNumbersSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineBufferSelected { sp = t.primary, gui = "underline" },
+    -- BufferLinePickSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineTabSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineWarningSelected { fg = t.warning, sp = t.primary, gui = "underline" },
+    -- BufferLineErrorSelected { fg = t.error, sp = t.primary, gui = "underline" },
+    -- BufferLineInfoSelected { fg = t.info, sp = t.primary, gui = "underline" },
+    -- BufferLineHintSelected { fg = t.hint, sp = t.primary, gui = "underline" },
+
     -- TODO: Telescope
     -- TODO: todo comments
     -- TODO: lspsaga
     -- TODO: trouble
+
 
   }
 end)
