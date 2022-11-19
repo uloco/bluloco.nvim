@@ -59,6 +59,9 @@ local dark = {
   diffAdd     = hsl("#105B3D"),
   diffChange  = hsl("#10415B"),
   diffDelete  = hsl("#522E34"),
+  added       = hsl("#177F55"),
+  changed     = hsl("#1B6E9B"),
+  delted      = hsl("#A14D5B"),
   diffText    = hsl("#10415B").lighten(12),
   error       = hsl("#ff2e3f"),
   errorBG     = hsl("#FDCFD1"),
@@ -94,6 +97,9 @@ local light = {
   diffAdd     = hsl("#c5f6c8"),
   diffChange  = hsl("#C2E4FF"),
   diffDelete  = hsl("#fac1c6"),
+  added       = hsl("#3cbc66"),
+  changed     = hsl("#0099e1"),
+  deleted     = hsl("#FA7883"),
   diffText    = hsl("#C2E4FF").darken(4),
   error       = hsl("#ff0000"),
   errorBG     = hsl("#FCE4E4"),
@@ -339,8 +345,11 @@ local theme = lush(function(injected_functions)
     sym("@label.help") { sym "@text.uri" },
 
 
-    -- TODO: gitsigns
-    -- TODO: Lualine
+    --  gitsigns
+    GitSignsAdd { fg = t.added },
+    GitSignsChange { fg = t.changed },
+    GitSignsDelete { fg = t.delted },
+
     -- TODO: Bufferline
     -- TODO: Telescope
     -- TODO: todo comments
