@@ -210,9 +210,9 @@ local theme = lush(function(injected_functions)
     StatusLine { bg = t.grey10, gui = "" }, -- status line of current window
     StatusLineNC { bg = t.grey3 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 
-    TabLine { bg = t.grey3, fg = t.grey30 }, -- tab pages line, not active tab page label
+    TabLine { bg = t.shade3, fg = t.shade30 }, -- tab pages line, not active tab page label
     TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
-    TabLineSel { bg = t.grey10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
+    TabLineSel { bg = t.primary, fg = t.shade3 }, -- tab pages line, active tab page label
 
     Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
     Visual { bg = t.selection }, -- Visual mode selection
@@ -350,7 +350,6 @@ local theme = lush(function(injected_functions)
     GitSignsChange { fg = t.changed },
     GitSignsDelete { fg = t.delted },
 
-    -- TODO: Bufferline
     -- TODO: Telescope
     -- TODO: todo comments
     -- TODO: lspsaga
