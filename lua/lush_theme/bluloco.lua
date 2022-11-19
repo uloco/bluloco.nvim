@@ -37,6 +37,7 @@ local hsl = lush.hsl
 local dark = {
   -- syntax
   bg          = hsl("#282C34"),
+  bgFloat     = hsl("#252932"),
   fg          = hsl("#ABB2BF"),
   cursor      = hsl("#FFCC00"),
   keyword     = hsl("#10B1FE"),
@@ -74,6 +75,7 @@ local dark = {
 
 local light = {
   bg          = hsl("#F9F9F9"),
+  bgFloat     = hsl("#EBEEF0"),
   fg          = hsl("#383A42"),
   cursor      = hsl("#F31459"),
   keyword     = hsl("#0098DD"),
@@ -156,23 +158,24 @@ local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
 
   return {
+    -- Normal { fg = t.fg, bg = "NONE" }, -- normal text
     Normal { fg = t.fg }, -- normal text
     CursorLine { bg = t.grey3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Whitespace { fg = t.grey10 },
     Comment { fg = t.comment },
-    LineNr { fg = t.grey30 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr { Comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { Comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     Search { bg = t.search },
-    IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg, gui = "bold" },
-    CurSearch { Search, gui = "bold" },
-    NormalFloat { bg = t.grey3 }, -- Normal text in floating windows.
+    IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
+    CurSearch { Search },
+    NormalFloat { bg = t.bgFloat, blend = 5 }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
     lCursor { Normal }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM { Normal }, -- like Cursor, but used when in IME mode |CursorIM|
-    Directory { fg = t.primary }, -- directory names (and other special names in listings)
+    Directory { fg = t.keyword }, -- directory names (and other special names in listings)
     DiffAdd { bg = t.diffAdd }, -- diff mode: Added line |diff.txt|
     DiffChange { bg = t.diffChange }, -- diff mode: Changed line |diff.txt|
     DiffDelete { bg = t.diffDelete }, -- diff mode: Deleted line |diff.txt|
@@ -194,10 +197,11 @@ local theme = lush(function(injected_functions)
     MoreMsg { fg = t.primary }, -- |more-prompt|
     NonText { fg = t.shade30 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalNC { Normal }, -- normal text in non-current windows
-    Pmenu { bg = t.grey5 },
+    -- Pmenu { bg = t.bg, blend = 5 },
+    Pmenu { NormalFloat },
     PmenuSel { bg = t.selection }, -- Popup menu: selected item.
-    PmenuSbar { bg = t.grey10 }, -- Popup menu: scrollbar.
-    PmenuThumb { bg = t.grey25 }, -- Popup menu: Thumb of the scrollbar.
+    PmenuSbar { bg = t.grey5 }, -- Popup menu: scrollbar.
+    PmenuThumb { bg = t.shade20 }, -- Popup menu: Thumb of the scrollbar.
     Question { fg = t.primary }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine { bg = t.primary, fg = t.white }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     SpecialKey { fg = t.attribute }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
@@ -208,7 +212,7 @@ local theme = lush(function(injected_functions)
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
 
     StatusLine { bg = t.grey10, gui = "" }, -- status line of current window
-    StatusLineNC { bg = t.grey3 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLineNC { bg = t.shade5 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 
     TabLine { bg = t.shade3, fg = t.shade30 }, -- tab pages line, not active tab page label
     TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
@@ -229,7 +233,9 @@ local theme = lush(function(injected_functions)
     -- Float          { }, --    a floating point constant: 2.3e10
     Identifier { fg = t.fg }, -- (preferred) any variable name
     Function { fg = t.method }, -- function name (also: methods for classes)
+    Method { fg = t.method }, -- function name (also: methods for classes)
     Property { fg = t.property },
+    Field { Property },
     Parameter { fg = t.parameter },
     Statement { fg = t.keyword }, -- (preferred) any statement
     -- Conditional    { }, --  if, then, else, endif, switch, etc.
@@ -244,6 +250,8 @@ local theme = lush(function(injected_functions)
     -- Macro          { }, --    same as Define
     -- PreCondit      { }, --  preprocessor #if, #else, #endif, etc.
     Type { fg = t.type }, -- (preferred) int, long, char, etc.
+    Struct { Type },
+    Class { Type },
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
@@ -374,7 +382,93 @@ local theme = lush(function(injected_functions)
     -- BufferLineInfoSelected { fg = t.info, sp = t.primary, gui = "underline" },
     -- BufferLineHintSelected { fg = t.hint, sp = t.primary, gui = "underline" },
 
-    -- TODO: Telescope
+
+    -- Telescope
+
+    -- Sets the highlight for selected items within the picker.
+    -- TelescopeSelection  {},
+    -- TelescopeSelectionCaret  {},
+    TelescopeMultiSelection { fg = t.attribute },
+    TelescopeMultiIcon { fg = t.primary },
+
+    -- -- "Normal" in the floating windows created by telescope.
+    -- TelescopeNormal { fg = t.fg, bg = t.bg },
+    -- TelescopeNormal { fg = t.fg, bg = t.bg, blend = 5 },
+    TelescopeNormal { NormalFloat },
+    -- TelescopePreviewNormal  {},
+    -- TelescopePromptNormal { fg = t.fg, bg = t.bg },
+    -- TelescopeResultsNormal  {},
+
+    -- -- Border highlight groups.
+    -- --   Use TelescopeBorder to override the default.
+    -- --   Otherwise set them specifically
+
+    TelescopeBorder { NormalFloat, fg = t.punctuation },
+    -- TelescopePromptBorder  {},
+    -- TelescopeResultsBorder  {},
+    -- TelescopePreviewBorder  {},
+
+    -- -- Title highlight groups.
+    -- --   Use TelescopeTitle to override the default.
+    -- --   Otherwise set them specifically
+    -- TelescopeTitle  {fg = t.constant},
+    -- TelescopePromptTitle  {},
+    -- TelescopeResultsTitle  {},
+    -- TelescopePreviewTitle  {},
+
+    -- TelescopePromptCounter  {},
+
+    -- -- Used for highlighting characters that you match.
+    TelescopeMatching { fg = t.keyword },
+
+    -- -- Used for the prompt prefix
+    TelescopePromptPrefix { fg = t.punctuation },
+
+    -- -- Used for highlighting the matched line inside Previewer. Works only for (vim_buffer_ previewer)
+    -- TelescopePreviewLine  {},
+    -- TelescopePreviewMatch  {},
+
+    -- TelescopePreviewPipe  {},
+    -- TelescopePreviewCharDev  {},
+    -- TelescopePreviewDirectory  {},
+    -- TelescopePreviewBlock  {},
+    TelescopePreviewLink { fg = t.label },
+    TelescopePreviewSocket { fg = t.property },
+    -- TelescopePreviewRead  {},
+    TelescopePreviewWrite { fg = t.type },
+    TelescopePreviewExecute { fg = t.method },
+    -- TelescopePreviewHyphen  {},
+    -- TelescopePreviewSticky  {},
+    TelescopePreviewSize { fg = t.number },
+    TelescopePreviewUser { fg = t.property },
+    TelescopePreviewGroup { fg = t.property },
+    TelescopePreviewDate { fg = t.string },
+    -- TelescopePreviewMessage  {},
+    -- TelescopePreviewMessageFillchar  {},
+
+    -- -- Used for Picker specific Results highlighting
+    TelescopeResultsClass { Class },
+    -- TelescopeResultsConstant  {},
+    TelescopeResultsField { Field },
+    -- TelescopeResultsFunction  {},
+    -- TelescopeResultsMethod  {},
+    -- TelescopeResultsOperator  {},
+    -- TelescopeResultsStruct  {},
+    TelescopeResultsVariable { Identifier },
+
+    -- TelescopeResultsLineNr  {},
+    -- TelescopeResultsIdentifier  {},
+    -- TelescopeResultsNumber  {},
+    -- TelescopeResultsComment  {},
+    TelescopeResultsSpecialComment { Comment },
+
+    -- -- Used for git status Results highlighting
+    -- TelescopeResultsDiffChange  {},
+    -- TelescopeResultsDiffAdd  {},
+    -- TelescopeResultsDiffDelete  {},
+    -- TelescopeResultsDiffUntracked  {},
+
+
     -- TODO: todo comments
     -- TODO: lspsaga
     -- TODO: trouble
