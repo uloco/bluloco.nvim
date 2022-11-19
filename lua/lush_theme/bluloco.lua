@@ -134,6 +134,7 @@ t.shade30 = shade(t.bg, 30)
 
 t.grey3 = t.shade3.mix(t.primary, 3)
 t.grey5 = t.shade5.mix(t.primary, 5)
+t.grey7 = t.shade7.mix(t.primary, 7)
 t.grey10 = t.shade10.mix(t.primary, 10)
 t.grey20 = t.shade20.mix(t.primary, 10)
 t.grey25 = t.shade25.mix(t.primary, 10)
