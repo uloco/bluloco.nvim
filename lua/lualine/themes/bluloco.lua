@@ -4,9 +4,11 @@ local dark = {
   normalFG = "#abb2bf",
   green    = "#3FC56B",
   red      = "#FF6480",
+  lavender = "#3A3E68",
   purple   = "#9F7EFE",
   blue     = "#3691FF",
   grey3    = "#2d333e",
+  grey5    = "#333a48",
   grey7    = "#384252",
   grey20   = "#4a5a73",
 }
@@ -17,9 +19,11 @@ local light = {
   normalFG = "#383A42",
   green    = "#23974A",
   red      = "#D52753",
+  lavender = "#3A3E68",
   purple   = "#823FF1",
   blue     = "#275FE4",
   grey3    = "#ededee",
+  grey5    = "#e7e8e9",
   grey7    = "#dee1e3",
   grey20   = "#b9c2c6",
 }
@@ -58,7 +62,7 @@ return {
   },
   inactive = {
     a = { bg = t.grey20, fg = t.grey3, },
-    b = { bg = t.grey3, fg = t.grey20 },
-    c = { bg = t.grey3, fg = t.grey20 }
+    b = { bg = t.grey5, fg = t.grey20 },
+    c = { bg = t.grey5, fg = t.grey20 }
   }
 }
