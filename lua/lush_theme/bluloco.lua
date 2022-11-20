@@ -483,7 +483,7 @@ local theme = lush(function(injected_functions)
     LspSagaLspFinderBorder { LspFloatWinBorder },
     LspSagaAutoPreview { LspFloatWinBorder },
     LspSagaFinderSelection { bg = t.selection },
-    TargetFileName { fg = t.property },
+    TargetFileName { Normal },
     FinderParam { fg = t.constant },
     DefinitionsIcon { fg = t.string },
     Definitions { Title },
@@ -497,7 +497,7 @@ local theme = lush(function(injected_functions)
 
     --finder spinner
     FinderSpinnerBorder { LspFloatWinBorder },
-    FinderSpinnerTitle { LspSagaCodeActionTitle },
+    FinderSpinnerTitle { Normal },
     FinderSpinner { fg = t.primary, bold = true },
 
 
