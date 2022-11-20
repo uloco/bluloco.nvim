@@ -159,7 +159,8 @@ local theme = lush(function(injected_functions)
   return {
     -- Normal { fg = t.fg, bg = "NONE" }, -- normal text
     Normal { fg = t.fg }, -- normal text
-    CursorLine { bg = t.grey3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    -- CursorLine { bg = t.grey3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine { bg = t.grey7 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Whitespace { fg = t.grey10 },
     Comment { fg = t.comment },
@@ -508,11 +509,35 @@ local theme = lush(function(injected_functions)
     LspSagaDiagnosticHeader { LspSagaCodeActionTitle },
 
     -- lightbulb
-    LspSagaLightBulb { fg = t.attribute }
+    LspSagaLightBulb { fg = t.attribute },
 
 
 
-    -- TODO: trouble
+    -- Trouble
+    TroubleCount { fg = t.number },
+    TroubleNormal { bg = t.bgFloat },
+    -- TroubleTextInformation {},
+    -- TroubleSignWarning {},
+    TroubleLocation { fg = t.attribute },
+    -- TroubleWarning {},
+    -- TroublePreview {},
+    -- TroubleTextError {},
+    -- TroubleSignInformation {},
+    -- TroubleIndent {},
+    -- TroubleSource {},
+    -- TroubleSignHint {},
+    -- TroubleSignOther {},
+    -- TroubleFoldIcon {},
+    -- TroubleTextWarning {},
+    -- TroubleCode {},
+    -- TroubleInformation {},
+    -- TroubleSignError { fg = t.number},
+    -- TroubleFile {},
+    -- TroubleHint {},
+    -- TroubleTextHint {},
+    TroubleText {},
+
+
     -- TODO: help files
     -- TODO: cmp + preview / docs etc
 
