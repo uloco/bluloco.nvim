@@ -540,8 +540,6 @@ local theme = lush(function(injected_functions)
     TroubleText {},
 
 
-    -- TODO: help files
-
     -- Cmp
     CmpDocumentation { fg = t.fg, bg = t.bg_float },
     CmpDocumentationBorder { fg = t.punctuation, bg = t.bg_float },
@@ -582,6 +580,12 @@ local theme = lush(function(injected_functions)
     CmpItemKindOperator { fg = t.punctuation },
     CmpItemKindSnippet { fg = t.label },
 
+    -- nvim illuminate
+    IlluminatedWordText { bg = t.grey7 },
+    IlluminatedWordRead { bg = t.grey7 },
+    IlluminatedWordWrite { bg = t.grey7 },
+
+    --   help files
 
 
   }
