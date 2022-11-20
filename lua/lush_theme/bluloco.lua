@@ -468,10 +468,53 @@ local theme = lush(function(injected_functions)
     -- TelescopeResultsDiffDelete  {},
     -- TelescopeResultsDiffUntracked  {},
 
+    LspFloatWinNormal { NormalFloat },
+    LspFloatWinBorder { fg = t.punctuation },
 
-    -- TODO: todo comments
-    -- TODO: lspsaga
+    -- code action
+    LspSagaCodeActionBorder { LspFloatWinBorder },
+    LspSagaCodeActionTitle { fg = t.constant },
+    LspSagaCodeActionContent { fg = t.method },
+
+    -- finder
+    LspSagaLspFinderBorder { LspFloatWinBorder },
+    LspSagaAutoPreview { LspFloatWinBorder },
+    LspSagaFinderSelection { bg = t.selection },
+    TargetFileName { fg = t.property },
+    FinderParam { fg = t.constant },
+    DefinitionsIcon { fg = t.string },
+    Definitions { Title },
+    DefinitionCount { fg = t.number },
+    ReferencesIcon { fg = t.string },
+    References { Title },
+    ReferencesCount { fg = t.number },
+    ImplementsIcon { fg = t.string },
+    Implements { Title },
+    ImplementsCount { fg = t.number },
+
+    --finder spinner
+    FinderSpinnerBorder { LspFloatWinBorder },
+    FinderSpinnerTitle { LspSagaCodeActionTitle },
+    FinderSpinner { fg = t.primary, bold = true },
+
+
+    LspSagaBorderTitle { Title },
+    LspSagaHoverBorder { LspFloatWinBorder },
+    LspSagaRenameBorder { LspFloatWinBorder },
+    LspSagaDefPreviewBorder { LspFloatWinBorder },
+    LspSagaSignatureHelpBorder { LspFloatWinBorder },
+
+    LspSagaDiagnosticBorder { LspFloatWinBorder },
+    LspSagaDiagnosticHeader { LspSagaCodeActionTitle },
+
+    -- lightbulb
+    LspSagaLightBulb { fg = t.attribute }
+
+
+
     -- TODO: trouble
+    -- TODO: help files
+    -- TODO: cmp + preview / docs etc
 
 
   }
