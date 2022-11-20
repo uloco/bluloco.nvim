@@ -256,9 +256,9 @@ local theme = lush(function(injected_functions)
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
-    -- Special { Character }, -- (preferred) any special symbol
+    Special { Character }, -- (preferred) any special symbol
     -- SpecialChar {}, --  special character in a constant
-    Tag { fg = t.tag, gui = "underline" }, --    you can use CTRL-] on this
+    Tag { fg = t.tag }, --    you can use CTRL-] on this
     -- Delimiter {}, --  character that needs attention
     -- SpecialComment { }, -- special things inside a comment
     -- Debug          { }, --    debugging statements
@@ -342,6 +342,8 @@ local theme = lush(function(injected_functions)
     sym("@text.uri") { fg = t.tag, underline = true }, -- Any URI like a link or email.
     sym("@variable") { Normal }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@tag.attribute") { fg = t.attribute }, -- Variable names that are defined by the languages, like `this` or `self`.
+
     --     -- sym"@string.special"    { }, -- SpecialChar
     --     -- sym"@character.special" { }, -- SpecialChar
     --     -- sym"@function.macro"    { }, -- Macro
