@@ -93,7 +93,6 @@ local light = {
   label       = hsl("#3a8ab2"),
   -- workspace
   primary     = hsl("#0099e1"),
-  -- TODO: fix selection + diff change clash
   selection   = hsl("#d2ecff"),
   search      = hsl("#b1eacf"),
   diffAdd     = hsl("#c5f6c8"),
