@@ -75,7 +75,7 @@ local dark = {
 
 local light = {
   bg          = hsl("#F9F9F9"),
-  bgFloat     = hsl("#EBEEF0"),
+  bgFloat     = hsl("#F0F0F0"),
   fg          = hsl("#383A42"),
   cursor      = hsl("#F31459"),
   keyword     = hsl("#0098DD"),
