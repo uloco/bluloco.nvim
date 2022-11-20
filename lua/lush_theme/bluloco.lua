@@ -539,7 +539,47 @@ local theme = lush(function(injected_functions)
 
 
     -- TODO: help files
-    -- TODO: cmp + preview / docs etc
+
+    -- Cmp
+    CmpDocumentation { fg = t.fg, bg = t.bg_float },
+    CmpDocumentationBorder { fg = t.punctuation, bg = t.bg_float },
+
+    CmpItemAbbr { fg = t.fg },
+    CmpItemAbbrDeprecated { fg = t.fg, gui = "strikethrough" },
+    CmpItemAbbrMatch { fg = t.primary },
+    CmpItemAbbrMatchFuzzy { fg = t.primary },
+
+    CmpItemMenu { fg = t.attribute },
+
+    CmpItemKindDefault { fg = t.fg },
+
+    CmpItemKindKeyword { fg = t.keyword },
+
+    CmpItemKindVariable { fg = t.fg },
+    CmpItemKindConstant { fg = t.constant },
+    CmpItemKindReference { fg = t.fg },
+    CmpItemKindValue { fg = t.fg },
+
+    CmpItemKindFunction { fg = t.method },
+    CmpItemKindMethod { fg = t.method },
+    CmpItemKindConstructor { fg = t.type },
+
+    CmpItemKindClass { fg = t.type },
+    CmpItemKindInterface { fg = t.type },
+    CmpItemKindStruct { fg = t.type },
+    CmpItemKindEvent { fg = t.label },
+    CmpItemKindEnum { fg = t.type },
+    CmpItemKindUnit { fg = t.number },
+
+    CmpItemKindModule { fg = t.yellow },
+
+    CmpItemKindProperty { fg = t.property },
+    CmpItemKindField { fg = t.property },
+    CmpItemKindTypeParameter { fg = t.type },
+    CmpItemKindEnumMember { fg = t.type },
+    CmpItemKindOperator { fg = t.punctuation },
+    CmpItemKindSnippet { fg = t.label },
+
 
 
   }
