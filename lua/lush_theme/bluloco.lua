@@ -267,7 +267,7 @@ local theme = lush(function(injected_functions)
     -- ("Ignore", below, may be invisible...)
     Ignore { fg = t.bg }, -- (preferred) left blank, hidden  |hl-Ignore|
     Error { ErrorMsg }, -- (preferred) any erroneous construct
-    Todo { bg = t.green, fg = t.white }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo { bg = t.info, fg = t.white }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
