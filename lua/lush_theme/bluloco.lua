@@ -362,6 +362,8 @@ local theme = lush(function(injected_functions)
     -- JSON
     sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
 
+    -- java
+    sym("@attribute.java") {fg = t.attribute},
     -- help files
     sym("@label.help") { sym "@text.uri" },
 
