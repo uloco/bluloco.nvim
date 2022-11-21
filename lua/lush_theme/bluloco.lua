@@ -342,6 +342,7 @@ local theme = lush(function(injected_functions)
     sym("@text.uri") { fg = t.tag, underline = true }, -- Any URI like a link or email.
     sym("@variable") { Normal }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@tag") { Tag },
     sym("@tag.attribute") { fg = t.attribute }, -- Variable names that are defined by the languages, like `this` or `self`.
 
     --     -- sym"@string.special"    { }, -- SpecialChar
