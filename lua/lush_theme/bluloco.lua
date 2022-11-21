@@ -138,6 +138,12 @@ t.shade10 = shade(t.bg, 10)
 t.shade20 = shade(t.bg, 20)
 t.shade25 = shade(t.bg, 25)
 t.shade30 = shade(t.bg, 30)
+t.shade40 = shade(t.bg, 30)
+t.shade50 = shade(t.bg, 50)
+t.shade60 = shade(t.bg, 60)
+t.shade70 = shade(t.bg, 70)
+t.shade80 = shade(t.bg, 80)
+t.shade90 = shade(t.bg, 90)
 
 t.grey3 = t.shade3.mix(t.primary, 3)
 t.grey5 = t.shade5.mix(t.primary, 5)
@@ -146,6 +152,8 @@ t.grey10 = t.shade10.mix(t.primary, 10)
 t.grey20 = t.shade20.mix(t.primary, 10)
 t.grey25 = t.shade25.mix(t.primary, 10)
 t.grey30 = t.shade30.mix(t.primary, 10)
+t.grey40 = t.shade40.mix(t.primary, 10)
+
 
 t.white = hsl("#ffffff")
 t.green = hsl("#008200")
@@ -586,8 +594,31 @@ local theme = lush(function(injected_functions)
     IlluminatedWordRead { bg = t.grey7 },
     IlluminatedWordWrite { bg = t.grey7 },
 
-    --   help files
+    -- mason
+    MasonNormal { NormalFloat },
+    MasonHeader { bg = t.primary, fg = t.bg },
+    MasonHeaderSecondary { bg = t.constant, fg = t.bg },
 
+    MasonHighlight { fg = t.primary },
+    MasonHighlightBlock { bg = t.primary, fg = t.bg },
+    MasonHighlightBlockBold { bg = t.primary, fg = t.bg, gui = "bold" },
+
+    MasonHighlightSecondary { fg = t.constant },
+    MasonHighlightBlockSecondary { bg = t.constant, fg = t.bg },
+    MasonHighlightBlockBoldSecondary { bg = t.constant, fg = t.bg, gui = "bold" },
+
+    MasonLink { sym("@text.uri") },
+
+    MasonMuted { fg = t.shade50 },
+    MasonMutedBlock { bg = t.shade40, fg = t.bg },
+    MasonMutedBlockBold { bg = t.shade40, fg = t.bg, gui = "bold" },
+
+    MasonError { Error },
+
+    MasonHeading { gui = "bold,underline", fg = t.fg },
+
+    -- which-key
+    -- alpha
 
   }
 end)
