@@ -62,7 +62,7 @@ local dark = {
   diffDelete  = hsl("#522E34"),
   added       = hsl("#177F55"),
   changed     = hsl("#1B6E9B"),
-  delted      = hsl("#A14D5B"),
+  deleted     = hsl("#A14D5B"),
   diffText    = hsl("#10415B").lighten(12),
   error       = hsl("#ff2e3f"),
   errorBG     = hsl("#FDCFD1"),
@@ -371,7 +371,7 @@ local theme = lush(function(injected_functions)
     --  gitsigns
     GitSignsAdd { fg = t.added },
     GitSignsChange { fg = t.changed },
-    GitSignsDelete { fg = t.delted },
+    GitSignsDelete { fg = t.deleted },
 
     -- TODO: improve bufferline
 
