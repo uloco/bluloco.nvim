@@ -620,6 +620,14 @@ local theme = lush(function(injected_functions)
     MasonHeading { gui = "bold,underline", fg = t.fg },
 
     -- which-key
+    WhichKey { Character },
+    WhichKeyGroup { Tag },
+    WhichKeySeparator { Operator },
+    WhichKeyDesc { Statement },
+    -- WhichKeyFloat {},
+    -- WhichKeyBorder {},
+    -- WhichKeyValue { Character },
+
     -- alpha
 
   }
