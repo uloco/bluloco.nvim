@@ -657,6 +657,24 @@ local theme = lush(function(injected_functions)
     DiffviewPrimary { fg = t.keyword },
     DiffviewSecondary { fg = t.tag },
 
+
+    -- nvim tree
+    NvimTreeWindowPicker { fg = t.fg, bg = t.selection, gui = "bold" },
+    NvimTreeIndentMarker { fg = t.punctuation },
+
+    NvimTreeRootFolder { fg = t.tag },
+    NvimTreeFolderIcon { fg = t.keyword },
+    NvimTreeFolderName { fg = t.tag },
+    NvimTreeOpenedFolderName { fg = t.keyword },
+    NvimTreeSpecialFile { fg = t.constant },
+    NvimTreeExecFile { fg = t.method },
+
+    NvimTreeGitStaged { fg = t.method },
+    NvimTreeGitDirty { fg = t.type },
+    NvimTreeGitMerge { fg = t.number },
+    NvimTreeGitDeleted { fg = t.deleted },
+    NvimTreeGitNew { fg = t.method },
+
   }
 end)
 return theme
