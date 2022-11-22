@@ -596,6 +596,10 @@ local theme = lush(function(injected_functions)
     IlluminatedWordRead { bg = t.grey7 },
     IlluminatedWordWrite { bg = t.grey7 },
 
+    CursorWord = { bg = t.grey7 },
+    CursorWord0 = { bg = t.grey7 },
+    CursorWord1 = { bg = t.grey7 },
+
     -- mason
     MasonNormal { NormalFloat },
     MasonHeader { bg = t.primary, fg = t.bg },
