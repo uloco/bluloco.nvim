@@ -347,7 +347,7 @@ local theme = lush(function(injected_functions)
     sym("@text.underline") { Underlined },
     sym("@text.title") { Statement },
     sym("@text.literal") { Property },
-    sym("@text.uri") { fg = t.tag, underline = true }, -- Any URI like a link or email.
+    sym("@text.uri") { fg = t.tag, sp = t.tag, gui = "underline" }, -- Any URI like a link or email.
     sym("@variable") { Normal }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
@@ -363,7 +363,7 @@ local theme = lush(function(injected_functions)
     sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
 
     -- java
-    sym("@attribute.java") {fg = t.attribute},
+    sym("@attribute.java") { fg = t.attribute },
     -- help files
     sym("@label.help") { sym "@text.uri" },
 
