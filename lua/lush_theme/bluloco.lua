@@ -628,7 +628,30 @@ local theme = lush(function(injected_functions)
     -- WhichKeyBorder {},
     -- WhichKeyValue { Character },
 
-    -- alpha
+    --   -- Diffview
+    DiffviewStatusAdded { fg = t.method },
+    DiffviewStatusModified { fg = t.keyword },
+    DiffviewStatusRenamed { fg = t.keyword },
+    DiffviewStatusCopied { fg = t.keyword },
+    DiffviewStatusTypeChanged { fg = t.keyword },
+    DiffviewStatusUnmerged { fg = t.number },
+    DiffviewStatusUnknown { fg = t.property },
+    DiffviewStatusDeleted { fg = t.type },
+    -- DiffviewStatusBroken {},
+    DiffviewStatusIgnored { fg = t.comment },
+    DiffviewFilePanelInsertions { fg = t.added },
+    DiffviewFilePanelDeletions { fg = t.deleted },
+    DiffviewFilePanelRootPath { fg = t.tag },
+    DiffviewFilePanelTitle { fg = t.constant },
+    DiffviewFilePanelCounter { fg = t.attribute },
+    -- DiffviewFilePanelFileName {},
+    DiffviewFilePanelPath { Comment },
+    DiffviewFilePanelConflicts { fg = t.number },
+    DiffviewFolderName { Directory },
+    -- DiffviewFolderSign {},
+    -- DiffviewReference {},
+    DiffviewPrimary { fg = t.keyword },
+    DiffviewSecondary { fg = t.tag },
 
   }
 end)
