@@ -501,7 +501,7 @@ local theme = lush(function(injected_functions)
     -- code action
     LspSagaCodeActionBorder { LspFloatWinBorder },
     LspSagaCodeActionTitle { fg = t.constant },
-    LspSagaCodeActionContent { fg = t.method },
+    LspSagaCodeActionContent { fg = t.primary },
 
     -- finder
     LspSagaLspFinderBorder { LspFloatWinBorder },
