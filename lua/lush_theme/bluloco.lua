@@ -572,8 +572,8 @@ local theme = lush(function(injected_functions)
     LSOutlineParameter { sym "@parameter" },
     LSOutlineStaticMethod { Method },
     LSOutlineMacro { Method },
-    OutlineIndentOdd {Whitespace},
-    OutlineIndentEvn {Whitespace},
+    OutlineIndentOdd { Whitespace },
+    OutlineIndentEvn { Whitespace },
 
     -- Trouble
     TroubleCount { fg = t.number },
