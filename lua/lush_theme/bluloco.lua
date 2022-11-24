@@ -732,6 +732,7 @@ local theme = lush(function(injected_functions)
     GitConflictAncestorLabel { bg = t.mergeParentLabel, blend = 5 },
 
     -- -- Notify.
+    NotifyBackground { NormalFloat },
     NotifyERRORBorder { fg = t.error },
     NotifyWARNBorder { fg = t.warning },
     NotifyINFOBorder { fg = t.info },
@@ -747,11 +748,6 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { NotifyINFOBorder },
     NotifyDEBUGTitle { NotifyDEBUGBorder },
     NotifyTRACETitle { NotifyTRACEBorder },
-    -- NotifyERRORBody {Normal},
-    -- NotifyWARNBody {Normal},
-    -- NotifyINFOBody {Normal},
-    -- NotifyDEBUGBody {Normal},
-    -- NotifyTRACEBody {Normal},
   }
 end)
 return theme
