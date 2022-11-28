@@ -353,6 +353,7 @@ local theme = lush(function(injected_functions)
     sym("@label") { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@type") { Type },
     sym("@type.builtin") { Statement },
+    sym("@type.qualifier") { Statement },
     sym("@namespace") { Statement },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@text") { Normal },
@@ -749,6 +750,13 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { NotifyINFOBorder },
     NotifyDEBUGTitle { NotifyDEBUGBorder },
     NotifyTRACETitle { NotifyTRACEBorder },
+
+    -- -- Visual Multi.
+    -- VM_Extend = { bg = colors.selection_inactive },
+    -- VM_Cursor = { bg = colors.selection_inactive, sp = colors.fg, underline = true },
+    -- VM_Insert = { sp = colors.fg, underline = true },
+    -- VM_Mono = { fg = colors.bg, bg = colors.comment },
+
 
     -- hlargs (semantic parameter highlighting)
     Hlargs { sym "@parameter" }
