@@ -345,6 +345,7 @@ local theme = lush(function(injected_functions)
     sym("@constant.builtin") { fg = t.keyword },
     sym("@string.escape") { Character },
     sym("@function") { fg = t.method },
+    sym("@function.call") { fg = t.method },
     sym("@function.builtin") { fg = t.method },
     sym("@parameter") { fg = t.parameter },
     sym("@field") { Property },
@@ -748,6 +749,9 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { NotifyINFOBorder },
     NotifyDEBUGTitle { NotifyDEBUGBorder },
     NotifyTRACETitle { NotifyTRACEBorder },
+
+    -- hlargs (semantic parameter highlighting)
+    Hlargs { sym "@parameter" }
   }
 end)
 return theme
