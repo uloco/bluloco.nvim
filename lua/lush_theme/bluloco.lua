@@ -366,7 +366,7 @@ local theme = lush(function(injected_functions)
     sym("@variable") { Normal }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
-    sym("@attribute") { fg = t.attribute }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@attribute") { fg = t.label }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag.attribute") { fg = t.attribute }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@error") { Error }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@warning") { WarningMsg },
@@ -381,8 +381,6 @@ local theme = lush(function(injected_functions)
     -- Language Overrides
     -- JSON
     sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
-    -- java
-    sym("@attribute.java") { fg = t.attribute },
     -- help files
     sym("@label.help") { sym "@text.uri" },
     -- html
