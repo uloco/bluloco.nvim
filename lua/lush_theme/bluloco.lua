@@ -201,7 +201,7 @@ local theme = lush(function(injected_functions)
     DiffChange { bg = t.diffChange }, -- diff mode: Changed line |diff.txt|
     DiffDelete { bg = t.diffDelete }, -- diff mode: Deleted line |diff.txt|
     DiffText { bg = t.diffText }, -- diff mode: Changed text within a changed line |diff.txt|
-    EndOfBuffer { Normal }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    EndOfBuffer { fg = t.punctuation }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     TermCursor { Cursor }, -- cursor in a focused terminal
     TermCursorNC {}, -- cursor in an unfocused terminal
     ErrorMsg { fg = t.error }, -- error messages on the command line
