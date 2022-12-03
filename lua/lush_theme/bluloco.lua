@@ -831,6 +831,14 @@ local theme = lush(function(injected_functions)
     cssUrl { String, gui = "underline" },
     cssUnitDecorators { Constant },
 
+    -- rust
+    rustModPathSep { Punctuation },
+    rustFoldBraces { Punctuation },
+    rustBoxPlacementBalance { Punctuation },
+    rustSigil { Punctuation },
+
+    rustStorage { Statement },
+
 
     -- yaml
     yamlBlockMappingKey { Property },
