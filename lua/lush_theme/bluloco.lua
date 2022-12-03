@@ -602,8 +602,8 @@ local theme = lush(function(injected_functions)
 
 
     -- Cmp
-    CmpDocumentation { fg = t.fg, bg = t.bg_float },
-    CmpDocumentationBorder { fg = t.punctuation, bg = t.bg_float },
+    CmpDocumentation { fg = t.fg, bg = t.bgFloat },
+    CmpDocumentationBorder { fg = t.punctuation, bg = t.bgFloat },
 
     CmpItemAbbr { fg = t.fg },
     CmpItemAbbrDeprecated { fg = t.fg, gui = "strikethrough" },
