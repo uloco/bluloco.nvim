@@ -763,6 +763,46 @@ local theme = lush(function(injected_functions)
     Hlargs { sym "@parameter" },
 
     -- basic highlighting without treesitter
+
+    -- javascript
+    javaScriptIdentifier { Statement },
+    javaScriptFunction { Statement },
+    javaScriptParens { Punctuation },
+    javaScriptBraces { Punctuation },
+    javaScriptNumber { Number },
+
+    typeScriptImport { Statement },
+    typeScriptExport { Statement },
+    typeScriptIdentifier { Statement },
+    typescriptVariable { Statement },
+    typeScriptFunction { Statement },
+    typescriptPredefinedType { Statement },
+    typescriptClassStatic { Statement },
+    typescriptNodeGlobal { Statement },
+    typescriptExceptions { Statement },
+
+
+    typeScriptParens { Punctuation },
+    typeScriptBraces { Punctuation },
+    typescriptTypeBrackets { Punctuation },
+    typescriptInterfaceTypeParameter { Punctuation },
+    typescriptConditionalType { Punctuation },
+    typeScriptNumber { Number },
+
+    typeScriptAliasDeclaration { Type },
+    typeScriptTypeReference { Type },
+    typeScriptTypeParameter { Type },
+    typescriptClassName { Type },
+    typescriptClassHeritage { Type },
+
+    typescriptProp { Property },
+    typescriptOperator { Operator },
+    typescriptBinaryOp { Operator },
+
+    typescriptDocNotation { fg = t.shade50 },
+    typescriptDocTags { typescriptDocNotation },
+
+
     -- json
     jsonKeyword { Property },
     jsonQuote { String },
