@@ -5,8 +5,9 @@ local M = {}
 if (not status) then return end
 
 local defaultConfig = {
+  style       = "auto", -- auto | light | dark
   transparent = false,
-  italics = false,
+  italics     = false,
 }
 
 M.config = defaultConfig

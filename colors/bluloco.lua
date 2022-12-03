@@ -1,5 +1,12 @@
 ---@diagnostic disable: undefined-global
 local config = require("bluloco").config
+
+if (config.style == "dark") then
+  vim.o.background = "dark"
+elseif (config.style == "light") then
+  vim.o.background = "light"
+end
+
 local theme = require('lush_theme.bluloco')
 local lush = require('lush')
 
