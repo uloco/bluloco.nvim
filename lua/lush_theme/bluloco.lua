@@ -836,9 +836,16 @@ local theme = lush(function(injected_functions)
     rustFoldBraces { Punctuation },
     rustBoxPlacementBalance { Punctuation },
     rustSigil { Punctuation },
-
     rustStorage { Statement },
 
+
+    -- ruby
+    rubyConstant { Constant },
+    rubyCurlyBlockDelimiter { Punctuation },
+    rubyInterpolation { Punctuation },
+    rubyInterpolationDelimiter { Punctuation },
+    rubyStringDelimiter { String },
+    rubyKeywordAsMethod { Function },
 
     -- yaml
     yamlBlockMappingKey { Property },
