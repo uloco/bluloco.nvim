@@ -838,7 +838,6 @@ local theme = lush(function(injected_functions)
     rustSigil { Punctuation },
     rustStorage { Statement },
 
-
     -- ruby
     rubyConstant { Constant },
     rubyCurlyBlockDelimiter { Punctuation },
@@ -846,6 +845,12 @@ local theme = lush(function(injected_functions)
     rubyInterpolationDelimiter { Punctuation },
     rubyStringDelimiter { String },
     rubyKeywordAsMethod { Function },
+
+    -- python
+    pythonDecorator { sym "@annotation" },
+    pythonDecoratorName { sym "@annotation" },
+    pythonAttribute { Property },
+    pythonBuiltin { sym "@type.builtin" },
 
     -- yaml
     yamlBlockMappingKey { Property },
