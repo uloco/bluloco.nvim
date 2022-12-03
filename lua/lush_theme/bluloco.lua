@@ -392,6 +392,14 @@ local theme = lush(function(injected_functions)
     GitSignsDelete { fg = t.deleted },
 
     -- TODO: improve bufferline
+    BufferlineFill { bg = t.bg.darken(14) },
+    -- BufferlineBackground { bg = t.bg },
+    -- BufferlineDevIconLua { bg = t.bg, fg = t.keyword },
+    -- BufferlineDevIconLuaSelected { bg = t.bg, fg = t.keyword },
+    -- BufferlineBufferVisible { bg = t.bg },
+    -- BufferlineBufferSelected { bg = t.bg },
+
+    -- BufferlineIndicatorVisible { bg = t.type }, -- shows which buffers are visible in windows currently
 
     -- BufferLineSeparatorSelected { fg = t.type, sp = t.primary, gui = "underline" },
     -- BufferLineWarningDiagnosticSelected { fg = t.warning, sp = t.primary, gui = "underline" },
