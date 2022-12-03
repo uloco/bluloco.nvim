@@ -1,8 +1,5 @@
 ---@diagnostic disable: undefined-global
-local status, lush = pcall(require, 'lush')
 local M = {}
-
-if (not status) then return end
 
 local defaultConfig = {
   style       = "auto", -- auto | light | dark
