@@ -265,7 +265,7 @@ local theme = lush(function(injected_functions)
     -- Label          { }, --    case, default, etc.
     Punctuation { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
     Operator { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
-    -- Keyword        { Statement }, --  any other keyword
+    Keyword { Statement }, --  any other keyword
     -- Exception      { }, --  try, catch, throw
     PreProc { fg = t.keyword }, -- (preferred) generic Preprocessor
     -- Include        { }, --  preprocessor #include
@@ -279,6 +279,7 @@ local theme = lush(function(injected_functions)
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
     Special { Character }, -- (preferred) any special symbol
+    Attribute { Character }, -- (preferred) any special symbol
     -- SpecialChar {}, --  special character in a constant
     Tag { fg = t.tag }, --    you can use CTRL-] on this
     -- Delimiter {}, --  character that needs attention
@@ -830,6 +831,11 @@ local theme = lush(function(injected_functions)
     cssUrl { String, gui = "underline" },
     cssUnitDecorators { Constant },
 
+
+    -- yaml
+    yamlBlockMappingKey { Property },
+    yamlKeyValueDelimiter { Punctuation },
+    yamlNodeTag { Statement },
 
   }
 end)
