@@ -812,7 +812,23 @@ local theme = lush(function(injected_functions)
     htmlEndTag { htmlTagName },
     htmlTagN { htmlTagName },
     htmlArg { Special },
-    htmlSpecialChar { Constant }
+    htmlSpecialChar { Constant },
+
+    -- css
+    cssProp { Property },
+    cssBraces { Punctuation },
+    cssNoise { Punctuation },
+    cssSelectorOp { Punctuation },
+    cssSelectorOp2 { Punctuation },
+    cssAttrComma { Punctuation },
+    cssClassNameDot { Punctuation },
+    cssFunctionComma { Punctuation },
+    cssClassName { Special },
+    cssIdentifier { Type },
+    cssImportant { Statement },
+    cssTagName { Tag },
+    cssUrl { String, gui = "underline" },
+    cssUnitDecorators { Constant },
 
 
   }
