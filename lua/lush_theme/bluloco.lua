@@ -765,12 +765,14 @@ local theme = lush(function(injected_functions)
     -- basic highlighting without treesitter
 
     -- javascript
+    javaScript { Normal },
     javaScriptIdentifier { Statement },
     javaScriptFunction { Statement },
     javaScriptParens { Punctuation },
     javaScriptBraces { Punctuation },
     javaScriptNumber { Number },
 
+    -- typescript
     typeScriptImport { Statement },
     typeScriptExport { Statement },
     typeScriptIdentifier { Statement },
@@ -780,34 +782,38 @@ local theme = lush(function(injected_functions)
     typescriptClassStatic { Statement },
     typescriptNodeGlobal { Statement },
     typescriptExceptions { Statement },
-
-
     typeScriptParens { Punctuation },
     typeScriptBraces { Punctuation },
     typescriptTypeBrackets { Punctuation },
     typescriptInterfaceTypeParameter { Punctuation },
     typescriptConditionalType { Punctuation },
     typeScriptNumber { Number },
-
     typeScriptAliasDeclaration { Type },
     typeScriptTypeReference { Type },
     typeScriptTypeParameter { Type },
     typescriptClassName { Type },
     typescriptClassHeritage { Type },
-
     typescriptProp { Property },
     typescriptOperator { Operator },
     typescriptBinaryOp { Operator },
-
     typescriptDocNotation { fg = t.shade50 },
     typescriptDocTags { typescriptDocNotation },
-
 
     -- json
     jsonKeyword { Property },
     jsonQuote { String },
     jsonBraces { Punctuation },
     jsonBraces { jsonBraces },
+
+    --html
+    htmlTagName { Tag },
+    htmlSpecialTagName { Tag },
+    htmlTag { htmlTagName },
+    htmlEndTag { htmlTagName },
+    htmlTagN { htmlTagName },
+    htmlArg { Special },
+    htmlSpecialChar { Constant }
+
 
   }
 end)
