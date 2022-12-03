@@ -6,6 +6,7 @@ if (not status) then return end
 
 local defaultConfig = {
   transparent = false,
+  italics = false,
 }
 
 M.config = defaultConfig

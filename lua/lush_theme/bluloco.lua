@@ -351,7 +351,7 @@ local theme = lush(function(injected_functions)
     sym("@property") { Property },
     sym("@label") { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@type") { Type },
-    sym("@type.builtin") { Statement },
+    sym("@type.builtin") { fg = t.keyword },
     sym("@type.qualifier") { Statement },
     sym("@namespace") { Statement },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
@@ -359,7 +359,7 @@ local theme = lush(function(injected_functions)
     sym("@text.strong") { Bold },
     sym("@text.italic") { Italic },
     sym("@text.underline") { Underlined },
-    sym("@text.title") { Statement },
+    sym("@text.title") { fg = t.keyword },
     sym("@text.literal") { Property },
     sym("@text.uri") { fg = t.tag, sp = t.tag, gui = "underline" }, -- Any URI like a link or email.
     sym("@variable") { Identifier }, -- Variable names that are defined by the languages, like `this` or `self`.
@@ -563,7 +563,7 @@ local theme = lush(function(injected_functions)
     LSOutlineArray { Operator },
     LSOutlineObject { Operator },
     LSOutlineKey { Statement },
-    LSOutlineNull { Statement },
+    LSOutlineNull { LSOutlineBoolean },
     LSOutlineEnumMember { Type },
     LSOutlineStruct { Type },
     LSOutlineEvent { Statement },
@@ -677,7 +677,7 @@ local theme = lush(function(injected_functions)
     WhichKey { Character },
     WhichKeyGroup { Tag },
     WhichKeySeparator { Operator },
-    WhichKeyDesc { Statement },
+    WhichKeyDesc { sym "@text.title" },
     -- WhichKeyFloat {},
     -- WhichKeyBorder {},
     -- WhichKeyValue { Character },
@@ -776,7 +776,7 @@ local theme = lush(function(injected_functions)
     typeScriptIdentifier { Statement },
     typescriptVariable { Statement },
     typeScriptFunction { Statement },
-    typescriptPredefinedType { Statement },
+    typescriptPredefinedType { sym "@type.builtin" },
     typescriptClassStatic { Statement },
     typescriptNodeGlobal { Statement },
     typescriptExceptions { Statement },
