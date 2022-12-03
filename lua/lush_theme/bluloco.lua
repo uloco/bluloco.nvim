@@ -172,15 +172,12 @@ t.white = hsl("#ffffff")
 t.green = hsl("#008200")
 
 -- Call lush with our lush-spec.
--- ignore the "theme" variable for now
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
 
   return {
-    -- Normal { fg = t.fg, bg = "NONE" }, -- normal text
-    Normal { fg = t.fg }, -- normal text
-    -- CursorLine { bg = t.grey3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    Normal { fg = t.fg, bg = t.bg }, -- normal text
     CursorLine { bg = t.grey7 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Whitespace { fg = t.grey10 },
@@ -358,14 +355,14 @@ local theme = lush(function(injected_functions)
     sym("@type.qualifier") { Statement },
     sym("@namespace") { Statement },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
-    sym("@text") { Normal },
+    sym("@text") { Identifier },
     sym("@text.strong") { Bold },
     sym("@text.italic") { Italic },
     sym("@text.underline") { Underlined },
     sym("@text.title") { Statement },
     sym("@text.literal") { Property },
     sym("@text.uri") { fg = t.tag, sp = t.tag, gui = "underline" }, -- Any URI like a link or email.
-    sym("@variable") { Normal }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable") { Identifier }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
     sym("@attribute") { fg = t.label }, -- Variable names that are defined by the languages, like `this` or `self`.
@@ -515,7 +512,7 @@ local theme = lush(function(injected_functions)
     LspSagaLspFinderBorder { LspFloatWinBorder },
     LspSagaAutoPreview { LspFloatWinBorder },
     LspSagaFinderSelection { bg = t.selection },
-    TargetFileName { Normal },
+    TargetFileName { Identifier },
     FinderParam { fg = t.constant },
     DefinitionsIcon { fg = t.punctuation },
     Definitions { Title },
@@ -529,7 +526,7 @@ local theme = lush(function(injected_functions)
 
     --finder spinner
     FinderSpinnerBorder { LspFloatWinBorder },
-    FinderSpinnerTitle { Normal },
+    FinderSpinnerTitle { Identifier },
     FinderSpinner { fg = t.primary, bold = true },
 
 
@@ -546,7 +543,7 @@ local theme = lush(function(injected_functions)
     LspSagaLightBulb { fg = t.attribute },
 
     -- -- outline
-    LSOutlineFile { Normal },
+    LSOutlineFile { Identifier },
     LSOutlineModule { Statement },
     LSOutlineNamespace { Statement },
     LSOutlinePackage { Statement },
@@ -558,7 +555,7 @@ local theme = lush(function(injected_functions)
     LSOutlineEnum { Type },
     LSOutlineInterface { Type },
     LSOutlineFunction { Method },
-    LSOutlineVariable { Normal },
+    LSOutlineVariable { Identifier },
     LSOutlineConstant { Constant },
     LSOutlineString { String },
     LSOutlineNumber { Number },
@@ -737,11 +734,11 @@ local theme = lush(function(injected_functions)
 
     -- -- Notify.
     NotifyBackground { NormalFloat },
-    NotifyERRORBorder { fg = t.error },
-    NotifyWARNBorder { fg = t.warning },
-    NotifyINFOBorder { fg = t.info },
-    NotifyDEBUGBorder { fg = t.punctuation },
-    NotifyTRACEBorder { fg = t.property },
+    NotifyERRORBorder { Normal, fg = t.error },
+    NotifyWARNBorder { Normal, fg = t.warning },
+    NotifyINFOBorder { Normal, fg = t.info },
+    NotifyDEBUGBorder { Normal, fg = t.punctuation },
+    NotifyTRACEBorder { Normal, fg = t.property },
     NotifyERRORIcon { NotifyERRORBorder },
     NotifyWARNIcon { NotifyWARNBorder },
     NotifyINFOIcon { NotifyINFOBorder },
@@ -766,7 +763,7 @@ local theme = lush(function(injected_functions)
     -- basic highlighting without treesitter
 
     -- javascript
-    javaScript { Normal },
+    javaScript { Identifier },
     javaScriptIdentifier { Statement },
     javaScriptFunction { Statement },
     javaScriptParens { Punctuation },
@@ -860,7 +857,6 @@ local theme = lush(function(injected_functions)
   }
 end)
 return theme
-
 
 
 -- -- vi:nowrap
