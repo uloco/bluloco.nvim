@@ -263,6 +263,7 @@ local theme = lush(function(injected_functions)
     -- Conditional    { }, --  if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --    case, default, etc.
+    Punctuation { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
     Operator { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
     -- Keyword        { Statement }, --  any other keyword
     -- Exception      { }, --  try, catch, throw
@@ -759,7 +760,15 @@ local theme = lush(function(injected_functions)
 
 
     -- hlargs (semantic parameter highlighting)
-    Hlargs { sym "@parameter" }
+    Hlargs { sym "@parameter" },
+
+    -- basic highlighting without treesitter
+    -- json
+    jsonKeyword { Property },
+    jsonQuote { String },
+    jsonBraces { Punctuation },
+    jsonBraces { jsonBraces },
+
   }
 end)
 return theme
