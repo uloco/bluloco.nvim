@@ -24,7 +24,11 @@ function M.load()
     theme = lush.extends({ theme }).with(function()
       return {
         Normal { theme.Normal, bg = "NONE" }, -- normal text
+        NormalSB { bg = "NONE" },
         BufferlineFill { bg = "NONE" },
+        TroubleNormal { bg = "NONE" },
+        NvimTreeNormal { bg = "NONE" },
+        NvimTreeNormalNC { bg = "NONE" },
       }
     end)
   end
