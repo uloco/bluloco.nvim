@@ -188,6 +188,7 @@ local theme = lush(function(injected_functions)
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
     NormalFloat { bg = t.bgFloat, blend = 5 }, -- Normal text in floating windows.
+    NormalSB { bg = t.bgFloat }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
@@ -717,6 +718,7 @@ local theme = lush(function(injected_functions)
 
     -- nvim tree
     NvimTreeNormal { bg = t.bgFloat },
+    NvimTreeNormalNC { bg = t.bgFloat },
     NvimTreeWindowPicker { fg = t.fg, bg = t.selection, gui = "bold" },
     NvimTreeIndentMarker { fg = t.punctuation },
 
