@@ -235,8 +235,7 @@ local theme = lush(function(injected_functions)
 
     TabLine { bg = t.shade3, fg = t.shade30 }, -- tab pages line, not active tab page label
     TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
-    -- TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
-    TabLineSel { bg = t.primary, fg = t.shade3 }, -- tab pages line, active tab page label
+    TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
 
     Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
     Visual { bg = t.selection }, -- Visual mode selection

@@ -19,6 +19,7 @@ function M.load()
   vim.g.colors_name = 'bluloco'
   package.loaded['lush_theme.bluloco'] = nil
 
+  -- transparent
   if (M.config.transparent == true) then
     theme = lush.extends({ theme }).with(function()
       return {
@@ -28,6 +29,7 @@ function M.load()
     end)
   end
 
+  -- italics
   if (M.config.italics == true) then
     local sym = injected_functions.sym
     theme = lush.extends({ theme }).with(function()
@@ -40,6 +42,17 @@ function M.load()
       }
     end)
   end
+
+  -- bufferline
+  local bufferlineInstalled = pcall(require, 'bufferline')
+  if (bufferlineInstalled) then
+    theme = lush.extends({ theme }).with(function()
+      return {
+        TabLineSel { bg = theme.Statement.fg }, -- tab pages line, active tab page label
+      }
+    end)
+  end
+
 
   lush(theme)
 end
