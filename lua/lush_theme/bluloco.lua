@@ -37,7 +37,7 @@ local hsl = lush.hsl
 local dark = {
   -- syntax
   bg                 = hsl("#282C34"),
-  bgFloat            = hsl("#252932"),
+  bgFloat            = hsl("#21242D"),
   fg                 = hsl("#ABB2BF"),
   cursor             = hsl("#FFCC00"),
   keyword            = hsl("#10B1FE"),
@@ -82,7 +82,7 @@ local dark = {
 
 local light = {
   bg                 = hsl("#F9F9F9"),
-  bgFloat            = hsl("#F0F0F0"),
+  bgFloat            = hsl("#ECEDEE"),
   fg                 = hsl("#383A42"),
   cursor             = hsl("#F31459"),
   keyword            = hsl("#0098DD"),
@@ -172,15 +172,12 @@ t.white = hsl("#ffffff")
 t.green = hsl("#008200")
 
 -- Call lush with our lush-spec.
--- ignore the "theme" variable for now
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
 
   return {
-    -- Normal { fg = t.fg, bg = "NONE" }, -- normal text
-    Normal { fg = t.fg }, -- normal text
-    -- CursorLine { bg = t.grey3 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    Normal { fg = t.fg, bg = t.bg }, -- normal text
     CursorLine { bg = t.grey7 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Whitespace { fg = t.grey10 },
@@ -191,6 +188,7 @@ local theme = lush(function(injected_functions)
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
     NormalFloat { bg = t.bgFloat, blend = 5 }, -- Normal text in floating windows.
+    NormalSB { bg = t.bgFloat }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
@@ -238,8 +236,7 @@ local theme = lush(function(injected_functions)
 
     TabLine { bg = t.shade3, fg = t.shade30 }, -- tab pages line, not active tab page label
     TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
-    -- TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
-    TabLineSel { bg = t.primary, fg = t.shade3 }, -- tab pages line, active tab page label
+    TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
 
     Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
     Visual { bg = t.selection }, -- Visual mode selection
@@ -354,18 +351,18 @@ local theme = lush(function(injected_functions)
     sym("@property") { Property },
     sym("@label") { fg = t.label }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@type") { Type },
-    sym("@type.builtin") { Statement },
+    sym("@type.builtin") { fg = t.keyword },
     sym("@type.qualifier") { Statement },
     sym("@namespace") { Statement },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
-    sym("@text") { Normal },
+    sym("@text") { Identifier },
     sym("@text.strong") { Bold },
     sym("@text.italic") { Italic },
     sym("@text.underline") { Underlined },
-    sym("@text.title") { Statement },
+    sym("@text.title") { fg = t.keyword },
     sym("@text.literal") { Property },
     sym("@text.uri") { fg = t.tag, sp = t.tag, gui = "underline" }, -- Any URI like a link or email.
-    sym("@variable") { Normal }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable") { Identifier }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
     sym("@attribute") { fg = t.label }, -- Variable names that are defined by the languages, like `this` or `self`.
@@ -395,6 +392,14 @@ local theme = lush(function(injected_functions)
     GitSignsDelete { fg = t.deleted },
 
     -- TODO: improve bufferline
+    BufferlineFill { NormalFloat },
+    -- BufferlineBackground { bg = t.bg },
+    -- BufferlineDevIconLua { bg = t.bg, fg = t.keyword },
+    -- BufferlineDevIconLuaSelected { bg = t.bg, fg = t.keyword },
+    -- BufferlineBufferVisible { bg = t.bg },
+    -- BufferlineBufferSelected { bg = t.bg },
+
+    -- BufferlineIndicatorVisible { bg = t.type }, -- shows which buffers are visible in windows currently
 
     -- BufferLineSeparatorSelected { fg = t.type, sp = t.primary, gui = "underline" },
     -- BufferLineWarningDiagnosticSelected { fg = t.warning, sp = t.primary, gui = "underline" },
@@ -515,7 +520,7 @@ local theme = lush(function(injected_functions)
     LspSagaLspFinderBorder { LspFloatWinBorder },
     LspSagaAutoPreview { LspFloatWinBorder },
     LspSagaFinderSelection { bg = t.selection },
-    TargetFileName { Normal },
+    TargetFileName { Identifier },
     FinderParam { fg = t.constant },
     DefinitionsIcon { fg = t.punctuation },
     Definitions { Title },
@@ -529,7 +534,7 @@ local theme = lush(function(injected_functions)
 
     --finder spinner
     FinderSpinnerBorder { LspFloatWinBorder },
-    FinderSpinnerTitle { Normal },
+    FinderSpinnerTitle { Identifier },
     FinderSpinner { fg = t.primary, bold = true },
 
 
@@ -546,7 +551,7 @@ local theme = lush(function(injected_functions)
     LspSagaLightBulb { fg = t.attribute },
 
     -- -- outline
-    LSOutlineFile { Normal },
+    LSOutlineFile { Identifier },
     LSOutlineModule { Statement },
     LSOutlineNamespace { Statement },
     LSOutlinePackage { Statement },
@@ -558,7 +563,7 @@ local theme = lush(function(injected_functions)
     LSOutlineEnum { Type },
     LSOutlineInterface { Type },
     LSOutlineFunction { Method },
-    LSOutlineVariable { Normal },
+    LSOutlineVariable { Identifier },
     LSOutlineConstant { Constant },
     LSOutlineString { String },
     LSOutlineNumber { Number },
@@ -566,7 +571,7 @@ local theme = lush(function(injected_functions)
     LSOutlineArray { Operator },
     LSOutlineObject { Operator },
     LSOutlineKey { Statement },
-    LSOutlineNull { Statement },
+    LSOutlineNull { LSOutlineBoolean },
     LSOutlineEnumMember { Type },
     LSOutlineStruct { Type },
     LSOutlineEvent { Statement },
@@ -605,8 +610,8 @@ local theme = lush(function(injected_functions)
 
 
     -- Cmp
-    CmpDocumentation { fg = t.fg, bg = t.bg_float },
-    CmpDocumentationBorder { fg = t.punctuation, bg = t.bg_float },
+    CmpDocumentation { fg = t.fg, bg = t.bgFloat },
+    CmpDocumentationBorder { fg = t.punctuation, bg = t.bgFloat },
 
     CmpItemAbbr { fg = t.fg },
     CmpItemAbbrDeprecated { fg = t.fg, gui = "strikethrough" },
@@ -680,7 +685,7 @@ local theme = lush(function(injected_functions)
     WhichKey { Character },
     WhichKeyGroup { Tag },
     WhichKeySeparator { Operator },
-    WhichKeyDesc { Statement },
+    WhichKeyDesc { sym "@text.title" },
     -- WhichKeyFloat {},
     -- WhichKeyBorder {},
     -- WhichKeyValue { Character },
@@ -712,6 +717,8 @@ local theme = lush(function(injected_functions)
 
 
     -- nvim tree
+    NvimTreeNormal { bg = t.bgFloat },
+    NvimTreeNormalNC { bg = t.bgFloat },
     NvimTreeWindowPicker { fg = t.fg, bg = t.selection, gui = "bold" },
     NvimTreeIndentMarker { fg = t.punctuation },
 
@@ -737,11 +744,11 @@ local theme = lush(function(injected_functions)
 
     -- -- Notify.
     NotifyBackground { NormalFloat },
-    NotifyERRORBorder { fg = t.error },
-    NotifyWARNBorder { fg = t.warning },
-    NotifyINFOBorder { fg = t.info },
-    NotifyDEBUGBorder { fg = t.punctuation },
-    NotifyTRACEBorder { fg = t.property },
+    NotifyERRORBorder { Normal, fg = t.error },
+    NotifyWARNBorder { Normal, fg = t.warning },
+    NotifyINFOBorder { Normal, fg = t.info },
+    NotifyDEBUGBorder { Normal, fg = t.punctuation },
+    NotifyTRACEBorder { Normal, fg = t.property },
     NotifyERRORIcon { NotifyERRORBorder },
     NotifyWARNIcon { NotifyWARNBorder },
     NotifyINFOIcon { NotifyINFOBorder },
@@ -766,7 +773,7 @@ local theme = lush(function(injected_functions)
     -- basic highlighting without treesitter
 
     -- javascript
-    javaScript { Normal },
+    javaScript { Identifier },
     javaScriptIdentifier { Statement },
     javaScriptFunction { Statement },
     javaScriptParens { Punctuation },
@@ -779,7 +786,7 @@ local theme = lush(function(injected_functions)
     typeScriptIdentifier { Statement },
     typescriptVariable { Statement },
     typeScriptFunction { Statement },
-    typescriptPredefinedType { Statement },
+    typescriptPredefinedType { sym "@type.builtin" },
     typescriptClassStatic { Statement },
     typescriptNodeGlobal { Statement },
     typescriptExceptions { Statement },
@@ -860,7 +867,6 @@ local theme = lush(function(injected_functions)
   }
 end)
 return theme
-
 
 
 -- -- vi:nowrap
