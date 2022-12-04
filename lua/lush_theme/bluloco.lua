@@ -392,7 +392,7 @@ local theme = lush(function(injected_functions)
     GitSignsDelete { fg = t.deleted },
 
     -- TODO: improve bufferline
-    BufferlineFill { bg = t.bg.darken(14) },
+    BufferlineFill { NormalFloat },
     -- BufferlineBackground { bg = t.bg },
     -- BufferlineDevIconLua { bg = t.bg, fg = t.keyword },
     -- BufferlineDevIconLuaSelected { bg = t.bg, fg = t.keyword },

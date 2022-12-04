@@ -23,6 +23,7 @@ function M.load()
   local transparent = lush(function()
     return {
       Normal { theme.Normal, bg = "NONE" }, -- normal text
+      BufferlineFill { bg = "NONE" },
     }
   end)
 
