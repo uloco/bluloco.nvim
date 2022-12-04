@@ -1,4 +1,5 @@
 ---@diagnostic disable: undefined-global
+local lush = require('lush')
 local M = {}
 
 local defaultConfig = {
@@ -15,7 +16,6 @@ end
 
 function M.load()
   local theme = require('lush_theme.bluloco')
-  local lush = require('lush')
 
   vim.g.colors_name = 'bluloco'
   package.loaded['lush_theme.bluloco'] = nil
