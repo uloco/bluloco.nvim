@@ -6,6 +6,7 @@ local defaultConfig = {
   style       = "auto", -- auto | light | dark
   transparent = false,
   italics     = false,
+  terminal    = false,
 }
 
 M.config = defaultConfig
