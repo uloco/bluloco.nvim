@@ -3,7 +3,7 @@
 A fancy but yet sophisticated light and dark designer neovim theme built with [lush.nvim](https://github.com/rktjmp/lush.nvim).
 It features a much more comprehensive usage of syntax scopes and color
 consistency, with due regards to aesthetics, contrast and readability.
-Most popular plugins are also supported, see _plugins_ (link)
+Most popular plugins are also supported, see [Plugins](#plugins)
 
 This theme also works very good when Apple's **Nightshift Mode** is activated.
 
