@@ -86,6 +86,7 @@ require("bluloco").setup({
   style = "auto"               -- "auto" | "dark" | "light"
   transparent = false,
   italics = false,
+  terminal = false,
 })
 
 vim.cmd('colorscheme bluloco')
@@ -134,6 +135,10 @@ See: bluloco theme for iTerm2 -->
 ### Italics
 
 This setting will enable italics for _keywords_, _comments_ and _markup attributes_.
+
+### Terminal
+
+This setting will enable the bluloco colors in your integrated terminal.
 
 <!-- ## Recipes
 ### Auto switching light & dark themes
