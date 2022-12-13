@@ -259,7 +259,7 @@ local theme = lush(function(injected_functions)
     ErrorMsg { fg = t.error }, -- error messages on the command line
     VertSplit { fg = t.grey30 }, -- the column separating vertically split windows
     Winseparator { VertSplit }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    Folded { bg = t.grey10, fg = t.bg }, -- line used for closed folds
+    Folded { bg = t.shade7, fg = t.tag }, -- line used for closed folds
     SignColumn { Normal }, -- column where |signs| are displayed
     FoldColumn { SignColumn }, -- 'foldcolumn'
     Substitute { IncSearch }, -- |:substitute| replacement text highlighting
