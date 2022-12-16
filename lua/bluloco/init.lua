@@ -36,8 +36,8 @@ function M.load()
 
   -- italics
   if (M.config.italics == true) then
-    local sym = injected_functions.sym
-    theme = lush.extends({ theme }).with(function()
+    theme = lush.extends({ theme }).with(function(injected_functions)
+      local sym = injected_functions.sym
       return {
         Statement { theme.Statement, gui = "italic" },
         Boolean { theme.Boolean, gui = "italic" },
