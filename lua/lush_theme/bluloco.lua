@@ -422,6 +422,55 @@ local theme = lush(function(injected_functions)
     -- BufferLineInfoSelected { fg = t.info, sp = t.primary, gui = "underline" },
     -- BufferLineHintSelected { fg = t.hint, sp = t.primary, gui = "underline" },
 
+    -- BarBar
+
+    BufferCurrent { fg = t.fg, bg = t.bg },
+    BufferCurrentIndex { BufferCurrent },
+    BufferCurrentIcon { BufferCurrentIndex },
+    BufferCurrentMod { BufferCurrent },
+    BufferCurrentSign { fg = t.keyword, bg = BufferCurrent.bg },
+    BufferCurrentTarget { fg = shade(t.error, 40), bg = BufferCurrent.bg },
+    BufferCurrentWARN { fg = DiagnosticWarn.fg, bg = BufferCurrent.bg },
+    BufferCurrentINFO { fg = DiagnosticInfo.fg, bg = BufferCurrent.bg },
+    BufferCurrentERROR { fg = DiagnosticError.fg, bg = BufferCurrent.bg },
+    BufferCurrentHINT { fg = DiagnosticHint.fg, bg = BufferCurrent.bg },
+
+    BufferInactive { fg = t.shade40, bg = t.bgFloat },
+    BufferInactiveIcon { BufferInactive },
+    BufferInactiveIndex { BufferInactive },
+    BufferInactiveMod { BufferInactive },
+    BufferInactiveSign { BufferInactive },
+    BufferInactiveTarget { fg = shade(BufferInactive.fg, 70), bg = BufferInactive.bg },
+    BufferInactiveWARN { BufferCurrentWARN, bg = BufferInactive.bg },
+    BufferInactiveINFO { BufferCurrentINFO, bg = BufferInactive.bg },
+    BufferInactiveERROR { BufferCurrentERROR, bg = BufferInactive.bg },
+    BufferInactiveHINT { BufferCurrentHINT, bg = BufferInactive.bg },
+
+    BufferVisible { BufferCurrent, bg = t.bgFloat },
+    BufferVisibleIndex { BufferVisible },
+    BufferVisibleIcon { BufferVisibleIndex },
+    BufferVisibleMod { BufferVisible },
+    BufferVisibleSign { BufferVisible },
+    BufferVisibleTarget { fg = shade(BufferVisible.fg, 70), bg = BufferVisible.bg },
+    BufferVisibleWARN { BufferInactiveWARN },
+    BufferVisibleINFO { BufferInactiveINFO },
+    BufferVisibleERROR { BufferInactiveERROR },
+    BufferVisibleHINT { BufferInactiveHINT },
+
+    BufferAlternate { BufferInactive, fg = t.tag },
+    BufferAlternateIndex { BufferAlternate },
+    BufferAlternateIcon { BufferAlternateIndex },
+    BufferAlternateMod { BufferInactiveMod },
+    BufferAlternateSign { BufferInactiveSign },
+    BufferAlternateTarget { BufferInactiveTarget, fg = shade(BufferAlternate.fg, 70) },
+    BufferAlternateWARN { BufferInactiveWARN },
+    BufferAlternateINFO { BufferInactiveINFO },
+    BufferAlternateERROR { BufferInactiveERROR },
+    BufferAlternateHINT { BufferInactiveHINT },
+
+    BufferTabpages { BufferInactive, fg = t.shade90 },
+    BufferTabpageFill { BufferTabpages, fg = t.shade3 },
+    BufferOffset { BufferTabpageFill },
 
     -- Telescope
 
