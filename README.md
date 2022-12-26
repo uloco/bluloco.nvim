@@ -139,7 +139,12 @@ This setting will enable italics for _keywords_, _comments_ and _markup attribut
 
 ### Terminal
 
-This setting will enable the bluloco colors in your integrated terminal.
+This setting will enable the bluloco colors in your integrated terminal. 
+You most likely want to keep your terminal colors instead of overriding them,
+but if you are running neovim inside a gui application, this setting makes sense to be enabled.
+
+> ℹ️  Please note that some terminals will display bold text as the bright color variant but enabling this feature will override this behavior in the intergrated terminal. This is by design and has nothing to do with this theme. [see](https://github.com/neovim/neovim/issues/11335)
+
 
 <!-- ## Recipes
 ### Auto switching light & dark themes
