@@ -47,6 +47,7 @@ Currently supported plugins are:
 - [neogit](https://github.com/TimUntersberger/neogit)
 - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [bufferline](https://github.com/akinsho/nvim-bufferline.lua)
+- [barbar](https://github.com/romgrk/barbar.nvim)
 - [lualine](https://github.com/hoob3rt/lualine.nvim)
 - [scrollbar](https://github.com/petertriho/nvim-scrollbar)
 - [illuminated](https://github.com/RRethy/vim-illuminate)

@@ -30,6 +30,8 @@ function M.load()
         TroubleNormal { bg = "NONE" },
         NvimTreeNormal { bg = "NONE" },
         NvimTreeNormalNC { bg = "NONE" },
+        BufferInactive { theme.BufferInactive, bg = "NONE" },
+        BufferVisible { BufferCurrent }
       }
     end)
   end
