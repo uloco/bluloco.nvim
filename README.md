@@ -77,17 +77,17 @@ use {
 
 ## Usage
 
-Enable the colorscheme with defaults.
-
 > ⚠️ The `setup()` function is optional but please call it
 > **before** you set the colorscheme if you want to adjust the config.
+
+These are the default values:
 
 ```lua
 require("bluloco").setup({
   style = "auto"               -- "auto" | "dark" | "light"
   transparent = false,
   italics = false,
-  terminal = false,
+  terminal = vim.fn.has("gui_running") == 1 -- bluoco colors are enabled in gui terminals per default.
 })
 
 vim.cmd('colorscheme bluloco')
@@ -140,8 +140,10 @@ This setting will enable italics for _keywords_, _comments_ and _markup attribut
 ### Terminal
 
 This setting will enable the bluloco colors in your integrated terminal. 
-You most likely want to keep your terminal colors instead of overriding them,
-but if you are running neovim inside a gui application, this setting makes sense to be enabled.
+You most likely want to keep your terminal colors instead of overriding them if you are running neovim in a terminal.
+When you are running neovim inside a gui application this setting is enabled per default.
+
+You can skip the `terminal` setting completely to have it disabled in terminals and enabled in gui neovim.
 
 > ℹ️  Please note that some terminals will display bold text as the bright color variant but enabling this feature will override this behavior in the intergrated terminal. This is by design and has nothing to do with this theme. [see](https://github.com/neovim/neovim/issues/11335)
 
