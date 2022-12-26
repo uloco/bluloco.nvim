@@ -6,6 +6,7 @@ local defaultConfig = {
   style       = "auto", -- auto | light | dark
   transparent = false,
   italics     = false,
+  terminal    = vim.fn.has("gui_running") == 1,
 }
 
 M.config = defaultConfig

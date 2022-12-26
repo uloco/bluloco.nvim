@@ -1,5 +1,6 @@
 local lush = require('lush')
 local hsl = lush.hsl
+local config = require("bluloco").config
 
 -- Lush.hsl provides a number of convenience functions for:
 --
@@ -36,23 +37,24 @@ local hsl = lush.hsl
 
 local dark = {
   -- syntax
-  bg                 = hsl("#282C34"),
-  bgFloat            = hsl("#21242D"),
-  fg                 = hsl("#ABB2BF"),
-  cursor             = hsl("#FFCC00"),
-  keyword            = hsl("#10B1FE"),
-  comment            = hsl("#636D83"),
-  punctuation        = hsl("#7A82DA"),
-  method             = hsl("#3FC56B"),
-  type               = hsl("#FF6480"),
-  string             = hsl("#F9C859"),
-  number             = hsl("#FF78F8"),
-  constant           = hsl("#9F7EFE"),
-  tag                = hsl("#3691FF"),
-  attribute          = hsl("#FF936A"),
-  property           = hsl("#CE9887"),
-  parameter          = hsl("#8bcdef"),
-  label              = hsl("#50acae"),
+  bg          = hsl("#282C34"),
+  bgFloat     = hsl("#21242D"),
+  fg          = hsl("#ABB2BF"),
+  cursor      = hsl("#FFCC00"),
+  keyword     = hsl("#10B1FE"),
+  comment     = hsl("#636D83"),
+  punctuation = hsl("#7A82DA"),
+  method      = hsl("#3FC56B"),
+  type        = hsl("#FF6480"),
+  string      = hsl("#F9C859"),
+  number      = hsl("#FF78F8"),
+  constant    = hsl("#9F7EFE"),
+  tag         = hsl("#3691FF"),
+  attribute   = hsl("#FF936A"),
+  property    = hsl("#CE9887"),
+  parameter   = hsl("#8bcdef"),
+  label       = hsl("#50acae"),
+
   -- workspace
   primary            = hsl("#3691ff"),
   selection          = hsl("#274670"),
@@ -78,26 +80,45 @@ local dark = {
   mergeParent        = hsl(235, 28, 32),
   mergeParentLabel   = hsl(235, 29, 41),
 
+  -- terminal
+  terminalBlack         = hsl("#42444d"),
+  terminalRed           = hsl("#fc2e51"),
+  terminalGreen         = hsl("#25a45c"),
+  terminalYellow        = hsl("#ff9369"),
+  terminalBlue          = hsl("#3375fe"),
+  terminalMagenta       = hsl("#9f7efe"),
+  terminalCyan          = hsl("#4483aa"),
+  terminalWhite         = hsl("#cdd3e0"),
+  terminalBrightBlack   = hsl("#8f9aae"),
+  terminalBrightRed     = hsl("#ff637f"),
+  terminalBrightGreen   = hsl("#3fc56a"),
+  terminalBrightYellow  = hsl("#f9c858"),
+  terminalBrightBlue    = hsl("#10b0fe"),
+  terminalBrightMagenta = hsl("#ff78f8"),
+  terminalBrightCyan    = hsl("#5fb9bc"),
+  terminalBrightWhite   = hsl("#ffffff"),
 }
 
 local light = {
-  bg                 = hsl("#F9F9F9"),
-  bgFloat            = hsl("#ECEDEE"),
-  fg                 = hsl("#383A42"),
-  cursor             = hsl("#F31459"),
-  keyword            = hsl("#0098DD"),
-  comment            = hsl("#A0A1A7"),
-  punctuation        = hsl("#7A82DA"),
-  method             = hsl("#23974A"),
-  type               = hsl("#D52753"),
-  string             = hsl("#C5A332"),
-  number             = hsl("#CE33C0"),
-  constant           = hsl("#823FF1"),
-  tag                = hsl("#275FE4"),
-  attribute          = hsl("#DF631C"),
-  property           = hsl("#A05A48"),
-  parameter          = hsl("#40B8C5"),
-  label              = hsl("#3a8ab2"),
+  -- syntax
+  bg          = hsl("#F9F9F9"),
+  bgFloat     = hsl("#ECEDEE"),
+  fg          = hsl("#383A42"),
+  cursor      = hsl("#F31459"),
+  keyword     = hsl("#0098DD"),
+  comment     = hsl("#A0A1A7"),
+  punctuation = hsl("#7A82DA"),
+  method      = hsl("#23974A"),
+  type        = hsl("#D52753"),
+  string      = hsl("#C5A332"),
+  number      = hsl("#CE33C0"),
+  constant    = hsl("#823FF1"),
+  tag         = hsl("#275FE4"),
+  attribute   = hsl("#DF631C"),
+  property    = hsl("#A05A48"),
+  parameter   = hsl("#40B8C5"),
+  label       = hsl("#3a8ab2"),
+
   -- workspace
   primary            = hsl("#0099e1"),
   selection          = hsl("#d2ecff"),
@@ -121,7 +142,25 @@ local light = {
   mergeIncoming      = hsl("#DFEDF6"),
   mergeIncomingLabel = hsl("#CAE3F4"),
   mergeParent        = hsl(233, 60, 95),
-  mergeParentLabel   = hsl(233, 60, 90)
+  mergeParentLabel   = hsl(233, 60, 90),
+
+  -- terminal
+  terminalBlack         = hsl("#373a41"),
+  terminalRed           = hsl("#d52652"),
+  terminalGreen         = hsl("#239749"),
+  terminalYellow        = hsl("#df621b"),
+  terminalBlue          = hsl("#275fe4"),
+  terminalMagenta       = hsl("#823ef0"),
+  terminalCyan          = hsl("#26608c"),
+  terminalWhite         = hsl("#b9bac1"),
+  terminalBrightBlack   = hsl("#676a77"),
+  terminalBrightRed     = hsl("#ff637f"),
+  terminalBrightGreen   = hsl("#3cbc66"),
+  terminalBrightYellow  = hsl("#c5a231"),
+  terminalBrightBlue    = hsl("#0099e0"),
+  terminalBrightMagenta = hsl("#ce32c0"),
+  terminalBrightCyan    = hsl("#6d92ba"),
+  terminalBrightWhite   = hsl("#d3d3d3"),
 }
 
 local t = dark
@@ -151,7 +190,7 @@ t.shade10 = shade(t.bg, 10)
 t.shade20 = shade(t.bg, 20)
 t.shade25 = shade(t.bg, 25)
 t.shade30 = shade(t.bg, 30)
-t.shade40 = shade(t.bg, 30)
+t.shade40 = shade(t.bg, 40)
 t.shade50 = shade(t.bg, 50)
 t.shade60 = shade(t.bg, 60)
 t.shade70 = shade(t.bg, 70)
@@ -165,11 +204,33 @@ t.grey10 = t.shade10.mix(t.primary, 10)
 t.grey20 = t.shade20.mix(t.primary, 10)
 t.grey25 = t.shade25.mix(t.primary, 10)
 t.grey30 = t.shade30.mix(t.primary, 10)
-t.grey40 = t.shade40.mix(t.primary, 10)
+t.grey40 = t.shade40.mix(t.primary, 12)
 
 
 t.white = hsl("#ffffff")
 t.green = hsl("#008200")
+
+
+-- -- terminal colors
+if (config.terminal == true) then
+  vim.g.terminal_color_0  = t.terminalBlack.hex
+  vim.g.terminal_color_1  = t.terminalRed.hex
+  vim.g.terminal_color_2  = t.terminalGreen.hex
+  vim.g.terminal_color_3  = t.terminalYellow.hex
+  vim.g.terminal_color_4  = t.terminalBlue.hex
+  vim.g.terminal_color_5  = t.terminalMagenta.hex
+  vim.g.terminal_color_6  = t.terminalCyan.hex
+  vim.g.terminal_color_7  = t.terminalWhite.hex
+  vim.g.terminal_color_8  = t.terminalBrightBlack.hex
+  vim.g.terminal_color_9  = t.terminalBrightRed.hex
+  vim.g.terminal_color_10 = t.terminalBrightGreen.hex
+  vim.g.terminal_color_11 = t.terminalBrightYellow.hex
+  vim.g.terminal_color_12 = t.terminalBrightBlue.hex
+  vim.g.terminal_color_13 = t.terminalBrightMagenta.hex
+  vim.g.terminal_color_14 = t.terminalBrightCyan.hex
+  vim.g.terminal_color_15 = t.terminalBrightWhite.hex
+end
+
 
 -- Call lush with our lush-spec.
 ---@diagnostic disable: undefined-global
@@ -205,7 +266,7 @@ local theme = lush(function(injected_functions)
     ErrorMsg { fg = t.error }, -- error messages on the command line
     VertSplit { fg = t.grey30 }, -- the column separating vertically split windows
     Winseparator { VertSplit }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    Folded { bg = t.grey10, fg = t.bg }, -- line used for closed folds
+    Folded { bg = t.shade7, fg = t.tag }, -- line used for closed folds
     SignColumn { Normal }, -- column where |signs| are displayed
     FoldColumn { SignColumn }, -- 'foldcolumn'
     Substitute { IncSearch }, -- |:substitute| replacement text highlighting
@@ -870,6 +931,19 @@ local theme = lush(function(injected_functions)
     htmlTagN { htmlTagName },
     htmlArg { Special },
     htmlSpecialChar { Constant },
+
+    -- xml
+    xmlTag { Tag },
+    xmlProcessing { Tag },
+    xmlProcessingDelim { Tag },
+    xmlDoctypeDecl { Tag },
+    xmlTagName { Tag },
+    xmlDoctype { Statement },
+    xmlAttrib { Attribute },
+    xmlEqual { Punctuation },
+    xmlEntityPunct { Punctuation },
+    xmlEntity { Constant },
+    xmlCdataStart { sym"@label" },
 
     -- css
     cssProp { Property },
