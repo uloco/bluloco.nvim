@@ -932,6 +932,19 @@ local theme = lush(function(injected_functions)
     htmlArg { Special },
     htmlSpecialChar { Constant },
 
+    -- xml
+    xmlTag { Tag },
+    xmlProcessing { Tag },
+    xmlProcessingDelim { Tag },
+    xmlDoctypeDecl { Tag },
+    xmlTagName { Tag },
+    xmlDoctype { Statement },
+    xmlAttrib { Attribute },
+    xmlEqual { Punctuation },
+    xmlEntityPunct { Punctuation },
+    xmlEntity { Constant },
+    xmlCdataStart { sym"@label" },
+
     -- css
     cssProp { Property },
     cssBraces { Punctuation },
