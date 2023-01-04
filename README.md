@@ -1,3 +1,6 @@
+![banner-light](./screenshots/banner-light.svg#gh-light-mode-only)
+![banner-dark](./screenshots/banner-dark.svg#gh-dark-mode-only)
+
 # Bluloco.nvim
 
 A fancy but yet sophisticated light and dark designer neovim theme built with [lush.nvim](https://github.com/rktjmp/lush.nvim).
