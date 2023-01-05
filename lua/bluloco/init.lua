@@ -31,7 +31,7 @@ function M.load()
         NvimTreeNormal { bg = "NONE" },
         NvimTreeNormalNC { bg = "NONE" },
         BufferInactive { theme.BufferInactive, bg = "NONE" },
-        BufferVisible { BufferCurrent }
+        BufferVisible { theme.BufferCurrent }
       }
     end)
   end
