@@ -249,6 +249,7 @@ local theme = lush(function(injected_functions)
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
     NormalFloat { bg = t.bgFloat, blend = 5 }, -- Normal text in floating windows.
+    FloatBorder { fg = t.punctuation },
     NormalSB { bg = t.bgFloat }, -- Normal text in floating windows.
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
