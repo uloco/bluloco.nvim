@@ -443,7 +443,7 @@ local theme = lush(function(injected_functions)
     -- JSON
     sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
     -- help files
-    sym("@label.help") { sym "@text.uri" },
+    sym("@label.help") { sym("@text.uri") },
     -- html
     sym("@text.uri.html") { gui = "underline" },
 
@@ -670,7 +670,7 @@ local theme = lush(function(injected_functions)
     LSOutlineMethod { Method },
     LSOutlineProperty { Property },
     LSOutlineField { Property },
-    LSOutlineConstructor { sym "@constructor" },
+    LSOutlineConstructor { sym("@constructor") },
     LSOutlineEnum { Type },
     LSOutlineInterface { Type },
     LSOutlineFunction { Method },
@@ -689,7 +689,7 @@ local theme = lush(function(injected_functions)
     LSOutlineOperator { Operator },
     LSOutlineTypeParameter { Type },
     LSOutlineTypeAlias { Type },
-    LSOutlineParameter { sym "@parameter" },
+    LSOutlineParameter { sym("@parameter") },
     LSOutlineStaticMethod { Method },
     LSOutlineMacro { Method },
     OutlineIndentOdd { Whitespace },
@@ -796,7 +796,7 @@ local theme = lush(function(injected_functions)
     WhichKey { Character },
     WhichKeyGroup { Tag },
     WhichKeySeparator { Operator },
-    WhichKeyDesc { sym "@text.title" },
+    WhichKeyDesc { sym("@text.title") },
     -- WhichKeyFloat {},
     -- WhichKeyBorder {},
     -- WhichKeyValue { Character },
@@ -879,7 +879,7 @@ local theme = lush(function(injected_functions)
 
 
     -- hlargs (semantic parameter highlighting)
-    Hlargs { sym "@parameter" },
+    Hlargs { sym("@parameter") },
 
     -- basic highlighting without treesitter
 
@@ -897,7 +897,7 @@ local theme = lush(function(injected_functions)
     typeScriptIdentifier { Statement },
     typescriptVariable { Statement },
     typeScriptFunction { Statement },
-    typescriptPredefinedType { sym "@type.builtin" },
+    typescriptPredefinedType { sym("@type.builtin") },
     typescriptClassStatic { Statement },
     typescriptNodeGlobal { Statement },
     typescriptExceptions { Statement },
@@ -944,7 +944,7 @@ local theme = lush(function(injected_functions)
     xmlEqual { Punctuation },
     xmlEntityPunct { Punctuation },
     xmlEntity { Constant },
-    xmlCdataStart { sym"@label" },
+    xmlCdataStart { sym "@label" },
 
     -- css
     cssProp { Property },
@@ -978,10 +978,10 @@ local theme = lush(function(injected_functions)
     rubyKeywordAsMethod { Function },
 
     -- python
-    pythonDecorator { sym "@annotation" },
-    pythonDecoratorName { sym "@annotation" },
+    pythonDecorator { sym("@annotation") },
+    pythonDecoratorName { sym("@annotation") },
     pythonAttribute { Property },
-    pythonBuiltin { sym "@type.builtin" },
+    pythonBuiltin { sym("@type.builtin") },
 
     -- yaml
     yamlBlockMappingKey { Property },
