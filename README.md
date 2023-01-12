@@ -164,16 +164,6 @@ Click on arrow / expand sections to see a small showcase
 </details>
 
 
-### Plugin showcase
-<details>
-<summary>
-<a href="https://github.com/goolord/alpha-nvim">alpha</a>
-
-</summary>
-joggl
-</details>
-
-
 ## Install
 
 Install Bluloco with [packer](https://github.com/wbthomason/packer.nvim):
