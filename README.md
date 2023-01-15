@@ -31,138 +31,155 @@ This is a port of the popular Visual Studio Code Themes
 
 ## Plugins
 
-Currently supported plugins.  
-Click on arrow / expand sections to see a small showcase
+Currently supported (aka. tested) plugins:
+
+[treesitter](https://github.com/nvim-treesitter/nvim-treesitter") •
+[hlargs](https://github.com/m-demare/hlargs.nvim) •
+[alpha-nvim](https://github.com/goolord/alpha-nvim) •
+[nvim-notify](https://github.com/rcarriga/nvim-notify) •
+[mason.nvim](https://github.com/williamboman/mason.nvim) •
+[nvim-cursorword](https://github.com/xiyaowong/nvim-cursorword) •
+[vim-illuminate](https://github.com/RRethy/vim-illuminate) •
+[nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar) •
+[lualine.nvim](https://github.com/hoob3rt/lualine.nvim) •
+[barbar.nvim](https://github.com/romgrk/barbar.nvim) •
+[nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) •
+[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) •
+[neogit](https://github.com/TimUntersberger/neogit) •
+[diffview.nvim](https://github.com/sindrets/diffview.nvim) •
+[git-conflict.nvim](https://github.com/akinsho/git-conflict.nvim) •
+[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) •
+[nvim-cmp](https://github.com/hrsh7th/nvim-cmp) •
+[vim-which-key](https://github.com/liuchengxu/vim-which-key) •
+[todo-comments.nvim](https://github.com/folke/todo-comments.nvim) •
+[trouble.nvim](https://github.com/folke/trouble.nvim) •
+[nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) •
+[telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim) •
+[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) •
+[lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) •
+[lsp-config](https://github.com/neovim/lsp-config) •
+[hlargs](https://github.com/m-demare/hlargs.nvim) •
+[alpha-nvim](https://github.com/goolord/alpha-nvim)
+
+### Plugin showcase
+
+Expand to see screenshots of used plugins. No config needed, works out of the box.
 
 <details>
-  <summary><a href="https://github.com/nvim-treesitter/nvim-treesitter">treesitter</a></summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/m-demare/hlargs.nvim">hlargs</a></summary>
+  <summary>Show Dark Screenshots</summary>
+  <br>
+  <div>telescope</div>
+  <img src="./screenshots/plugins/dark-telescope.png"  />
+  <br>
+  <div>git-conflict</div>
+  <img src="./screenshots/plugins/dark-git-conflict.png"  width=400 />
+  <br>
+  <div>gitsigns</div>
+  <img src="./screenshots/plugins/dark-gitsigns.png"  height=400 />
+  <br>
+  <div>hlargs</div>
   <img src="./screenshots/plugins/dark-hlargs-1.png"  width=300 />
   <img src="./screenshots/plugins/dark-hlargs-2.png"  width=300 />
-  <img src="./screenshots/plugins/light-hlargs-1.png" width=300 />
-  <img src="./screenshots/plugins/light-hlargs-2.png"  width=300 />
-</details>
-
-<details>
-  <summary><a href="https://github.com/neovim/lsp-config">lsp-config</a></summary>
-<!-- TODO: show inline diagnostics screenshots   -->
-</details>
-
-<details>
-  <summary><a href="https://github.com/glepnir/lspsaga.nvim">lspsaga.nvim</a></summary>
-  <img src="./screenshots/plugins/dark-lspsaga.png"  width=600 />
-  <img src="./screenshots/plugins/light-lspsaga.png"  width=600 />
-</details>
-
-<details>
-  <summary><a href="https://github.com/nvim-telescope/telescope.nvim">telescope.nvim</a></summary>
-  <img src="./screenshots/plugins/dark-telescope.png"  />
-  <img src="./screenshots/plugins/light-telescope.png"  />
-</details>
-
-<details>
-  <summary><a href="https://github.com/nvim-telescope/telescope-file-browser.nvim">telescope-file-browser.nvim</summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/kyazdani42/nvim-tree.lua">nvim-tree.lua</summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/folke/trouble.nvim">trouble.nvim</a></summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/folke/todo-comments.nvim">todo-comments.nvim</summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/liuchengxu/vim-which-key">vim-which-key</summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/hrsh7th/nvim-cmp">nvim-cmp</a></summary>
-  <img src="./screenshots/plugins/dark-cmp.png"  width=600 />
-  <img src="./screenshots/plugins/light-cmp.png"  width=600 />
-</details>
-
-<details>
-  <summary><a href="https://github.com/lewis6991/gitsigns.nvim">gitsigns.nvim</a></summary>
-  <img src="./screenshots/plugins/dark-gitsigns.png"  height=400 />
-  <img src="./screenshots/plugins/light-gitsigns.png"  height=400 />
-</details>
-
-<details>
-  <summary><a href="https://github.com/akinsho/git-conflict.nvim">git-conflict.nvim</summary>
-  <img src="./screenshots/plugins/dark-git-conflict.png"  width=400 />
-  <img src="./screenshots/plugins/light-git-conflict.png"  width=400 />
-</details>
-
-<details>
-  <summary><a href="https://github.com/sindrets/diffview.nvim">diffview.nvim</a></summary>
-  <img src="./screenshots/plugins/dark-diffview.png" />
-  <img src="./screenshots/plugins/light-diffview.png" />
-</details>
-
-<details>
-  <summary><a href="https://github.com/TimUntersberger/neogit">neogit</a></summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/lukas-reineke/indent-blankline.nvim">indent-blankline.nvim</summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/akinsho/nvim-bufferline.lua">nvim-bufferline.lua</a></summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/romgrk/barbar.nvim">barbar.nvim</a></summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/hoob3rt/lualine.nvim">lualine.nvim</a></summary>
+  <br>
+  <div>lualine</div>
   <img src="./screenshots/plugins/dark-lualine-normal.png"  height=25  />
   <img src="./screenshots/plugins/dark-lualine-insert.png"  height=25  />
   <img src="./screenshots/plugins/dark-lualine-visual.png"  height=25  />
   <img src="./screenshots/plugins/dark-lualine-command.png" height=25  />
   <img src="./screenshots/plugins/dark-lualine-replace.png" height=25  />
-  <img src="./screenshots/plugins/light-lualine-normal.png" height=25  />
-  <img src="./screenshots/plugins/light-lualine-insert.png" height=25  />
-  <img src="./screenshots/plugins/light-lualine-visual.png" height=25  />
-  <img src="./screenshots/plugins/light-lualine-command.png"height=25 />
-  <img src="./screenshots/plugins/light-lualine-replace.png"height=25 />
-</details>
-
-<details>
-  <summary><a href="https://github.com/petertriho/nvim-scrollbar">nvim-scrollbar</a></summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/RRethy/vim-illuminate">vim-illuminate</a></summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/xiyaowong/nvim-cursorword">nvim-cursorword</a></summary>
-</details>
-
-<details>
-  <summary><a href="https://github.com/williamboman/mason.nvim">mason.nvim</a></summary>
+  <br>
+  <div>lspasaga</div>
+  <img src="./screenshots/plugins/dark-lspsaga.png"  width=600 />
+  <br>
+  <div>diffview<div>
+  <img src="./screenshots/plugins/dark-diffview.png" />
+  <br>
+  <div>telescope-file-browser<div>
+  <img src="./screenshots/plugins/dark-telescope-file-browser.png" width=600  />
+  <br>
+  <div>nvim-tree</div>
+  <img src="./screenshots/plugins/dark-nvim-tree.png" width=300 />
+  <br>
+  <div>which-key</div>
+  <img src="./screenshots/plugins/dark-which-key.png" width=300 />
+  <br>
+  <div>trouble.nvim</div>
+  <img src="./screenshots/plugins/dark-trouble.png" width=700 />
+  <br>
+  <div>todo-comments</div>
+  <img src="./screenshots/plugins/dark-todo-comments.png" width=500/>
+  <br>
+  <div>nvim-cmp</div>
+  <img src="./screenshots/plugins/dark-cmp.png" />
+  <br>
+  <div>mason</div>
   <img src="./screenshots/plugins/dark-mason.png" />
+  <br>
+</details>
+
+<details>
+  <summary>Show Light Screenshots</summary>
+  <br>
+  <div>telescope</div>
+  <img src="./screenshots/plugins/light-telescope.png"  />
+  <br>
+  <div>git-conflict</div>
+  <img src="./screenshots/plugins/light-git-conflict.png"  width=400 />
+  <br>
+  <div>gitsigns</div>
+  <img src="./screenshots/plugins/light-gitsigns.png"  height=400 />
+  <br>
+  <div>hlargs</div>
+  <img src="./screenshots/plugins/light-hlargs-1.png"  width=300 />
+  <img src="./screenshots/plugins/light-hlargs-2.png"  width=300 />
+  <br>
+  <div>lualine</div>
+  <img src="./screenshots/plugins/light-lualine-normal.png"  height=25  />
+  <img src="./screenshots/plugins/light-lualine-insert.png"  height=25  />
+  <img src="./screenshots/plugins/light-lualine-visual.png"  height=25  />
+  <img src="./screenshots/plugins/light-lualine-command.png" height=25  />
+  <img src="./screenshots/plugins/light-lualine-replace.png" height=25  />
+  <br>
+  <div>lspasaga</div>
+  <img src="./screenshots/plugins/light-lspsaga.png"  width=600 />
+  <br>
+  <div>diffview<div>
+  <img src="./screenshots/plugins/light-diffview.png" />
+  <br>
+  <div>telescope-file-browser<div>
+  <img src="./screenshots/plugins/light-telescope-file-browser.png" width=600  />
+  <br>
+  <div>nvim-tree</div>
+  <img src="./screenshots/plugins/light-nvim-tree.png" width=300 />
+  <br>
+  <div>which-key</div>
+  <img src="./screenshots/plugins/light-which-key.png" width=300 />
+  <br>
+  <div>trouble.nvim</div>
+  <img src="./screenshots/plugins/light-trouble.png" width=700 />
+  <br>
+  <div>todo-comments</div>
+  <img src="./screenshots/plugins/light-todo-comments.png" width=500/>
+  <br>
+  <div>nvim-cmp</div>
+  <img src="./screenshots/plugins/light-cmp.png" />
+  <br>
+  <div>mason</div>
   <img src="./screenshots/plugins/light-mason.png" />
+  <br>
 </details>
 
-<details>
+
+  <!-- TODO: add screenshots
+  <summary><a href="https://github.com/lukas-reineke/indent-blankline.nvim">indent-blankline.nvim</summary>
+  <summary><a href="https://github.com/akinsho/nvim-bufferline.lua">nvim-bufferline.lua</a></summary>
+  <summary><a href="https://github.com/romgrk/barbar.nvim">barbar.nvim</a></summary>
+  <summary><a href="https://github.com/petertriho/nvim-scrollbar">nvim-scrollbar</a></summary>
+  <summary><a href="https://github.com/RRethy/vim-illuminate">vim-illuminate</a></summary>
+  <summary><a href="https://github.com/xiyaowong/nvim-cursorword">nvim-cursorword</a></summary>
   <summary><a href="https://github.com/rcarriga/nvim-notify">nvim-notify</a></summary>
-</details>
-
-<details>
   <summary><a href="https://github.com/goolord/alpha-nvim">alpha-nvim</a></summary>
-</details>
-
+ -->
 
 ## Install
 
