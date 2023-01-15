@@ -243,8 +243,8 @@ local theme = lush(function(injected_functions)
     CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Whitespace { fg = t.grey10 },
     Comment { fg = t.comment },
-    LineNr { Comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    CursorLineNr { Comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    LineNr { fg = t.comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    CursorLineNr { fg = t.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     Search { bg = t.search },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
@@ -818,7 +818,7 @@ local theme = lush(function(injected_functions)
     DiffviewFilePanelTitle { fg = t.constant },
     DiffviewFilePanelCounter { fg = t.attribute },
     -- DiffviewFilePanelFileName {},
-    DiffviewFilePanelPath { Comment },
+    DiffviewFilePanelPath { fg = t.comment },
     DiffviewFilePanelConflicts { fg = t.number },
     DiffviewFolderName { Directory },
     -- DiffviewFolderSign {},
