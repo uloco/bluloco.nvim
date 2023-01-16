@@ -2,11 +2,14 @@
 local lush = require('lush')
 local M = {}
 
+
+local isGui = vim.fn.has("gui_running") == 1
+
 local defaultConfig = {
   style       = "auto", -- auto | light | dark
   transparent = false,
   italics     = false,
-  terminal    = vim.fn.has("gui_running") == 1,
+  terminal    = isGui
 }
 
 M.config = defaultConfig
@@ -21,7 +24,7 @@ function M.load()
   package.loaded['lush_theme.bluloco'] = nil
 
   -- transparent
-  if (M.config.transparent == true) then
+  if (M.config.transparent == true and not isGui) then
     theme = lush.extends({ theme }).with(function()
       return {
         Normal { theme.Normal, bg = "NONE" }, -- normal text
