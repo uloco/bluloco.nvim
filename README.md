@@ -169,18 +169,6 @@ Expand to see screenshots of used plugins. No config needed, works out of the bo
   <br>
 </details>
 
-
-  <!-- TODO: add screenshots
-  <summary><a href="https://github.com/lukas-reineke/indent-blankline.nvim">indent-blankline.nvim</summary>
-  <summary><a href="https://github.com/akinsho/nvim-bufferline.lua">nvim-bufferline.lua</a></summary>
-  <summary><a href="https://github.com/romgrk/barbar.nvim">barbar.nvim</a></summary>
-  <summary><a href="https://github.com/petertriho/nvim-scrollbar">nvim-scrollbar</a></summary>
-  <summary><a href="https://github.com/RRethy/vim-illuminate">vim-illuminate</a></summary>
-  <summary><a href="https://github.com/xiyaowong/nvim-cursorword">nvim-cursorword</a></summary>
-  <summary><a href="https://github.com/rcarriga/nvim-notify">nvim-notify</a></summary>
-  <summary><a href="https://github.com/goolord/alpha-nvim">alpha-nvim</a></summary>
- -->
-
 ## Install
 
 Install Bluloco with [packer](https://github.com/wbthomason/packer.nvim):
