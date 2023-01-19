@@ -171,13 +171,29 @@ Expand to see screenshots of used plugins. No config needed, works out of the bo
 
 ## Install
 
-Install Bluloco with [packer](https://github.com/wbthomason/packer.nvim):
+Install Bluloco with your favorite package manager.
+
+### [packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 use {
     'uloco/bluloco.nvim',
     requires = { 'rktjmp/lush.nvim' }
 }
+```
+
+### [lazy.nvim](https://github.com/folke/lazy.nvim)
+
+```lua
+{
+  'uloco/bluloco.nvim',
+  lazy = false,
+  priority = 1000,
+  dependencies = { 'rktjmp/lush.nvim' },
+  config = function()
+    -- your optional config goes here, see below.
+  end,
+},
 ```
 
 ## Usage
