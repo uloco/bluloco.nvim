@@ -33,33 +33,32 @@ This is a port of the popular Visual Studio Code Themes
 
 Currently supported (aka. tested) plugins:
 
-[treesitter](https://github.com/nvim-treesitter/nvim-treesitter") •
-[hlargs](https://github.com/m-demare/hlargs.nvim) •
-[alpha-nvim](https://github.com/goolord/alpha-nvim) •
-[nvim-notify](https://github.com/rcarriga/nvim-notify) •
-[mason.nvim](https://github.com/williamboman/mason.nvim) •
-[nvim-cursorword](https://github.com/xiyaowong/nvim-cursorword) •
-[vim-illuminate](https://github.com/RRethy/vim-illuminate) •
-[nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar) •
-[lualine.nvim](https://github.com/hoob3rt/lualine.nvim) •
-[barbar.nvim](https://github.com/romgrk/barbar.nvim) •
-[nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua) •
-[indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) •
-[neogit](https://github.com/TimUntersberger/neogit) •
-[diffview.nvim](https://github.com/sindrets/diffview.nvim) •
-[git-conflict.nvim](https://github.com/akinsho/git-conflict.nvim) •
-[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) •
-[nvim-cmp](https://github.com/hrsh7th/nvim-cmp) •
-[vim-which-key](https://github.com/liuchengxu/vim-which-key) •
-[todo-comments.nvim](https://github.com/folke/todo-comments.nvim) •
-[trouble.nvim](https://github.com/folke/trouble.nvim) •
-[nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua) •
-[telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim) •
-[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) •
-[lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim) •
-[lsp-config](https://github.com/neovim/lsp-config) •
-[hlargs](https://github.com/m-demare/hlargs.nvim) •
-[alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter")
+- [hlargs](https://github.com/m-demare/hlargs.nvim)
+- [alpha-nvim](https://github.com/goolord/alpha-nvim)
+- [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [mason.nvim](https://github.com/williamboman/mason.nvim)
+- [nvim-cursorword](https://github.com/xiyaowong/nvim-cursorword)
+- [vim-illuminate](https://github.com/RRethy/vim-illuminate)
+- [nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar)
+- [lualine.nvim](https://github.com/hoob3rt/lualine.nvim)
+- [barbar.nvim](https://github.com/romgrk/barbar.nvim)
+- [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [neogit](https://github.com/TimUntersberger/neogit)
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim)
+- [git-conflict.nvim](https://github.com/akinsho/git-conflict.nvim)
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [vim-which-key](https://github.com/liuchengxu/vim-which-key)
+- [which-key.nvim](https://github.com/folke/which-key.nvim)
+- [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+- [trouble.nvim](https://github.com/folke/trouble.nvim)
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+- [lsp-config](https://github.com/neovim/lsp-config)
+- [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
 
 ### Plugin showcase
 
