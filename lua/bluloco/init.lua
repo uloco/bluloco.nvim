@@ -12,6 +12,9 @@ local defaultConfig = {
   terminal    = isGui
 }
 
+-- Set cursor color
+vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor"
+
 M.config = defaultConfig
 
 function M.setup(options)
