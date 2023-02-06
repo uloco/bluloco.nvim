@@ -254,8 +254,8 @@ local theme = lush(function(injected_functions)
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
-    lCursor { Normal }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM { Normal }, -- like Cursor, but used when in IME mode |CursorIM|
+    lCursor { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM { Cursor }, -- like Cursor, but used when in IME mode |CursorIM|
     Directory { fg = t.keyword }, -- directory names (and other special names in listings)
     DiffAdd { bg = t.diffAdd }, -- diff mode: Added line |diff.txt|
     DiffChange { bg = t.diffChange }, -- diff mode: Changed line |diff.txt|
