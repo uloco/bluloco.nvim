@@ -254,8 +254,8 @@ local theme = lush(function(injected_functions)
     ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
-    lCursor { Normal }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM { Normal }, -- like Cursor, but used when in IME mode |CursorIM|
+    lCursor { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM { Cursor }, -- like Cursor, but used when in IME mode |CursorIM|
     Directory { fg = t.keyword }, -- directory names (and other special names in listings)
     DiffAdd { bg = t.diffAdd }, -- diff mode: Added line |diff.txt|
     DiffChange { bg = t.diffChange }, -- diff mode: Changed line |diff.txt|
@@ -271,7 +271,6 @@ local theme = lush(function(injected_functions)
     SignColumn { Normal }, -- column where |signs| are displayed
     FoldColumn { SignColumn }, -- 'foldcolumn'
     Substitute { IncSearch }, -- |:substitute| replacement text highlighting
-    -- MatchParen { gui = "reverse" }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     MatchParen { bg = t.punctuation, fg = t.bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg { Normal }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea { Normal }, -- Area for messages and cmdline
@@ -447,6 +446,11 @@ local theme = lush(function(injected_functions)
     -- html
     sym("@text.uri.html") { gui = "underline" },
 
+
+    -- -- gui vim
+    -- -- VimR
+    VimrDefaultCursor { fg = t.cursor, bg = t.bg },
+    VimrInsertCursor { fg = t.cursor, bg = t.bg },
 
     --  gitsigns
     GitSignsAdd { fg = t.added },

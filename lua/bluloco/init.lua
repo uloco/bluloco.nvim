@@ -9,8 +9,14 @@ local defaultConfig = {
   style       = "auto", -- auto | light | dark
   transparent = false,
   italics     = false,
-  terminal    = isGui
+  terminal    = isGui,
+  guicursor   = true,
 }
+
+-- Set cursor color
+if (defaultConfig.guicursor) then
+  vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor"
+end
 
 M.config = defaultConfig
 
