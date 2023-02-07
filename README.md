@@ -208,6 +208,7 @@ require("bluloco").setup({
   transparent = false,
   italics = false,
   terminal = vim.fn.has("gui_running") == 1 -- bluoco colors are enabled in gui terminals per default.
+  guicursor   = true,
 })
 
 vim.cmd('colorscheme bluloco')
@@ -235,7 +236,7 @@ require('lualine').setup {
 
 ## Config
 
-### Style
+### style
 
 There are three styles you can configure here: `auto`, `dark` and `light`.  
 The `auto` setting is the default and will adjust automatically to your
@@ -244,7 +245,7 @@ The `auto` setting is the default and will adjust automatically to your
 > ℹ️ The style value only applies if you set the theme with `vim.cmd('colorscheme bluloco')`.  
 > Setting the theme with a variant directly will override this setting.
 
-### Transparency
+### transparency (default: false)
 
 This setting will disable the background and use the default background of your terminal.
 You need to enable this if you want the terminal to be transparent. You would still need to
@@ -253,11 +254,11 @@ configure your terminal accordingly for light and dark backgrounds when switchin
 <!-- TODO:  See: auto switching themes.
 See: bluloco theme for iTerm2 -->
 
-### Italics
+### italics (default: false)
 
 This setting will enable italics for _keywords_, _comments_ and _markup attributes_.
 
-### Terminal
+### terminal (default: true in gui, otherwise false)
 
 This setting will enable the bluloco colors in your integrated terminal. 
 You most likely want to keep your terminal colors instead of overriding them if you are running neovim in a terminal.
@@ -267,6 +268,11 @@ You can skip the `terminal` setting completely to have it disabled in terminals 
 
 > ℹ️  Please note that some terminals will display bold text as the bright color variant but enabling this feature will override this behavior in the intergrated terminal. This is by design and has nothing to do with this theme. [see](https://github.com/neovim/neovim/issues/11335)
 
+### guicursor (default: true)
+
+This setting sets a guicursor to fix your terminal cursor and make it colorful (as intended).
+It is enabled by default.
+If you want to override this, make sure to set your `:set guicursor` after loading the theme or disable it completely.
 
 <!-- ## Recipes
 ### Auto switching light & dark themes
