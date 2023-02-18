@@ -278,6 +278,13 @@ If you want to override this, make sure to set your `:set guicursor` after loadi
 ### Auto switching light & dark themes
  -->
 
+## Terminal Colors
+
+I've added a bunch of terminal themes for your terminal emulators. I've used the great [iTerm-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes)
+repository for this, thanks @mbadolato!
+
+They are located at `terminal-themes/`. Please follow your terminals installation guide in how to apply them.
+
 ## Contributing
 
 I'd be more than happy for any bugs you find and add an [issue](https://github.com/uloco/bluloco.nvim/issues).  
