@@ -3,12 +3,13 @@
 
 # Bluloco.nvim
 
-A fancy but yet sophisticated light and dark designer neovim theme built with [lush.nvim](https://github.com/rktjmp/lush.nvim).
+A fancy and sophisticated designer neovim theme built with [lush.nvim](https://github.com/rktjmp/lush.nvim).
 It features a much more comprehensive usage of syntax scopes and color
 consistency, with due regards to aesthetics, contrast and readability.
+There is a light and dark variant.
 Most popular plugins are also supported, see [Plugins](#plugins)
 
-This theme also works very good when Apple's **Nightshift Mode** is activated.
+This theme also works very good with blue light filters like Apple's *Nightshift Mode* or *f.lux*.
 
 This is a port of the popular Visual Studio Code Themes
 [Bluloco Light](https://github.com/uloco/theme-bluloco-light) and
