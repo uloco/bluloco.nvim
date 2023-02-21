@@ -251,7 +251,7 @@ local theme = lush(function(injected_functions)
     NormalFloat { bg = t.bgFloat, blend = 5 }, -- Normal text in floating windows.
     FloatBorder { fg = t.punctuation },
     NormalSB { bg = t.bgFloat }, -- Normal text in floating windows.
-    ColorColumn { Whitespace }, -- used for the columns set with 'colorcolumn'
+    ColorColumn { bg = t.grey5 }, -- used for the columns set with 'colorcolumn'
     Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
     Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
     lCursor { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
@@ -884,6 +884,9 @@ local theme = lush(function(injected_functions)
 
     -- hlargs (semantic parameter highlighting)
     Hlargs { sym("@parameter") },
+
+    -- virt-column
+    VirtColumn { Whitespace },
 
     -- basic highlighting without treesitter
 
