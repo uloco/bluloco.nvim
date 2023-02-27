@@ -615,7 +615,7 @@ local theme = lush(function(injected_functions)
     SagaExpand { Normal },
     SagaCollapse { SagaExpand },
     SagaCount { Number },
-    SagaBeacon { bg = t.cursor,  blend = 70  },
+    SagaBeacon { bg = t.cursor, blend = 70 },
     CodeActionNumber { Statement },
     FinderSelection { Visual },
     -- FinderFileName { Comment },
