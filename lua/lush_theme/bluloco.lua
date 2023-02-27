@@ -480,6 +480,7 @@ local theme = lush(function(injected_functions)
     -- BufferLineInfoSelected { fg = t.info, sp = t.primary, gui = "underline" },
     -- BufferLineHintSelected { fg = t.hint, sp = t.primary, gui = "underline" },
     --
+
     -- BarBar
     BufferCurrent { Normal },
     BufferCurrentIndex { BufferCurrent },
@@ -529,6 +530,7 @@ local theme = lush(function(injected_functions)
     BufferTabpageFill { BufferTabpages, fg = t.bg },
     BufferOffset { BufferTabpageFill },
     --
+
     -- Telescope
     -- Sets the highlight for selected items within the picker.
     -- TelescopeSelection  {},
@@ -608,6 +610,7 @@ local theme = lush(function(injected_functions)
     -- TelescopeResultsDiffAdd  {},
     -- TelescopeResultsDiffDelete  {},
     -- TelescopeResultsDiffUntracked  {},
+    --
 
     -- lspsaga
     TitleIcon { Function },
@@ -625,6 +628,7 @@ local theme = lush(function(injected_functions)
     SagaLightBulb { Attribute },
     -- SagaShadow { FloatShadow },
     OutlineIndent { Whitespace },
+    --
     -- lspsaga winbar
     -- SagaWinbarModule {},
     -- SagaWinbarInterface {},
@@ -665,6 +669,8 @@ local theme = lush(function(injected_functions)
     SagaWinbarFolderName {},
     SagaWinbarFileIcon {},
     SagaWinbarSep { fg = t.punctuation },
+    --
+
     -- Trouble
     TroubleCount { fg = t.number },
     TroubleNormal { bg = t.bgFloat },
@@ -689,6 +695,7 @@ local theme = lush(function(injected_functions)
     -- TroubleTextHint {},
     TroubleText {},
     --
+
     -- Cmp
     CmpDocumentation { fg = t.fg, bg = t.bgFloat },
     CmpDocumentationBorder { fg = t.punctuation, bg = t.bgFloat },
@@ -720,16 +727,19 @@ local theme = lush(function(injected_functions)
     CmpItemKindOperator { fg = t.punctuation },
     CmpItemKindSnippet { fg = t.label },
     --
+
     -- nvim illuminate
     IlluminatedWordText { bg = t.grey7 },
     IlluminatedWordRead { bg = t.grey7 },
     IlluminatedWordWrite { bg = t.grey7 },
     --
+
     -- cursor word
     CursorWord = { bg = t.grey7 },
     CursorWord0 = { bg = t.grey7 },
     CursorWord1 = { bg = t.grey7 },
     --
+
     -- mason
     MasonNormal { NormalFloat },
     MasonHeader { bg = t.primary, fg = t.bg },
@@ -747,6 +757,7 @@ local theme = lush(function(injected_functions)
     MasonError { Error },
     MasonHeading { gui = "bold,underline", fg = t.fg },
     --
+
     -- which-key
     WhichKey { Character },
     WhichKeyGroup { Tag },
@@ -782,6 +793,7 @@ local theme = lush(function(injected_functions)
     DiffviewPrimary { fg = t.keyword },
     DiffviewSecondary { fg = t.tag },
     --
+
     -- nvim tree
     NvimTreeNormal { bg = t.bgFloat },
     NvimTreeNormalNC { bg = t.bgFloat },
@@ -799,6 +811,8 @@ local theme = lush(function(injected_functions)
     NvimTreeGitDeleted { fg = t.deleted },
     NvimTreeGitNew { fg = t.method },
     --
+
+    -- git-conflict
     GitConflictCurrent { bg = t.mergeCurrent, blend = 5 },
     GitConflictIncoming { bg = t.mergeIncoming, blend = 5 },
     GitConflictAncestor { bg = t.mergeParent, blend = 5 },
@@ -806,7 +820,8 @@ local theme = lush(function(injected_functions)
     GitConflictIncomingLabel { bg = t.mergeIncomingLabel, blend = 5 },
     GitConflictAncestorLabel { bg = t.mergeParentLabel, blend = 5 },
     --
-    -- -- Notify.
+
+    -- notify
     NotifyBackground { NormalFloat },
     NotifyERRORBorder { Normal, fg = t.error },
     NotifyWARNBorder { Normal, fg = t.warning },
@@ -824,21 +839,25 @@ local theme = lush(function(injected_functions)
     NotifyDEBUGTitle { NotifyDEBUGBorder },
     NotifyTRACETitle { NotifyTRACEBorder },
     --
+
     -- -- Visual Multi.
     -- VM_Extend = { bg = colors.selection_inactive },
     -- VM_Cursor = { bg = colors.selection_inactive, sp = colors.fg, underline = true },
     -- VM_Insert = { sp = colors.fg, underline = true },
     -- VM_Mono = { fg = colors.bg, bg = colors.comment },
-
     --
+
     -- hlargs (semantic parameter highlighting)
     Hlargs { sym("@parameter") },
     --
+
     -- virt-column
     VirtColumn { Whitespace },
     --
+
     -- basic highlighting without treesitter
     --
+
     -- javascript
     javaScript { Identifier },
     javaScriptIdentifier { Statement },
@@ -847,6 +866,7 @@ local theme = lush(function(injected_functions)
     javaScriptBraces { Punctuation },
     javaScriptNumber { Number },
     --
+
     -- typescript
     typeScriptImport { Statement },
     typeScriptExport { Statement },
@@ -874,12 +894,14 @@ local theme = lush(function(injected_functions)
     typescriptDocNotation { fg = t.shade50 },
     typescriptDocTags { typescriptDocNotation },
     --
+
     -- json
     jsonKeyword { Property },
     jsonQuote { String },
     jsonBraces { Punctuation },
     jsonBraces { jsonBraces },
     --
+
     --html
     htmlTagName { Tag },
     htmlSpecialTagName { Tag },
@@ -889,6 +911,7 @@ local theme = lush(function(injected_functions)
     htmlArg { Special },
     htmlSpecialChar { Constant },
     --
+
     -- xml
     xmlTag { Tag },
     xmlProcessing { Tag },
@@ -902,6 +925,7 @@ local theme = lush(function(injected_functions)
     xmlEntity { Constant },
     xmlCdataStart { sym "@label" },
     --
+
     -- css
     cssProp { Property },
     cssBraces { Punctuation },
@@ -918,6 +942,7 @@ local theme = lush(function(injected_functions)
     cssUrl { String, gui = "underline" },
     cssUnitDecorators { Constant },
     --
+
     -- rust
     rustModPathSep { Punctuation },
     rustFoldBraces { Punctuation },
@@ -925,6 +950,7 @@ local theme = lush(function(injected_functions)
     rustSigil { Punctuation },
     rustStorage { Statement },
     --
+
     -- ruby
     rubyConstant { Constant },
     rubyCurlyBlockDelimiter { Punctuation },
@@ -933,12 +959,14 @@ local theme = lush(function(injected_functions)
     rubyStringDelimiter { String },
     rubyKeywordAsMethod { Function },
     --
+
     -- python
     pythonDecorator { sym("@annotation") },
     pythonDecoratorName { sym("@annotation") },
     pythonAttribute { Property },
     pythonBuiltin { sym("@type.builtin") },
     --
+
     -- yaml
     yamlBlockMappingKey { Property },
     yamlKeyValueDelimiter { Punctuation },
