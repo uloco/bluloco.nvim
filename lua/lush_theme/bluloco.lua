@@ -37,49 +37,47 @@ local config = require("bluloco").config
 
 local dark = {
   -- syntax
-  bg          = hsl("#282C34"),
-  bgFloat     = hsl("#21242D"),
-  fg          = hsl("#ABB2BF"),
-  cursor      = hsl("#FFCC00"),
-  keyword     = hsl("#10B1FE"),
-  comment     = hsl("#636D83"),
-  punctuation = hsl("#7A82DA"),
-  method      = hsl("#3FC56B"),
-  type        = hsl("#FF6480"),
-  string      = hsl("#F9C859"),
-  number      = hsl("#FF78F8"),
-  constant    = hsl("#9F7EFE"),
-  tag         = hsl("#3691FF"),
-  attribute   = hsl("#FF936A"),
-  property    = hsl("#CE9887"),
-  parameter   = hsl("#8bcdef"),
-  label       = hsl("#50acae"),
-
+  bg                    = hsl("#282C34"),
+  bgFloat               = hsl("#21242D"),
+  fg                    = hsl("#ABB2BF"),
+  cursor                = hsl("#FFCC00"),
+  keyword               = hsl("#10B1FE"),
+  comment               = hsl("#636D83"),
+  punctuation           = hsl("#7A82DA"),
+  method                = hsl("#3FC56B"),
+  type                  = hsl("#FF6480"),
+  string                = hsl("#F9C859"),
+  number                = hsl("#FF78F8"),
+  constant              = hsl("#9F7EFE"),
+  tag                   = hsl("#3691FF"),
+  attribute             = hsl("#FF936A"),
+  property              = hsl("#CE9887"),
+  parameter             = hsl("#8bcdef"),
+  label                 = hsl("#50acae"),
   -- workspace
-  primary            = hsl("#3691ff"),
-  selection          = hsl("#274670"),
-  search             = hsl("#1A7247"),
-  diffAdd            = hsl("#105B3D"),
-  diffChange         = hsl("#10415B"),
-  diffDelete         = hsl("#522E34"),
-  added              = hsl("#177F55"),
-  changed            = hsl("#1B6E9B"),
-  deleted            = hsl("#A14D5B"),
-  diffText           = hsl("#10415B").lighten(12),
-  error              = hsl("#ff2e3f"),
-  errorBG            = hsl("#FDCFD1"),
-  warning            = hsl("#da7a43"),
-  warningBG          = hsl("#F2DBCF"),
-  info               = hsl("#3691ff"),
-  infoBG             = hsl("#D4E3FA"),
-  hint               = hsl("#7982DA"),
-  mergeCurrent       = hsl("#4B3D3F"),
-  mergeCurrentLabel  = hsl("#604B47"),
-  mergeIncoming      = hsl("#2F476B"),
-  mergeIncomingLabel = hsl("#305C95"),
-  mergeParent        = hsl(235, 28, 32),
-  mergeParentLabel   = hsl(235, 29, 41),
-
+  primary               = hsl("#3691ff"),
+  selection             = hsl("#274670"),
+  search                = hsl("#1A7247"),
+  diffAdd               = hsl("#105B3D"),
+  diffChange            = hsl("#10415B"),
+  diffDelete            = hsl("#522E34"),
+  added                 = hsl("#177F55"),
+  changed               = hsl("#1B6E9B"),
+  deleted               = hsl("#A14D5B"),
+  diffText              = hsl("#10415B").lighten(12),
+  error                 = hsl("#ff2e3f"),
+  errorBG               = hsl("#FDCFD1"),
+  warning               = hsl("#da7a43"),
+  warningBG             = hsl("#F2DBCF"),
+  info                  = hsl("#3691ff"),
+  infoBG                = hsl("#D4E3FA"),
+  hint                  = hsl("#7982DA"),
+  mergeCurrent          = hsl("#4B3D3F"),
+  mergeCurrentLabel     = hsl("#604B47"),
+  mergeIncoming         = hsl("#2F476B"),
+  mergeIncomingLabel    = hsl("#305C95"),
+  mergeParent           = hsl(235, 28, 32),
+  mergeParentLabel      = hsl(235, 29, 41),
   -- terminal
   terminalBlack         = hsl("#42444d"),
   terminalRed           = hsl("#fc2e51"),
@@ -101,49 +99,47 @@ local dark = {
 
 local light = {
   -- syntax
-  bg          = hsl("#F9F9F9"),
-  bgFloat     = hsl("#ECEDEE"),
-  fg          = hsl("#383A42"),
-  cursor      = hsl("#F31459"),
-  keyword     = hsl("#0098DD"),
-  comment     = hsl("#A0A1A7"),
-  punctuation = hsl("#7A82DA"),
-  method      = hsl("#23974A"),
-  type        = hsl("#D52753"),
-  string      = hsl("#C5A332"),
-  number      = hsl("#CE33C0"),
-  constant    = hsl("#823FF1"),
-  tag         = hsl("#275FE4"),
-  attribute   = hsl("#DF631C"),
-  property    = hsl("#A05A48"),
-  parameter   = hsl("#40B8C5"),
-  label       = hsl("#3a8ab2"),
-
+  bg                    = hsl("#F9F9F9"),
+  bgFloat               = hsl("#ECEDEE"),
+  fg                    = hsl("#383A42"),
+  cursor                = hsl("#F31459"),
+  keyword               = hsl("#0098DD"),
+  comment               = hsl("#A0A1A7"),
+  punctuation           = hsl("#7A82DA"),
+  method                = hsl("#23974A"),
+  type                  = hsl("#D52753"),
+  string                = hsl("#C5A332"),
+  number                = hsl("#CE33C0"),
+  constant              = hsl("#823FF1"),
+  tag                   = hsl("#275FE4"),
+  attribute             = hsl("#DF631C"),
+  property              = hsl("#A05A48"),
+  parameter             = hsl("#40B8C5"),
+  label                 = hsl("#3a8ab2"),
   -- workspace
-  primary            = hsl("#0099e1"),
-  selection          = hsl("#d2ecff"),
-  search             = hsl("#b1eacf"),
-  diffAdd            = hsl("#c5f6c8"),
-  diffChange         = hsl("#C2E4FF"),
-  diffDelete         = hsl("#fac1c6"),
-  added              = hsl("#3cbc66"),
-  changed            = hsl("#0099e1"),
-  deleted            = hsl("#FA7883"),
-  diffText           = hsl("#C2E4FF").darken(4),
-  error              = hsl("#ff0000"),
-  errorBG            = hsl("#FCE4E4"),
-  warning            = hsl("#ff8f3a"),
-  warningBG          = hsl("#FBE4D5"),
-  info               = hsl("#0099e1"),
-  infoBG             = hsl("#D2ECFF"),
-  hint               = hsl("#7982DA"),
-  mergeCurrent       = hsl("#F1E8E6"),
-  mergeCurrentLabel  = hsl("#E5D4D0"),
-  mergeIncoming      = hsl("#DFEDF6"),
-  mergeIncomingLabel = hsl("#CAE3F4"),
-  mergeParent        = hsl(233, 60, 95),
-  mergeParentLabel   = hsl(233, 60, 90),
-
+  primary               = hsl("#0099e1"),
+  selection             = hsl("#d2ecff"),
+  search                = hsl("#b1eacf"),
+  diffAdd               = hsl("#c5f6c8"),
+  diffChange            = hsl("#C2E4FF"),
+  diffDelete            = hsl("#fac1c6"),
+  added                 = hsl("#3cbc66"),
+  changed               = hsl("#0099e1"),
+  deleted               = hsl("#FA7883"),
+  diffText              = hsl("#C2E4FF").darken(4),
+  error                 = hsl("#ff0000"),
+  errorBG               = hsl("#FCE4E4"),
+  warning               = hsl("#ff8f3a"),
+  warningBG             = hsl("#FBE4D5"),
+  info                  = hsl("#0099e1"),
+  infoBG                = hsl("#D2ECFF"),
+  hint                  = hsl("#7982DA"),
+  mergeCurrent          = hsl("#F1E8E6"),
+  mergeCurrentLabel     = hsl("#E5D4D0"),
+  mergeIncoming         = hsl("#DFEDF6"),
+  mergeIncomingLabel    = hsl("#CAE3F4"),
+  mergeParent           = hsl(233, 60, 95),
+  mergeParentLabel      = hsl(233, 60, 90),
   -- terminal
   terminalBlack         = hsl("#373a41"),
   terminalRed           = hsl("#d52652"),
@@ -291,20 +287,20 @@ local theme = lush(function(injected_functions)
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
-
+    --
     StatusLine { bg = t.grey10, gui = "" }, -- status line of current window
     StatusLineNC { bg = t.shade5 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-
+    --
     TabLine { bg = t.shade3, fg = t.shade30 }, -- tab pages line, not active tab page label
     TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
     TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
-
+    --
     Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
     Visual { bg = t.selection }, -- Visual mode selection
     VisualNOS { bg = t.selection }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg { fg = t.warning }, -- warning messages
     WildMenu { bg = t.selection }, -- current match in 'wildmenu' completion
-
+    --
     Constant { fg = t.constant }, -- (preferred) any constant
     String { fg = t.string }, --   a string constant: "this is a string"
     Character { fg = t.attribute }, --  a character constant: 'c', '\n'
@@ -350,7 +346,7 @@ local theme = lush(function(injected_functions)
     Ignore { fg = t.bg }, -- (preferred) left blank, hidden  |hl-Ignore|
     Error { ErrorMsg }, -- (preferred) any erroneous construct
     Todo { bg = t.info, fg = t.white }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-
+    --
     -- These groups are for the native LSP client and diagnostic system. Some
     -- other LSP clients may use these groups, or use their own. Consult your
     -- LSP client's documentation.
@@ -393,7 +389,7 @@ local theme = lush(function(injected_functions)
     -- TSError -> Error for example, so you do not have to define these unless
     -- you explicitly want to support Treesitter's improved syntax awareness.
 
-
+    --
     -- TSError              { }, -- For syntax/parser errors.
     sym("@constructor") { fg = t.type },
     sym("@punctuation") { fg = t.punctuation },
@@ -431,8 +427,7 @@ local theme = lush(function(injected_functions)
     sym("@error") { Error }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@warning") { WarningMsg },
     sym("@info") { fg = t.info },
-
-
+    --
     --     -- sym"@string.special"    { }, -- SpecialChar
     --     -- sym"@character.special" { }, -- SpecialChar
     --     -- sym"@function.macro"    { }, -- Macro
@@ -445,18 +440,15 @@ local theme = lush(function(injected_functions)
     sym("@label.help") { sym("@text.uri") },
     -- html
     sym("@text.uri.html") { gui = "underline" },
-
-
+    --
     -- -- gui vim
     -- -- VimR
     VimrDefaultCursor { fg = t.cursor, bg = t.bg },
     VimrInsertCursor { fg = t.cursor, bg = t.bg },
-
     --  gitsigns
     GitSignsAdd { fg = t.added },
     GitSignsChange { fg = t.changed },
     GitSignsDelete { fg = t.deleted },
-
     -- TODO: improve bufferline
     BufferlineFill { NormalFloat },
     -- BufferlineBackground { bg = t.bg },
@@ -487,9 +479,8 @@ local theme = lush(function(injected_functions)
     -- BufferLineErrorSelected { fg = t.error, sp = t.primary, gui = "underline" },
     -- BufferLineInfoSelected { fg = t.info, sp = t.primary, gui = "underline" },
     -- BufferLineHintSelected { fg = t.hint, sp = t.primary, gui = "underline" },
-
+    --
     -- BarBar
-
     BufferCurrent { Normal },
     BufferCurrentIndex { BufferCurrent },
     BufferCurrentIcon { BufferCurrentIndex },
@@ -500,7 +491,7 @@ local theme = lush(function(injected_functions)
     BufferCurrentINFO { fg = DiagnosticInfo.fg, bg = BufferCurrent.bg },
     BufferCurrentERROR { fg = DiagnosticError.fg, bg = BufferCurrent.bg },
     BufferCurrentHINT { fg = DiagnosticHint.fg, bg = BufferCurrent.bg },
-
+    --
     BufferInactive { fg = t.shade40, bg = t.bgFloat },
     BufferInactiveIcon { BufferInactive },
     BufferInactiveIndex { BufferInactive },
@@ -511,7 +502,7 @@ local theme = lush(function(injected_functions)
     BufferInactiveINFO { BufferCurrentINFO, bg = BufferInactive.bg },
     BufferInactiveERROR { BufferCurrentERROR, bg = BufferInactive.bg },
     BufferInactiveHINT { BufferCurrentHINT, bg = BufferInactive.bg },
-
+    --
     BufferVisible { BufferCurrent, bg = t.bgFloat },
     BufferVisibleIndex { BufferVisible },
     BufferVisibleIcon { BufferVisibleIndex },
@@ -522,7 +513,7 @@ local theme = lush(function(injected_functions)
     BufferVisibleINFO { BufferInactiveINFO },
     BufferVisibleERROR { BufferInactiveERROR },
     BufferVisibleHINT { BufferInactiveHINT },
-
+    --
     BufferAlternate { BufferInactive },
     BufferAlternateIndex { BufferAlternate },
     BufferAlternateIcon { BufferAlternateIndex },
@@ -533,19 +524,18 @@ local theme = lush(function(injected_functions)
     BufferAlternateINFO { BufferInactiveINFO },
     BufferAlternateERROR { BufferInactiveERROR },
     BufferAlternateHINT { BufferInactiveHINT },
-
+    --
     BufferTabpages { BufferInactive, fg = t.fg },
     BufferTabpageFill { BufferTabpages, fg = t.bg },
     BufferOffset { BufferTabpageFill },
-
+    --
     -- Telescope
-
     -- Sets the highlight for selected items within the picker.
     -- TelescopeSelection  {},
     -- TelescopeSelectionCaret  {},
     TelescopeMultiSelection { fg = t.attribute },
     TelescopeMultiIcon { fg = t.primary },
-
+    --
     -- -- "Normal" in the floating windows created by telescope.
     -- TelescopeNormal { fg = t.fg, bg = t.bg },
     -- TelescopeNormal { fg = t.fg, bg = t.bg, blend = 5 },
@@ -575,10 +565,8 @@ local theme = lush(function(injected_functions)
 
     -- -- Used for highlighting characters that you match.
     TelescopeMatching { fg = t.keyword },
-
     -- -- Used for the prompt prefix
     TelescopePromptPrefix { fg = t.punctuation },
-
     -- -- Used for highlighting the matched line inside Previewer. Works only for (vim_buffer_ previewer)
     -- TelescopePreviewLine  {},
     -- TelescopePreviewMatch  {},
@@ -610,13 +598,11 @@ local theme = lush(function(injected_functions)
     -- TelescopeResultsOperator  {},
     -- TelescopeResultsStruct  {},
     TelescopeResultsVariable { Identifier },
-
     -- TelescopeResultsLineNr  {},
     -- TelescopeResultsIdentifier  {},
     -- TelescopeResultsNumber  {},
     -- TelescopeResultsComment  {},
     TelescopeResultsSpecialComment { Comment },
-
     -- -- Used for git status Results highlighting
     -- TelescopeResultsDiffChange  {},
     -- TelescopeResultsDiffAdd  {},
@@ -625,12 +611,10 @@ local theme = lush(function(injected_functions)
 
     LspFloatWinNormal { NormalFloat },
     LspFloatWinBorder { fg = t.punctuation },
-
     -- code action
     LspSagaCodeActionBorder { LspFloatWinBorder },
     LspSagaCodeActionTitle { fg = t.constant },
     LspSagaCodeActionContent { fg = t.primary },
-
     -- finder
     LspSagaLspFinderBorder { LspFloatWinBorder },
     LspSagaAutoPreview { LspFloatWinBorder },
@@ -646,25 +630,19 @@ local theme = lush(function(injected_functions)
     ImplementsIcon { fg = t.punctuation },
     Implements { Title },
     ImplementsCount { fg = t.attribute },
-
     --finder spinner
     FinderSpinnerBorder { LspFloatWinBorder },
     FinderSpinnerTitle { Identifier },
     FinderSpinner { fg = t.primary, bold = true },
-
-
     LspSagaBorderTitle { Title },
     LspSagaHoverBorder { LspFloatWinBorder },
     LspSagaRenameBorder { LspFloatWinBorder },
     LspSagaDefPreviewBorder { LspFloatWinBorder },
     LspSagaSignatureHelpBorder { LspFloatWinBorder },
-
     LspSagaDiagnosticBorder { LspFloatWinBorder },
     LspSagaDiagnosticHeader { LspSagaCodeActionTitle },
-
     -- lightbulb
     LspSagaLightBulb { fg = t.attribute },
-
     -- -- outline
     LSOutlineFile { Identifier },
     LSOutlineModule { Statement },
@@ -698,7 +676,7 @@ local theme = lush(function(injected_functions)
     LSOutlineMacro { Method },
     OutlineIndentOdd { Whitespace },
     OutlineIndentEvn { Whitespace },
-
+    --
     -- Trouble
     TroubleCount { fg = t.number },
     TroubleNormal { bg = t.bgFloat },
@@ -722,80 +700,65 @@ local theme = lush(function(injected_functions)
     -- TroubleHint {},
     -- TroubleTextHint {},
     TroubleText {},
-
-
+    --
     -- Cmp
     CmpDocumentation { fg = t.fg, bg = t.bgFloat },
     CmpDocumentationBorder { fg = t.punctuation, bg = t.bgFloat },
-
     CmpItemAbbr { fg = t.fg },
     CmpItemAbbrDeprecated { fg = t.fg, gui = "strikethrough" },
     CmpItemAbbrMatch { fg = t.primary },
     CmpItemAbbrMatchFuzzy { fg = t.primary },
-
     CmpItemMenu { fg = t.attribute },
-
     CmpItemKindDefault { fg = t.fg },
-
     CmpItemKindKeyword { fg = t.keyword },
-
     CmpItemKindVariable { fg = t.fg },
     CmpItemKindConstant { fg = t.constant },
     CmpItemKindReference { fg = t.fg },
     CmpItemKindValue { fg = t.fg },
-
     CmpItemKindFunction { fg = t.method },
     CmpItemKindMethod { fg = t.method },
     CmpItemKindConstructor { fg = t.type },
-
     CmpItemKindClass { fg = t.type },
     CmpItemKindInterface { fg = t.type },
     CmpItemKindStruct { fg = t.type },
     CmpItemKindEvent { fg = t.label },
     CmpItemKindEnum { fg = t.type },
     CmpItemKindUnit { fg = t.number },
-
     CmpItemKindModule { fg = t.yellow },
-
     CmpItemKindProperty { fg = t.property },
     CmpItemKindField { fg = t.property },
     CmpItemKindTypeParameter { fg = t.type },
     CmpItemKindEnumMember { fg = t.type },
     CmpItemKindOperator { fg = t.punctuation },
     CmpItemKindSnippet { fg = t.label },
-
+    --
     -- nvim illuminate
     IlluminatedWordText { bg = t.grey7 },
     IlluminatedWordRead { bg = t.grey7 },
     IlluminatedWordWrite { bg = t.grey7 },
-
+    --
+    -- cursor word
     CursorWord = { bg = t.grey7 },
     CursorWord0 = { bg = t.grey7 },
     CursorWord1 = { bg = t.grey7 },
-
+    --
     -- mason
     MasonNormal { NormalFloat },
     MasonHeader { bg = t.primary, fg = t.bg },
     MasonHeaderSecondary { bg = t.constant, fg = t.bg },
-
     MasonHighlight { fg = t.primary },
     MasonHighlightBlock { bg = t.primary, fg = t.bg },
     MasonHighlightBlockBold { bg = t.primary, fg = t.bg, gui = "bold" },
-
     MasonHighlightSecondary { fg = t.constant },
     MasonHighlightBlockSecondary { bg = t.constant, fg = t.bg },
     MasonHighlightBlockBoldSecondary { bg = t.constant, fg = t.bg, gui = "bold" },
-
     MasonLink { sym("@text.uri") },
-
     MasonMuted { fg = t.shade50 },
     MasonMutedBlock { bg = t.shade40, fg = t.bg },
     MasonMutedBlockBold { bg = t.shade40, fg = t.bg, gui = "bold" },
-
     MasonError { Error },
-
     MasonHeading { gui = "bold,underline", fg = t.fg },
-
+    --
     -- which-key
     WhichKey { Character },
     WhichKeyGroup { Tag },
@@ -804,7 +767,8 @@ local theme = lush(function(injected_functions)
     -- WhichKeyFloat {},
     -- WhichKeyBorder {},
     -- WhichKeyValue { Character },
-
+    --
+    --
     --   -- Diffview
     DiffviewStatusAdded { fg = t.method },
     DiffviewStatusModified { fg = t.keyword },
@@ -829,34 +793,31 @@ local theme = lush(function(injected_functions)
     -- DiffviewReference {},
     DiffviewPrimary { fg = t.keyword },
     DiffviewSecondary { fg = t.tag },
-
-
+    --
     -- nvim tree
     NvimTreeNormal { bg = t.bgFloat },
     NvimTreeNormalNC { bg = t.bgFloat },
     NvimTreeWindowPicker { fg = t.fg, bg = t.selection, gui = "bold" },
     NvimTreeIndentMarker { fg = t.punctuation },
-
     NvimTreeRootFolder { fg = t.tag },
     NvimTreeFolderIcon { fg = t.keyword },
     NvimTreeFolderName { fg = t.tag },
     NvimTreeOpenedFolderName { fg = t.keyword },
     NvimTreeSpecialFile { fg = t.constant },
     NvimTreeExecFile { fg = t.method },
-
     NvimTreeGitStaged { fg = t.method },
     NvimTreeGitDirty { fg = t.type },
     NvimTreeGitMerge { fg = t.number },
     NvimTreeGitDeleted { fg = t.deleted },
     NvimTreeGitNew { fg = t.method },
-
+    --
     GitConflictCurrent { bg = t.mergeCurrent, blend = 5 },
     GitConflictIncoming { bg = t.mergeIncoming, blend = 5 },
     GitConflictAncestor { bg = t.mergeParent, blend = 5 },
     GitConflictCurrentLabel { bg = t.mergeCurrentLabel, blend = 5 },
     GitConflictIncomingLabel { bg = t.mergeIncomingLabel, blend = 5 },
     GitConflictAncestorLabel { bg = t.mergeParentLabel, blend = 5 },
-
+    --
     -- -- Notify.
     NotifyBackground { NormalFloat },
     NotifyERRORBorder { Normal, fg = t.error },
@@ -874,22 +835,22 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { NotifyINFOBorder },
     NotifyDEBUGTitle { NotifyDEBUGBorder },
     NotifyTRACETitle { NotifyTRACEBorder },
-
+    --
     -- -- Visual Multi.
     -- VM_Extend = { bg = colors.selection_inactive },
     -- VM_Cursor = { bg = colors.selection_inactive, sp = colors.fg, underline = true },
     -- VM_Insert = { sp = colors.fg, underline = true },
     -- VM_Mono = { fg = colors.bg, bg = colors.comment },
 
-
+    --
     -- hlargs (semantic parameter highlighting)
     Hlargs { sym("@parameter") },
-
+    --
     -- virt-column
     VirtColumn { Whitespace },
-
+    --
     -- basic highlighting without treesitter
-
+    --
     -- javascript
     javaScript { Identifier },
     javaScriptIdentifier { Statement },
@@ -897,7 +858,7 @@ local theme = lush(function(injected_functions)
     javaScriptParens { Punctuation },
     javaScriptBraces { Punctuation },
     javaScriptNumber { Number },
-
+    --
     -- typescript
     typeScriptImport { Statement },
     typeScriptExport { Statement },
@@ -924,13 +885,13 @@ local theme = lush(function(injected_functions)
     typescriptBinaryOp { Operator },
     typescriptDocNotation { fg = t.shade50 },
     typescriptDocTags { typescriptDocNotation },
-
+    --
     -- json
     jsonKeyword { Property },
     jsonQuote { String },
     jsonBraces { Punctuation },
     jsonBraces { jsonBraces },
-
+    --
     --html
     htmlTagName { Tag },
     htmlSpecialTagName { Tag },
@@ -939,7 +900,7 @@ local theme = lush(function(injected_functions)
     htmlTagN { htmlTagName },
     htmlArg { Special },
     htmlSpecialChar { Constant },
-
+    --
     -- xml
     xmlTag { Tag },
     xmlProcessing { Tag },
@@ -952,7 +913,7 @@ local theme = lush(function(injected_functions)
     xmlEntityPunct { Punctuation },
     xmlEntity { Constant },
     xmlCdataStart { sym "@label" },
-
+    --
     -- css
     cssProp { Property },
     cssBraces { Punctuation },
@@ -968,14 +929,14 @@ local theme = lush(function(injected_functions)
     cssTagName { Tag },
     cssUrl { String, gui = "underline" },
     cssUnitDecorators { Constant },
-
+    --
     -- rust
     rustModPathSep { Punctuation },
     rustFoldBraces { Punctuation },
     rustBoxPlacementBalance { Punctuation },
     rustSigil { Punctuation },
     rustStorage { Statement },
-
+    --
     -- ruby
     rubyConstant { Constant },
     rubyCurlyBlockDelimiter { Punctuation },
@@ -983,18 +944,17 @@ local theme = lush(function(injected_functions)
     rubyInterpolationDelimiter { Punctuation },
     rubyStringDelimiter { String },
     rubyKeywordAsMethod { Function },
-
+    --
     -- python
     pythonDecorator { sym("@annotation") },
     pythonDecoratorName { sym("@annotation") },
     pythonAttribute { Property },
     pythonBuiltin { sym("@type.builtin") },
-
+    --
     -- yaml
     yamlBlockMappingKey { Property },
     yamlKeyValueDelimiter { Punctuation },
     yamlNodeTag { Statement },
-
   }
 end)
 return theme
