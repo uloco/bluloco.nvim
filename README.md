@@ -212,6 +212,7 @@ require("bluloco").setup({
   guicursor   = true,
 })
 
+vim.opt.termguicolors = true
 vim.cmd('colorscheme bluloco')
 ```
 
