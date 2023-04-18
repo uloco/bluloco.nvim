@@ -235,81 +235,81 @@ local theme = lush(function(injected_functions)
 
   return {
     Normal { fg = t.fg, bg = t.bg }, -- normal text
-    CursorLine { bg = t.grey7 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorLine { bg = t.grey7 },     -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorColumn { CursorLine },     -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Whitespace { fg = t.grey10 },
     Comment { fg = t.comment },
-    LineNr { fg = t.comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr { fg = t.comment },       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg = t.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     Search { bg = t.search },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
-    NormalFloat { bg = t.bgFloat, blend = 5 }, -- Normal text in floating windows.
+    NormalFloat { bg = t.bgFloat, blend = 5 },    -- Normal text in floating windows.
     FloatBorder { fg = t.punctuation },
-    NormalSB { bg = t.bgFloat }, -- Normal text in floating windows.
-    ColorColumn { bg = t.grey5 }, -- used for the columns set with 'colorcolumn'
-    Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
-    lCursor { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM { Cursor }, -- like Cursor, but used when in IME mode |CursorIM|
-    Directory { fg = t.keyword }, -- directory names (and other special names in listings)
-    DiffAdd { bg = t.diffAdd }, -- diff mode: Added line |diff.txt|
-    DiffChange { bg = t.diffChange }, -- diff mode: Changed line |diff.txt|
-    DiffDelete { bg = t.diffDelete }, -- diff mode: Deleted line |diff.txt|
-    DiffText { bg = t.diffText }, -- diff mode: Changed text within a changed line |diff.txt|
-    EndOfBuffer { fg = t.punctuation }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-    TermCursor { Cursor }, -- cursor in a focused terminal
-    TermCursorNC {}, -- cursor in an unfocused terminal
-    ErrorMsg { fg = t.error }, -- error messages on the command line
-    VertSplit { fg = t.grey30 }, -- the column separating vertically split windows
-    Winseparator { VertSplit }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    Folded { bg = t.shade7, fg = t.tag }, -- line used for closed folds
-    SignColumn { Normal }, -- column where |signs| are displayed
-    FoldColumn { SignColumn }, -- 'foldcolumn'
-    Substitute { IncSearch }, -- |:substitute| replacement text highlighting
+    NormalSB { bg = t.bgFloat },                  -- Normal text in floating windows.
+    ColorColumn { bg = t.grey5 },                 -- used for the columns set with 'colorcolumn'
+    Conceal {},                                   -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor { bg = t.cursor, fg = t.bg },          -- character under the cursor
+    lCursor { Cursor },                           -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM { Cursor },                          -- like Cursor, but used when in IME mode |CursorIM|
+    Directory { fg = t.keyword },                 -- directory names (and other special names in listings)
+    DiffAdd { bg = t.diffAdd },                   -- diff mode: Added line |diff.txt|
+    DiffChange { bg = t.diffChange },             -- diff mode: Changed line |diff.txt|
+    DiffDelete { bg = t.diffDelete },             -- diff mode: Deleted line |diff.txt|
+    DiffText { bg = t.diffText },                 -- diff mode: Changed text within a changed line |diff.txt|
+    EndOfBuffer { fg = t.punctuation },           -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    TermCursor { Cursor },                        -- cursor in a focused terminal
+    TermCursorNC {},                              -- cursor in an unfocused terminal
+    ErrorMsg { fg = t.error },                    -- error messages on the command line
+    VertSplit { fg = t.grey30 },                  -- the column separating vertically split windows
+    Winseparator { VertSplit },                   -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
+    Folded { bg = t.shade7, fg = t.tag },         -- line used for closed folds
+    SignColumn { Normal },                        -- column where |signs| are displayed
+    FoldColumn { SignColumn },                    -- 'foldcolumn'
+    Substitute { IncSearch },                     -- |:substitute| replacement text highlighting
     MatchParen { bg = t.punctuation, fg = t.bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    ModeMsg { Normal }, -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea { Normal }, -- Area for messages and cmdline
+    ModeMsg { Normal },                           -- 'showmode' message (e.g., "-- INSERT -- ")
+    MsgArea { Normal },                           -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    MoreMsg { fg = t.primary }, -- |more-prompt|
-    NonText { fg = t.shade30 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    NormalNC { Normal }, -- normal text in non-current windows
+    MoreMsg { fg = t.primary },                   -- |more-prompt|
+    NonText { fg = t.shade30 },                   -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NormalNC { Normal },                          -- normal text in non-current windows
     -- Pmenu { bg = t.bg, blend = 5 },
     Pmenu { NormalFloat },
-    PmenuSel { bg = t.selection }, -- Popup menu: selected item.
-    PmenuSbar { bg = t.grey5 }, -- Popup menu: scrollbar.
-    PmenuThumb { bg = t.shade20 }, -- Popup menu: Thumb of the scrollbar.
-    Question { fg = t.primary }, -- |hit-enter| prompt and yes/no questions
+    PmenuSel { bg = t.selection },                 -- Popup menu: selected item.
+    PmenuSbar { bg = t.grey5 },                    -- Popup menu: scrollbar.
+    PmenuThumb { bg = t.shade20 },                 -- Popup menu: Thumb of the scrollbar.
+    Question { fg = t.primary },                   -- |hit-enter| prompt and yes/no questions
     QuickFixLine { bg = t.primary, fg = t.white }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    SpecialKey { fg = t.attribute }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+    SpecialKey { fg = t.attribute },               -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     -- TODO: spelling
     -- SpellBad     { gui = "undercurl", sp = t.error  }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     --
-    StatusLine { bg = t.grey10, gui = "" }, -- status line of current window
-    StatusLineNC { bg = t.shade5 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLine { bg = t.grey10, gui = "" },                           -- status line of current window
+    StatusLineNC { bg = t.shade5 },                                   -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     --
-    TabLine { bg = t.shade3, fg = t.shade30 }, -- tab pages line, not active tab page label
-    TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
+    TabLine { bg = t.shade3, fg = t.shade30 },                        -- tab pages line, not active tab page label
+    TabLineFill { bg = t.bg },                                        -- tab pages line, where there are no labels
     TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
     --
-    Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
-    Visual { bg = t.selection }, -- Visual mode selection
-    VisualNOS { bg = t.selection }, -- Visual mode selection when vim is "Not Owning the Selection".
-    WarningMsg { fg = t.warning }, -- warning messages
-    WildMenu { bg = t.selection }, -- current match in 'wildmenu' completion
+    Title { fg = t.primary },                                         -- titles for output from ":set all", ":autocmd" etc.
+    Visual { bg = t.selection },                                      -- Visual mode selection
+    VisualNOS { bg = t.selection },                                   -- Visual mode selection when vim is "Not Owning the Selection".
+    WarningMsg { fg = t.warning },                                    -- warning messages
+    WildMenu { bg = t.selection },                                    -- current match in 'wildmenu' completion
     --
-    Constant { fg = t.constant }, -- (preferred) any constant
-    String { fg = t.string }, --   a string constant: "this is a string"
-    Character { fg = t.attribute }, --  a character constant: 'c', '\n'
-    Number { fg = t.number }, --   a number constant: 234, 0xff
-    Boolean { fg = t.keyword }, --  a boolean constant: TRUE, false
+    Constant { fg = t.constant },                                     -- (preferred) any constant
+    String { fg = t.string },                                         --   a string constant: "this is a string"
+    Character { fg = t.attribute },                                   --  a character constant: 'c', '\n'
+    Number { fg = t.number },                                         --   a number constant: 234, 0xff
+    Boolean { fg = t.keyword },                                       --  a boolean constant: TRUE, false
     -- Float          { }, --    a floating point constant: 2.3e10
-    Identifier { fg = t.fg }, -- (preferred) any variable name
-    Function { fg = t.method }, -- function name (also: methods for classes)
-    Method { fg = t.method }, -- function name (also: methods for classes)
+    Identifier { fg = t.fg },                                         -- (preferred) any variable name
+    Function { fg = t.method },                                       -- function name (also: methods for classes)
+    Method { fg = t.method },                                         -- function name (also: methods for classes)
     Property { fg = t.property },
     Field { Property },
     Parameter { fg = t.parameter },
@@ -318,10 +318,10 @@ local theme = lush(function(injected_functions)
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --    case, default, etc.
     Punctuation { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
-    Operator { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
-    Keyword { Statement }, --  any other keyword
+    Operator { fg = t.punctuation },    -- "sizeof", "+", "*", etc.
+    Keyword { Statement },              --  any other keyword
     -- Exception      { }, --  try, catch, throw
-    PreProc { fg = t.keyword }, -- (preferred) generic Preprocessor
+    PreProc { fg = t.keyword },         -- (preferred) generic Preprocessor
     -- Include        { }, --  preprocessor #include
     -- Define         { }, --   preprocessor #define
     -- Macro          { }, --    same as Define
@@ -332,10 +332,10 @@ local theme = lush(function(injected_functions)
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
-    Special { Character }, -- (preferred) any special symbol
+    Special { Character },   -- (preferred) any special symbol
     Attribute { Character }, -- (preferred) any special symbol
     -- SpecialChar {}, --  special character in a constant
-    Tag { fg = t.tag }, --    you can use CTRL-] on this
+    Tag { fg = t.tag },      --    you can use CTRL-] on this
     -- Delimiter {}, --  character that needs attention
     -- SpecialComment { }, -- special things inside a comment
     -- Debug          { }, --    debugging statements
@@ -343,8 +343,8 @@ local theme = lush(function(injected_functions)
     Bold { gui = "bold" },
     Italic { gui = "italic" },
     -- ("Ignore", below, may be invisible...)
-    Ignore { fg = t.bg }, -- (preferred) left blank, hidden  |hl-Ignore|
-    Error { ErrorMsg }, -- (preferred) any erroneous construct
+    Ignore { fg = t.bg },               -- (preferred) left blank, hidden  |hl-Ignore|
+    Error { ErrorMsg },                 -- (preferred) any erroneous construct
     Todo { bg = t.info, fg = t.white }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     --
     -- These groups are for the native LSP client and diagnostic system. Some
@@ -362,18 +362,18 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    DiagnosticError { Error }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticWarn { WarningMsg }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticInfo { fg = t.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint { fg = t.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError { Error },                                                  -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn { WarningMsg },                                              -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo { fg = t.info },                                             -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint { fg = t.hint },                                             -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticVirtualTextError { DiagnosticError, bg = t.bg.mix(t.error, 20) }, -- Used for "Error" diagnostic virtual text.
     DiagnosticVirtualTextWarn { DiagnosticWarn, bg = t.bg.mix(t.warning, 20) }, -- Used for "Warn" diagnostic virtual text.
-    DiagnosticVirtualTextInfo { DiagnosticInfo, bg = t.bg.mix(t.info, 20) }, -- Used for "Info" diagnostic virtual text.
-    DiagnosticVirtualTextHint { DiagnosticHint, bg = t.bg.mix(t.hint, 20) }, -- Used for "Hint" diagnostic virtual text.
-    DiagnosticUnderlineError { gui = "undercurl", sp = t.error }, -- Used to underline "Error" diagnostics.
-    DiagnosticUnderlineWarn { gui = "undercurl", sp = t.warning }, -- Used to underline "Warn" diagnostics.
-    DiagnosticUnderlineInfo { gui = "undercurl", sp = t.info }, -- Used to underline "Info" diagnostics.
-    DiagnosticUnderlineHint { gui = "undercurl", sp = t.hint }, -- Used to underline "Hint" diagnostics.
+    DiagnosticVirtualTextInfo { DiagnosticInfo, bg = t.bg.mix(t.info, 20) },    -- Used for "Info" diagnostic virtual text.
+    DiagnosticVirtualTextHint { DiagnosticHint, bg = t.bg.mix(t.hint, 20) },    -- Used for "Hint" diagnostic virtual text.
+    DiagnosticUnderlineError { gui = "undercurl", sp = t.error },               -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn { gui = "undercurl", sp = t.warning },              -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo { gui = "undercurl", sp = t.info },                 -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint { gui = "undercurl", sp = t.hint },                 -- Used to underline "Hint" diagnostics.
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
@@ -400,6 +400,7 @@ local theme = lush(function(injected_functions)
     sym("@constant") { fg = t.constant },
     sym("@constant.builtin") { fg = t.keyword },
     sym("@string.escape") { Character },
+    sym("@method") { fg = t.method },
     sym("@function") { fg = t.method },
     sym("@function.call") { fg = t.method },
     sym("@function.builtin") { fg = t.method },
@@ -420,19 +421,19 @@ local theme = lush(function(injected_functions)
     sym("@text.title") { fg = t.keyword },
     sym("@text.literal") { Property },
     sym("@text.uri") { fg = t.tag, sp = t.tag, gui = "underline" }, -- Any URI like a link or email.
-    sym("@variable") { Identifier }, -- Variable names that are defined by the languages, like `this` or `self`.
-    sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable") { Identifier },                                -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable.builtin") { Statement },                         -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
-    sym("@attribute") { fg = t.label }, -- Variable names that are defined by the languages, like `this` or `self`.
-    sym("@tag.attribute") { fg = t.attribute }, -- Variable names that are defined by the languages, like `this` or `self`.
-    sym("@error") { Error }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@attribute") { fg = t.label },                             -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@tag.attribute") { fg = t.attribute },                     -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@error") { Error },                                        -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@warning") { WarningMsg },
     sym("@info") { fg = t.info },
     --
-    --     -- sym"@string.special"    { }, -- SpecialChar
-    --     -- sym"@character.special" { }, -- SpecialChar
-    --     -- sym"@function.macro"    { }, -- Macro
-    --     -- sym"@debug"             { }, -- Debug
+    -- sym"@string.special"    { }, -- SpecialChar
+    -- sym"@character.special" { }, -- SpecialChar
+    -- sym"@function.macro"    { }, -- Macro
+    -- sym"@debug"             { }, -- Debug
 
     -- Language Overrides
     -- JSON
