@@ -410,6 +410,7 @@ local theme = lush(function(injected_functions)
     sym("@type") { Type },
     sym("@type.builtin") { fg = t.keyword },
     sym("@type.qualifier") { Statement },
+    sym("@keyword") { Statement },
     sym("@namespace") { Statement },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@text") { Identifier },
@@ -441,6 +442,21 @@ local theme = lush(function(injected_functions)
     -- html
     sym("@text.uri.html") { gui = "underline" },
     --
+    -- semantic highlighting
+    sym("@lsp.type.namespace") { sym("@namespace") },
+    sym("@lsp.type.type") { sym("@type") },
+    sym("@lsp.type.class") { sym("@type") },
+    sym("@lsp.type.enum") { sym("@type") },
+    sym("@lsp.type.interface") { sym("@type") },
+    sym("@lsp.type.struct") { sym("@type") },
+    sym("@lsp.type.parameter") { sym("@parameter") },
+    sym("@lsp.type.variable") { sym("@variable") },
+    sym("@lsp.type.property") { sym("@property") },
+    sym("@lsp.type.enumMember") { sym("@constant") },
+    sym("@lsp.type.function") { sym("@function") },
+    sym("@lsp.type.method") { sym("@method") },
+    sym("@lsp.type.macro") { sym("@label") },
+    sym("@lsp.type.decorator") { sym("@label") },
     -- -- gui vim
     -- -- VimR
     VimrDefaultCursor { fg = t.cursor, bg = t.bg },
