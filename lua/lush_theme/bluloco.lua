@@ -458,6 +458,7 @@ local theme = lush(function(injected_functions)
     sym("@lsp.type.method") { sym("@method") },
     sym("@lsp.type.macro") { sym("@label") },
     sym("@lsp.type.decorator") { sym("@label") },
+    sym("@lsp.mod.readonly") { sym("@constant") },
     -- -- gui vim
     -- -- VimR
     VimrDefaultCursor { fg = t.cursor, bg = t.bg },
