@@ -1,4 +1,4 @@
-# BlulocoLight
+# Bluloco Light
 [colors]
 foreground = "#373a41"
 background = "#f9f9f9"
@@ -10,3 +10,6 @@ selection_fg = "#373a41"
 
 ansi = ["#373a41","#d52753","#23974a","#df631c","#275fe4","#823ff1","#27618d","#babbc2"]
 brights = ["#676a77","#ff6480","#3cbc66","#c5a332","#0099e1","#ce33c0","#6d93bb","#d3d3d3"]
+
+[metadata]
+name = "Bluloco Light"
