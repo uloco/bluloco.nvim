@@ -438,6 +438,7 @@ local theme = lush(function(injected_functions)
     -- Language Overrides
     -- JSON
     sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
+    sym("@label.jsonc") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
     -- help files
     sym("@label.help") { sym("@text.uri") },
     -- html
