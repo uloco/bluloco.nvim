@@ -13,15 +13,15 @@ local defaultConfig = {
   guicursor   = true,
 }
 
--- Set cursor color
-if (defaultConfig.guicursor) then
-  vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor"
-end
-
 M.config = defaultConfig
 
 function M.setup(options)
   M.config = vim.tbl_deep_extend("force", {}, defaultConfig, options or {})
+
+  -- Set cursor color
+  if (M.config.guicursor) then
+    vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor"
+  end
 end
 
 function M.load()
