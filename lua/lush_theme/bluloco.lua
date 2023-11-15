@@ -877,6 +877,36 @@ local theme = lush(function(injected_functions)
     VirtColumn { Whitespace },
     --
 
+    -- indent blankline
+    -- IblScope {},
+    -- RainbowDelimiterRed {},
+    -- RainbowDelimiterYellow {},
+    -- RainbowDelimiterBlue {},
+    -- RainbowDelimiterOrange {},
+    -- RainbowDelimiterGreen {},
+    -- RainbowDelimiterViolet {},
+    -- RainbowDelimiterCyan {},
+
+    -- Neotest
+    NeotestPassed { fg = t.added },
+    NeotestRunning { DiagnosticInfo },
+    NeotestSkipped { DiagnosticWarn },
+    NeotestFailed { DiagnosticError },
+    NeotestAdapterName {},
+    NeotestBorder {},
+    NeotestDir { Directory },
+    NeotestExpandMarker {},
+    NeotestFile { fg = t.tag },
+    NeotestFocused {},
+    NeotestIndent {},
+    NeotestMarked {},
+    NeotestNamespace {},
+    NeotestWinSelect {},
+    NeotestTarget {},
+    NeotestTest {},
+    NeotestUnknown {},
+    NeotestWatching { fg = t.constant },
+
     -- basic highlighting without treesitter
     --
 
