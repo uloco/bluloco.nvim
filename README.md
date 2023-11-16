@@ -1,6 +1,8 @@
 ![banner-light](./screenshots/banner-light.svg#gh-light-mode-only)
 ![banner-dark](./screenshots/banner-dark.svg#gh-dark-mode-only)
 
+<a href="https://www.buymeacoffee.com/umipaloomi" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 # Bluloco.nvim
 
 A fancy and sophisticated designer neovim theme built with [lush.nvim](https://github.com/rktjmp/lush.nvim).
