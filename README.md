@@ -1,8 +1,6 @@
 ![banner-light](./screenshots/banner-light.svg#gh-light-mode-only)
 ![banner-dark](./screenshots/banner-dark.svg#gh-dark-mode-only)
 
-<a href="https://www.buymeacoffee.com/umipaloomi" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-
 # Bluloco.nvim
 
 A fancy and sophisticated designer neovim theme built with [lush.nvim](https://github.com/rktjmp/lush.nvim).
@@ -16,6 +14,14 @@ This theme also works very good with blue light filters like Apple's *Nightshift
 This is a port of the popular Visual Studio Code Themes
 [Bluloco Light](https://github.com/uloco/theme-bluloco-light) and
 [Bluloco Dark](https://github.com/uloco/theme-bluloco-dark)
+
+
+### Support
+
+If you like using this, please consider donating a little bit. It takes a lot of time to keep this updated with neovim and plugin updates.
+I want to keep bluloco a great experience for everybody and your help would be immensely motivating to keep me doing this. :)
+
+<a href="https://www.buymeacoffee.com/umipaloomi" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ### Dark
 
