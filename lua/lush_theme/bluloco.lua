@@ -465,8 +465,8 @@ local theme = lush(function(injected_functions)
     sym("@lsp.mod.readonly") { sym("@constant") },
     sym("@lsp.typemod.function.declaration") { sym("@function") },
     sym("@lsp.typemod.function.readonly") { sym("@function") },
-    -- -- gui vim
-    -- -- VimR
+    -- gui vim
+    -- VimR
     VimrDefaultCursor { fg = t.cursor, bg = t.bg },
     VimrInsertCursor { fg = t.cursor, bg = t.bg },
     --  gitsigns
@@ -570,9 +570,9 @@ local theme = lush(function(injected_functions)
     -- TelescopePromptNormal { fg = t.fg, bg = t.bg },
     -- TelescopeResultsNormal  {},
 
-    -- -- Border highlight groups.
-    -- --   Use TelescopeBorder to override the default.
-    -- --   Otherwise set them specifically
+    -- Border highlight groups.
+    -- Use TelescopeBorder to override the default.
+    -- Otherwise set them specifically
 
     TelescopeBorder { NormalFloat, fg = t.punctuation },
     -- TelescopePromptBorder  {},
@@ -791,9 +791,9 @@ local theme = lush(function(injected_functions)
     -- WhichKeyFloat {},
     -- WhichKeyBorder {},
     -- WhichKeyValue { Character },
-    --
-    --
-    --   -- Diffview
+
+
+    -- Diffview
     DiffviewStatusAdded { fg = t.method },
     DiffviewStatusModified { fg = t.keyword },
     DiffviewStatusRenamed { fg = t.keyword },
@@ -817,6 +817,11 @@ local theme = lush(function(injected_functions)
     -- DiffviewReference {},
     DiffviewPrimary { fg = t.keyword },
     DiffviewSecondary { fg = t.tag },
+    --
+
+    -- vim-fugitive
+    diffAdded { fg = t.method },
+    diffRemoved { fg = t.type },
     --
 
     -- nvim tree
