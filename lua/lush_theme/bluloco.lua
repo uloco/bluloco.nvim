@@ -433,10 +433,10 @@ local theme = lush(function(injected_functions)
     sym("@warning") { WarningMsg },
     sym("@info") { fg = t.info },
     --
-    -- sym"@string.special"    { }, -- SpecialChar
-    -- sym"@character.special" { }, -- SpecialChar
-    -- sym"@function.macro"    { }, -- Macro
-    -- sym"@debug"             { }, -- Debug
+    -- sym("@markup.link.label")    { }, -- SpecialChar
+    -- sym("@character.special")    { }, -- SpecialChar
+    -- sym("@function.macro")       { }, -- Macro
+    -- sym("@keyword.debug")        { }, -- Debug
 
     -- Language Overrides
     -- JSON
@@ -446,7 +446,26 @@ local theme = lush(function(injected_functions)
     sym("@label.help") { sym("@text.uri") },
     -- html
     sym("@text.uri.html") { gui = "underline" },
-    --
+
+
+    -- Treesitter highlight groups update
+    -- Treesitter standard capture groups
+    sym("@variable.parameter") { sym("@parameter") },
+    sym("@variable.member") { sym("@field") },
+    sym("@module") { sym("@namespace") },
+    sym("@string.special.symbol") { sym("@symbol") },
+    sym("@markup.strong") { sym("@text.strong") },
+    sym("@markup.underline") { sym("@text.underline") },
+    sym("@markup.heading") { sym("@text.title") },
+    sym("@markup.link.url") { sym("@text.uri") },
+    sym("@markup.raw") { sym("@text.literal") },
+    sym("@markup.list") { sym("@punctuation.special") },
+
+    -- Helix capture groups
+    sym("@function.method") { sym("@method") },
+    sym("@string.special.url") { sym("@text.uri") },
+
+
     -- semantic highlighting
     sym("@lsp.type.namespace") { sym("@namespace") },
     sym("@lsp.type.type") { sym("@type") },
@@ -465,6 +484,7 @@ local theme = lush(function(injected_functions)
     sym("@lsp.mod.readonly") { sym("@constant") },
     sym("@lsp.typemod.function.declaration") { sym("@function") },
     sym("@lsp.typemod.function.readonly") { sym("@function") },
+
     -- gui vim
     -- VimR
     VimrDefaultCursor { fg = t.cursor, bg = t.bg },
