@@ -115,8 +115,7 @@ local light = {
   attribute             = hsl("#DF631C"),
   property              = hsl("#A05A48"),
   parameter             = hsl("#40B8C5"),
-  -- label                 = hsl("#26608c"),
-  label                 = hsl("#126d9b"),
+  label                 = hsl("#3a8ab2"),
   -- workspace
   primary               = hsl("#0099e1"),
   selection             = hsl("#d2ecff"),
@@ -416,7 +415,7 @@ local theme = lush(function(injected_functions)
     sym("@type.builtin") { fg = t.keyword },
     sym("@type.qualifier") { Statement },
     sym("@keyword") { Statement },
-    sym("@namespace") { sym("@label") },
+    sym("@namespace") { Type },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@text") { Identifier },
     sym("@text.strong") { Bold },
