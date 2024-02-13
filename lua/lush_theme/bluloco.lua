@@ -428,6 +428,7 @@ local theme = lush(function(injected_functions)
     sym("@text.literal") { Property },
     sym("@text.uri") { fg = t.tag, sp = t.tag, gui = "underline" }, -- Any URI like a link or email.
     sym("@variable") { Identifier },                                -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable.constant") { Constant },                         -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement },                         -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
     sym("@attribute") { fg = t.label },                             -- Variable names that are defined by the languages, like `this` or `self`.
@@ -485,6 +486,8 @@ local theme = lush(function(injected_functions)
     sym("@lsp.type.macro") { sym("@label") },
     sym("@lsp.type.decorator") { sym("@label") },
     sym("@lsp.mod.readonly") { sym("@constant") },
+    sym("@lsp.mod.constant") { sym("@constant") },
+    sym("@lsp.typemod.variable.constant") { sym("@constant") },
     sym("@lsp.typemod.function.declaration") { sym("@function") },
     sym("@lsp.typemod.function.readonly") { sym("@function") },
 
