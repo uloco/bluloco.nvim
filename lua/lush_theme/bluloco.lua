@@ -54,6 +54,7 @@ local dark = {
   property              = hsl("#CE9887"),
   parameter             = hsl("#8bcdef"),
   label                 = hsl("#50acae"),
+  module                = hsl("#FF839B"),
   -- workspace
   primary               = hsl("#3691ff"),
   selection             = hsl("#274670"),
@@ -115,7 +116,8 @@ local light = {
   attribute             = hsl("#DF631C"),
   property              = hsl("#A05A48"),
   parameter             = hsl("#40B8C5"),
-  label                 = hsl("#126d9b"),
+  label                 = hsl("#047485"),
+  module                = hsl("#ee5672"),
   -- workspace
   primary               = hsl("#0099e1"),
   selection             = hsl("#d2ecff"),
@@ -415,7 +417,7 @@ local theme = lush(function(injected_functions)
     sym("@type.builtin") { fg = t.keyword },
     sym("@type.qualifier") { Statement },
     sym("@keyword") { Statement },
-    sym("@namespace") { Type },
+    sym("@namespace") { fg = t.module },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@text") { Identifier },
     sym("@text.strong") { Bold },
