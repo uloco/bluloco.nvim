@@ -115,7 +115,7 @@ local light = {
   attribute             = hsl("#DF631C"),
   property              = hsl("#A05A48"),
   parameter             = hsl("#40B8C5"),
-  label                 = hsl("#3a8ab2"),
+  label                 = hsl("#126d9b"),
   -- workspace
   primary               = hsl("#0099e1"),
   selection             = hsl("#d2ecff"),
