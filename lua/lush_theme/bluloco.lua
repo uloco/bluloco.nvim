@@ -415,6 +415,7 @@ local theme = lush(function(injected_functions)
     sym("@type.builtin") { fg = t.keyword },
     sym("@type.qualifier") { Statement },
     sym("@keyword") { Statement },
+    sym("@keyword.modifier") { Statement }, -- Same as @type.qualifier
     sym("@namespace") { Type },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@text") { Identifier },
