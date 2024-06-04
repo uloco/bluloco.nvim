@@ -278,7 +278,7 @@ local theme = lush(function(injected_functions)
     Pmenu { NormalFloat },
     PmenuSel { bg = t.selection },                 -- Popup menu: selected item.
     PmenuSbar { bg = t.grey5 },                    -- Popup menu: scrollbar.
-    PmenuThumb { bg = t.shade20 },                 -- Popup menu: Thumb of the scrollbar.
+    PmenuThumb { bg = t.punctuation },             -- Popup menu: Thumb of the scrollbar.
     Question { fg = t.primary },                   -- |hit-enter| prompt and yes/no questions
     QuickFixLine { bg = t.primary, fg = t.white }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     SpecialKey { fg = t.attribute },               -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
@@ -417,7 +417,7 @@ local theme = lush(function(injected_functions)
     sym("@keyword") { Statement },
     sym("@keyword.modifier") { Statement }, -- Same as @type.qualifier
     sym("@namespace") { Type },
-    sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
+    sym("@annotation") { sym("@label") },   -- For labels: `label:` in C and `:label:` in Lua.
     sym("@text") { Identifier },
     sym("@text.strong") { Bold },
     sym("@text.italic") { Italic },
