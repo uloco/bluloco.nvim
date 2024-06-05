@@ -96,6 +96,13 @@ local dark = {
   terminalBrightMagenta = hsl("#ff78f8"),
   terminalBrightCyan    = hsl("#5fb9bc"),
   terminalBrightWhite   = hsl("#ffffff"),
+  rainbowRed            = hsl("#FF6666"),
+  rainbowYellow         = hsl("#f4ff78"),
+  rainbowBlue           = hsl("#44A5FF"),
+  rainbowOrange         = hsl("#ffa023"),
+  rainbowGreen          = hsl("#92f535"),
+  rainbowViolet         = hsl("#ff78ff"),
+  rainbowCyan           = hsl("#28e4eb"),
 }
 
 local light = {
@@ -159,6 +166,13 @@ local light = {
   terminalBrightMagenta = hsl("#ce32c0"),
   terminalBrightCyan    = hsl("#6d92ba"),
   terminalBrightWhite   = hsl("#d3d3d3"),
+  rainbowRed            = hsl("#f067f0"),
+  rainbowYellow         = hsl("#B3BA00"),
+  rainbowBlue           = hsl("#0ab6ff"),
+  rainbowOrange         = hsl("#ffa023"),
+  rainbowGreen          = hsl("#1fc255"),
+  rainbowViolet         = hsl("#a557ff"),
+  rainbowCyan           = hsl("#0e91a8"),
 }
 
 local t = dark
@@ -175,8 +189,8 @@ local function shade(color, value)
   end
 end
 
-t.shade1 = shade(t.bg, 1)
-t.shade2 = shade(t.bg, 2)
+-- t.shade1 = shade(t.bg, 1)
+-- t.shade2 = shade(t.bg, 2)
 t.shade3 = shade(t.bg, 3)
 t.shade4 = shade(t.bg, 4)
 t.shade5 = shade(t.bg, 5)
@@ -195,7 +209,6 @@ t.shade70 = shade(t.bg, 70)
 t.shade80 = shade(t.bg, 80)
 t.shade90 = shade(t.bg, 90)
 
-t.grey2 = t.shade2.mix(t.primary, 2)
 t.grey3 = t.shade3.mix(t.primary, 3)
 t.grey5 = t.shade5.mix(t.primary, 5)
 t.grey7 = t.shade7.mix(t.primary, 7)
@@ -505,7 +518,6 @@ local theme = lush(function(injected_functions)
     sym("@lsp.typemod.variable.constant") { sym("@constant") },
     sym("@lsp.typemod.function.declaration") { sym("@function") },
     sym("@lsp.typemod.function.readonly") { sym("@function") },
-    sym("LspInlayHint") { bg = t.shade2, fg = t.shade25 },
 
     -- gui vim
     -- VimR
@@ -929,13 +941,22 @@ local theme = lush(function(injected_functions)
 
     -- indent blankline
     -- IblScope {},
-    -- RainbowDelimiterRed {},
-    -- RainbowDelimiterYellow {},
-    -- RainbowDelimiterBlue {},
-    -- RainbowDelimiterOrange {},
-    -- RainbowDelimiterGreen {},
-    -- RainbowDelimiterViolet {},
-    -- RainbowDelimiterCyan {},
+    RainbowRed { fg = t.rainbowRed },
+    RainbowYellow { fg = t.rainbowYellow },
+    RainbowBlue { fg = t.rainbowBlue },
+    RainbowOrange { fg = t.rainbowOrange },
+    RainbowGreen { fg = t.rainbowGreen },
+    RainbowViolet { fg = t.rainbowViolet },
+    RainbowCyan { fg = t.rainbowCyan },
+
+    -- rainbow-delimiter
+    RainbowDelimiterRed { fg = t.rainbowRed },
+    RainbowDelimiterYellow { fg = t.rainbowYellow },
+    RainbowDelimiterBlue { fg = t.rainbowBlue },
+    RainbowDelimiterOrange { fg = t.rainbowOrange },
+    RainbowDelimiterGreen { fg = t.rainbowGreen },
+    RainbowDelimiterViolet { fg = t.rainbowViolet },
+    RainbowDelimiterCyan { fg = t.rainbowCyan },
 
     -- Neotest
     NeotestPassed { fg = t.added },
