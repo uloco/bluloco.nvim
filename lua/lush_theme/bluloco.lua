@@ -175,8 +175,8 @@ local function shade(color, value)
   end
 end
 
--- t.shade1 = shade(t.bg, 1)
--- t.shade2 = shade(t.bg, 2)
+t.shade1 = shade(t.bg, 1)
+t.shade2 = shade(t.bg, 2)
 t.shade3 = shade(t.bg, 3)
 t.shade4 = shade(t.bg, 4)
 t.shade5 = shade(t.bg, 5)
@@ -195,6 +195,7 @@ t.shade70 = shade(t.bg, 70)
 t.shade80 = shade(t.bg, 80)
 t.shade90 = shade(t.bg, 90)
 
+t.grey2 = t.shade2.mix(t.primary, 2)
 t.grey3 = t.shade3.mix(t.primary, 3)
 t.grey5 = t.shade5.mix(t.primary, 5)
 t.grey7 = t.shade7.mix(t.primary, 7)
@@ -504,6 +505,7 @@ local theme = lush(function(injected_functions)
     sym("@lsp.typemod.variable.constant") { sym("@constant") },
     sym("@lsp.typemod.function.declaration") { sym("@function") },
     sym("@lsp.typemod.function.readonly") { sym("@function") },
+    sym("LspInlayHint") { bg = t.shade2, fg = t.shade25 },
 
     -- gui vim
     -- VimR
