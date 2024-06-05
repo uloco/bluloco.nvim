@@ -397,6 +397,7 @@ local theme = lush(function(injected_functions)
     --
     -- TSError              { }, -- For syntax/parser errors.
     sym("@constructor") { fg = t.type },
+    sym("@operator") { fg = t.punctuation },
     sym("@punctuation") { fg = t.punctuation },
     sym("@punctuation.bracket") { fg = t.punctuation },
     sym("@punctuation.delimiter") { fg = t.punctuation },
@@ -404,6 +405,7 @@ local theme = lush(function(injected_functions)
     sym("@symbol") { fg = t.constant },
     sym("@constant") { fg = t.constant },
     sym("@constant.builtin") { fg = t.keyword },
+    sym("@comment") { fg = t.comment },
     sym("@string.escape") { Character },
     sym("@method") { fg = t.method },
     sym("@function") { fg = t.method },
@@ -418,7 +420,9 @@ local theme = lush(function(injected_functions)
     sym("@type.qualifier") { Statement },
     sym("@keyword") { Statement },
     sym("@keyword.modifier") { Statement }, -- Same as @type.qualifier
+    sym("@string") { String },
     sym("@namespace") { fg = t.module },
+    sym("@number") { fg = t.number },
     sym("@annotation") { sym("@label") }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@text") { Identifier },
     sym("@text.strong") { Bold },
@@ -428,6 +432,7 @@ local theme = lush(function(injected_functions)
     sym("@text.literal") { Property },
     sym("@text.uri") { fg = t.tag, sp = t.tag, gui = "underline" }, -- Any URI like a link or email.
     sym("@variable") { Identifier },                                -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable.constant") { Constant },                         -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement },                         -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
     sym("@attribute") { fg = t.label },                             -- Variable names that are defined by the languages, like `this` or `self`.
@@ -470,8 +475,11 @@ local theme = lush(function(injected_functions)
 
 
     -- semantic highlighting
+
+    sym("@lsp.type.comment") { sym("@comment") },
     sym("@lsp.type.namespace") { sym("@namespace") },
     sym("@lsp.type.type") { sym("@type") },
+    sym("@lsp.type.typeParameter") { sym("@type") },
     sym("@lsp.type.class") { sym("@type") },
     sym("@lsp.type.enum") { sym("@type") },
     sym("@lsp.type.interface") { sym("@type") },
@@ -482,9 +490,18 @@ local theme = lush(function(injected_functions)
     sym("@lsp.type.enumMember") { sym("@constant") },
     sym("@lsp.type.function") { sym("@function") },
     sym("@lsp.type.method") { sym("@method") },
+    sym("@lsp.type.label") { sym("@label") },
     sym("@lsp.type.macro") { sym("@label") },
     sym("@lsp.type.decorator") { sym("@label") },
+    sym("@lsp.type.string") { sym("@string") },
+    sym("@lsp.type.regexp") { sym("@string") },
+    sym("@lsp.type.keyword") { sym("@keyword") },
+    sym("@lsp.type.number") { sym("@number") },
+    sym("@lsp.type.operator") { sym("@operator") },
+    sym("@lsp.type.event") { sym("@parameter") },
     sym("@lsp.mod.readonly") { sym("@constant") },
+    sym("@lsp.mod.constant") { sym("@constant") },
+    sym("@lsp.typemod.variable.constant") { sym("@constant") },
     sym("@lsp.typemod.function.declaration") { sym("@function") },
     sym("@lsp.typemod.function.readonly") { sym("@function") },
 
