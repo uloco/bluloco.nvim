@@ -979,6 +979,12 @@ local theme = lush(function(injected_functions)
     NeotestUnknown {},
     NeotestWatching { fg = t.constant },
 
+    -- leap
+    LeapMatch { bg = t.keyword, fg = t.bg },
+    LeapLabelPrimary { fg = t.keyword },
+    LeapLabelSecondary { fg = t.method },
+    LeapBackdrop { fg = t.shade40 },
+
     -- basic highlighting without treesitter
     --
 
