@@ -261,9 +261,6 @@ This setting will disable the background and use the default background of your 
 You need to enable this if you want the terminal to be transparent. You would still need to
 configure your terminal accordingly for light and dark backgrounds when switching often.
 
-<!-- TODO:  See: auto switching themes.
-See: bluloco theme for iTerm2 -->
-
 ### italics (default: false)
 
 This setting will enable italics for _keywords_, _comments_ and _markup attributes_.
@@ -294,6 +291,35 @@ I've added a bunch of terminal themes for your terminal emulators. I've used the
 repository for this, thanks @mbadolato!
 
 They are located at `terminal-themes/`. Please follow your terminals installation guide in how to apply them.
+
+## Switching light and dark theme according your OS settings
+
+This themes light and dark variant are meant to be used during day and night.
+To make this easily possible I am using the [auto-dark-mode.nvim](https://github.com/f-person/auto-dark-mode.nvim) plugin
+For a seamless integration make sure your `bluloco.config.style` is set to `"auto"`.
+My _auto-dark-mode.nvim_ config looks like this:
+
+```lua
+local auto_dark_mode = require('auto-dark-mode')
+
+local function isAuto()
+  return require('bluloco').config.style == 'auto'
+end
+
+auto_dark_mode.setup({
+  update_interval = 1000,
+  set_dark_mode = function()
+    if isAuto() then
+      vim.o.background = 'dark'
+    end
+  end,
+  set_light_mode = function()
+    if isAuto() then
+      vim.o.background = 'light'
+    end
+  end
+})
+```
 
 ## Contributing
 
