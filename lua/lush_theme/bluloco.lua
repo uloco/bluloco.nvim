@@ -189,8 +189,8 @@ local function shade(color, value)
   end
 end
 
--- t.shade1 = shade(t.bg, 1)
--- t.shade2 = shade(t.bg, 2)
+t.shade1 = shade(t.bg, 1)
+t.shade2 = shade(t.bg, 2)
 t.shade3 = shade(t.bg, 3)
 t.shade4 = shade(t.bg, 4)
 t.shade5 = shade(t.bg, 5)
