@@ -269,6 +269,9 @@ local theme = lush(function(injected_functions)
     lCursor { Cursor },                           -- the character under the cursor when |language-mapping| is used (see 'guicursor')
     CursorIM { Cursor },                          -- like Cursor, but used when in IME mode |CursorIM|
     Directory { fg = t.keyword },                 -- directory names (and other special names in listings)
+    Added { fg = t.method },
+    Changed { fg = t.tag },                       -- diff mode: Changed line |diff.txt|
+    Removed { fg = t.type },                      -- diff mode: Deleted line |diff.txt|
     DiffAdd { bg = t.diffAdd },                   -- diff mode: Added line |diff.txt|
     DiffChange { bg = t.diffChange },             -- diff mode: Changed line |diff.txt|
     DiffDelete { bg = t.diffDelete },             -- diff mode: Deleted line |diff.txt|
@@ -311,6 +314,7 @@ local theme = lush(function(injected_functions)
     TabLineFill { bg = t.bg },                                        -- tab pages line, where there are no labels
     TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
     --
+    File { fg = t.primary },                                          -- titles for output from ":set all", ":autocmd" etc.
     Title { fg = t.primary },                                         -- titles for output from ":set all", ":autocmd" etc.
     Visual { bg = t.selection },                                      -- Visual mode selection
     VisualNOS { bg = t.selection },                                   -- Visual mode selection when vim is "Not Owning the Selection".
@@ -877,7 +881,20 @@ local theme = lush(function(injected_functions)
     -- vim-fugitive
     diffAdded { fg = t.method },
     diffRemoved { fg = t.type },
-    --
+    diffFile { File },
+    diffNewFile { fg = t.constant },
+    diffOldFile { fg = t.property },
+    diffLine { fg = t.number },
+    diffIndexLine { fg = t.parameter },
+    diffSubname { fg = t.string },
+    -- diffOnly {},
+    -- diffIdentical {},
+    -- diffDiffer {},
+    -- diffBDiffer {},
+    -- diffIsA {},
+    -- diffNoEOL {},
+    -- diffCommon {},
+    -- diffComment {},
 
     -- nvim tree
     NvimTreeNormal { bg = t.bgFloat },
@@ -1103,7 +1120,7 @@ local theme = lush(function(injected_functions)
     yamlNodeTag { Statement },
 
     -- ini
-    sym("@type.ini") {Title},
+    sym("@type.ini") { Title },
     dosiniLabel { Property },
     dosiniValue { String },
     dosiniHeader { Title },
