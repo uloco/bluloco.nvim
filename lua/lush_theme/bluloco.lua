@@ -1101,6 +1101,15 @@ local theme = lush(function(injected_functions)
     yamlBlockMappingKey { Property },
     yamlKeyValueDelimiter { Punctuation },
     yamlNodeTag { Statement },
+
+    -- ini
+    sym("@type.ini") {Title},
+    dosiniLabel { Property },
+    dosiniValue { String },
+    dosiniHeader { Title },
+    dosiniNumber { Number },
+    dosiniComment { Comment },
+    --
   }
 end)
 return theme
