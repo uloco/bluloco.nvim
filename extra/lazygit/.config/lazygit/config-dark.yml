@@ -1,0 +1,21 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --features dark-mode --paging=never
+gui:
+  theme:
+    defaultFgColor:
+      - white
+    activeBorderColor:
+      - magenta
+      - bold
+    inactiveBorderColor:
+      - default
+    selectedLineBgColor:
+      - reverse 
+    selectedRangeBgColor:
+      - reverse
+    cherryPickedCommitBgColor:
+      - blue
+    cherryPickedCommitFgColor:
+      - yellow
