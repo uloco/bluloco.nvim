@@ -218,6 +218,9 @@ auto_dark_mode.setup({
 })
 ```
 
+If you are also using lazygit as your git client, you might be interested in this [wiki guide](https://github.com/uloco/bluloco.nvim/wiki/Lazygit-%E2%80%90-Delta-%E2%80%90-Bat-%E2%80%90-Auto-Style) to set it up correctly with bluloco.  
+Auto-dark light mode included.
+
 ## Contributing
 
 I'd be more than happy for any bugs you find and add an [issue](https://github.com/uloco/bluloco.nvim/issues).  
