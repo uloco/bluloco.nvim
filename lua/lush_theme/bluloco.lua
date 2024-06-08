@@ -571,7 +571,6 @@ local theme = lush(function(injected_functions)
     BufferlineHintDiagnosticVisible { BufferlineHintVisible },
     BufferlineHintDiagnosticSelected { BufferlineHintSelected },
 
-    --
     -- BarBar
     BufferCurrent { Normal },
     BufferCurrentIndex { BufferCurrent },
