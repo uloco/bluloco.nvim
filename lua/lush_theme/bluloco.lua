@@ -535,11 +535,11 @@ local theme = lush(function(injected_functions)
 
     -- bufferline
     BufferlineFill { NormalFloat },
-    BufferlineModified { fg = t.primary, bg = t.shade10 },
+    BufferlineModified { BufferlineFill, fg = t.primary },
     BufferlineModifiedVisible { fg = t.primary, bg = t.shade8 },
     BufferlineModifiedSelected { fg = t.primary, sp = t.primary, gui = "bold" },
 
-    BufferlineError { bg = t.shade10, fg = t.error },
+    BufferlineError { BufferlineFill, fg = t.error },
     BufferlineErrorVisible { bg = t.shade8, fg = t.error },
     BufferlineErrorSelected { bg = t.bg, fg = t.error, sp = t.primary, gui = "bold" },
 
@@ -547,7 +547,7 @@ local theme = lush(function(injected_functions)
     BufferlineErrorDiagnosticVisible { BufferlineErrorVisible },
     BufferlineErrorDiagnosticSelected { BufferlineErrorSelected },
 
-    BufferlineWarning { bg = t.shade10, fg = t.warning },
+    BufferlineWarning { BufferlineFill, fg = t.warning },
     BufferlineWarningVisible { bg = t.shade8, fg = t.warning },
     BufferlineWarningSelected { bg = t.bg, fg = t.warning, sp = t.primary, gui = "bold" },
 
@@ -555,7 +555,7 @@ local theme = lush(function(injected_functions)
     BufferlineWarningDiagnosticVisible { BufferlineWarningVisible },
     BufferlineWarningDiagnosticSelected { BufferlineWarningSelected },
 
-    BufferlineInfo { bg = t.shade10, fg = t.info },
+    BufferlineInfo { BufferlineFill, fg = t.info },
     BufferlineInfoVisible { bg = t.shade8, fg = t.info },
     BufferlineInfoSelected { bg = t.bg, fg = t.info, sp = t.primary, gui = "bold" },
 
@@ -563,7 +563,7 @@ local theme = lush(function(injected_functions)
     BufferlineInfoDiagnosticVisible { BufferlineInfoVisible },
     BufferlineInfoDiagnosticSelected { BufferlineInfoSelected },
 
-    BufferlineHint { bg = t.shade10, fg = t.hint },
+    BufferlineHint { BufferlineFill, fg = t.hint },
     BufferlineHintVisible { bg = t.shade8, fg = t.hint },
     BufferlineHintSelected { bg = t.bg, fg = t.hint, sp = t.primary, gui = "bold" },
 
