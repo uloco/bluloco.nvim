@@ -532,44 +532,37 @@ local theme = lush(function(injected_functions)
     GitSignsAdd { fg = t.added },
     GitSignsChange { fg = t.changed },
     GitSignsDelete { fg = t.deleted },
-
-    -- bufferline
+    -- TODO: improve bufferline
     BufferlineFill { NormalFloat },
-    BufferlineModified { fg = t.primary, bg = t.shade10 },
-    BufferlineModifiedVisible { fg = t.primary, bg = t.shade8 },
-    BufferlineModifiedSelected { fg = t.primary, sp = t.primary, gui = "underline bold" },
+    -- BufferlineBackground { bg = t.bg },
+    -- BufferlineDevIconLua { bg = t.bg, fg = t.keyword },
+    -- BufferlineDevIconLuaSelected { bg = t.bg, fg = t.keyword },
+    -- BufferlineBufferVisible { bg = t.bg },
+    -- BufferlineBufferSelected { bg = t.bg },
 
-    BufferlineError { bg = t.shade10, fg = t.error },
-    BufferlineErrorVisible { bg = t.shade8, fg = t.error },
-    BufferlineErrorSelected { bg = t.bg, fg = t.error, sp = t.primary, gui = "underline bold" },
+    -- BufferlineIndicatorVisible { bg = t.type }, -- shows which buffers are visible in windows currently
 
-    BufferlineErrorDiagnostic { BufferlineError },
-    BufferlineErrorDiagnosticVisible { BufferlineErrorVisible },
-    BufferlineErrorDiagnosticSelected { BufferlineErrorSelected },
-
-    BufferlineWarning { bg = t.shade10, fg = t.warning },
-    BufferlineWarningVisible { bg = t.shade8, fg = t.warning },
-    BufferlineWarningSelected { bg = t.bg, fg = t.warning, sp = t.primary, gui = "underline bold" },
-
-    BufferlineWarningDiagnostic { BufferlineWarning },
-    BufferlineWarningDiagnosticVisible { BufferlineWarningVisible },
-    BufferlineWarningDiagnosticSelected { BufferlineWarningSelected },
-
-    BufferlineInfo { bg = t.shade10, fg = t.info },
-    BufferlineInfoVisible { bg = t.shade8, fg = t.info },
-    BufferlineInfoSelected { bg = t.bg, fg = t.info, sp = t.primary, gui = "underline bold" },
-
-    BufferlineInfoDiagnostic { BufferlineInfo },
-    BufferlineInfoDiagnosticVisible { BufferlineInfoVisible },
-    BufferlineInfoDiagnosticSelected { BufferlineInfoSelected },
-
-    BufferlineHint { bg = t.shade10, fg = t.hint },
-    BufferlineHintVisible { bg = t.shade8, fg = t.hint },
-    BufferlineHintSelected { bg = t.bg, fg = t.hint, sp = t.primary, gui = "underline bold" },
-
-    BufferlineHintDiagnostic { BufferlineHint },
-    BufferlineHintDiagnosticVisible { BufferlineHintVisible },
-    BufferlineHintDiagnosticSelected { BufferlineHintSelected },
+    -- BufferLineSeparatorSelected { fg = t.type, sp = t.primary, gui = "underline" },
+    -- BufferLineWarningDiagnosticSelected { fg = t.warning, sp = t.primary, gui = "underline" },
+    -- BufferLineErrorDiagnosticSelected { fg = t.error, sp = t.primary, gui = "underline" },
+    -- BufferLineInfoDiagnosticSelected { fg = t.info, sp = t.primary, gui = "underline" },
+    -- BufferLineHintDiagnosticSelected { fg = t.hint, sp = t.primary, gui = "underline" },
+    -- BufferLineTabSeparatorSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineCloseButtonSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineDiagnosticSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineDevIconLuaSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineIndicatorSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineDuplicateSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineModifiedSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineNumbersSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineBufferSelected { sp = t.primary, gui = "underline" },
+    -- BufferLinePickSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineTabSelected { sp = t.primary, gui = "underline" },
+    -- BufferLineWarningSelected { fg = t.warning, sp = t.primary, gui = "underline" },
+    -- BufferLineErrorSelected { fg = t.error, sp = t.primary, gui = "underline" },
+    -- BufferLineInfoSelected { fg = t.info, sp = t.primary, gui = "underline" },
+    -- BufferLineHintSelected { fg = t.hint, sp = t.primary, gui = "underline" },
+    --
 
     -- BarBar
     BufferCurrent { Normal },
@@ -1161,7 +1154,7 @@ local theme = lush(function(injected_functions)
     markdownBlockquote { fg = t.constant },
     markdownUrITitle {},
     markdownLinkText { fg = t.constant },
-    markdownFootnoteDefinition { fg = t.number },
+    markdownFootnoteDefinition {fg = t.number},
     markdownFootnote { fg = t.number },
     -- markdownStrike {},
     markdownItalic { Italic, fg = t.parameter },
