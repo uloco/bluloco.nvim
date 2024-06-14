@@ -537,11 +537,11 @@ local theme = lush(function(injected_functions)
     BufferlineFill { NormalFloat },
     BufferlineModified { fg = t.primary, bg = t.shade10 },
     BufferlineModifiedVisible { fg = t.primary, bg = t.shade8 },
-    BufferlineModifiedSelected { fg = t.primary, sp = t.primary, gui = "underline bold" },
+    BufferlineModifiedSelected { fg = t.primary, sp = t.primary, gui = "bold" },
 
     BufferlineError { bg = t.shade10, fg = t.error },
     BufferlineErrorVisible { bg = t.shade8, fg = t.error },
-    BufferlineErrorSelected { bg = t.bg, fg = t.error, sp = t.primary, gui = "underline bold" },
+    BufferlineErrorSelected { bg = t.bg, fg = t.error, sp = t.primary, gui = "bold" },
 
     BufferlineErrorDiagnostic { BufferlineError },
     BufferlineErrorDiagnosticVisible { BufferlineErrorVisible },
@@ -549,7 +549,7 @@ local theme = lush(function(injected_functions)
 
     BufferlineWarning { bg = t.shade10, fg = t.warning },
     BufferlineWarningVisible { bg = t.shade8, fg = t.warning },
-    BufferlineWarningSelected { bg = t.bg, fg = t.warning, sp = t.primary, gui = "underline bold" },
+    BufferlineWarningSelected { bg = t.bg, fg = t.warning, sp = t.primary, gui = "bold" },
 
     BufferlineWarningDiagnostic { BufferlineWarning },
     BufferlineWarningDiagnosticVisible { BufferlineWarningVisible },
@@ -557,7 +557,7 @@ local theme = lush(function(injected_functions)
 
     BufferlineInfo { bg = t.shade10, fg = t.info },
     BufferlineInfoVisible { bg = t.shade8, fg = t.info },
-    BufferlineInfoSelected { bg = t.bg, fg = t.info, sp = t.primary, gui = "underline bold" },
+    BufferlineInfoSelected { bg = t.bg, fg = t.info, sp = t.primary, gui = "bold" },
 
     BufferlineInfoDiagnostic { BufferlineInfo },
     BufferlineInfoDiagnosticVisible { BufferlineInfoVisible },
@@ -565,7 +565,7 @@ local theme = lush(function(injected_functions)
 
     BufferlineHint { bg = t.shade10, fg = t.hint },
     BufferlineHintVisible { bg = t.shade8, fg = t.hint },
-    BufferlineHintSelected { bg = t.bg, fg = t.hint, sp = t.primary, gui = "underline bold" },
+    BufferlineHintSelected { bg = t.bg, fg = t.hint, sp = t.primary, gui = "bold" },
 
     BufferlineHintDiagnostic { BufferlineHint },
     BufferlineHintDiagnosticVisible { BufferlineHintVisible },
