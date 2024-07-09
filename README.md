@@ -68,6 +68,7 @@ Currently supported (aka. tested) plugins:
 - [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [lsp-config](https://github.com/neovim/lsp-config)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [leap.nvim](https://github.com/ggandor/leap.nvim)
 
 ### Plugin showcase
 
