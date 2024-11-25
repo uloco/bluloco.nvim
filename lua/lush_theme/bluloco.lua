@@ -453,6 +453,7 @@ local theme = lush(function(injected_functions)
     sym("@variable.constant") { Constant },                         -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@variable.builtin") { Statement },                         -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
+    sym("@tag.builtin") { Tag },
     sym("@attribute") { fg = t.label },                             -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag.attribute") { fg = t.attribute },                     -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@error") { Error },                                        -- Variable names that are defined by the languages, like `this` or `self`.
