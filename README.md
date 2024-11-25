@@ -42,7 +42,7 @@ I want to keep bluloco a great experience for everybody and your help would be i
 
 Currently supported (aka. tested) plugins:
 
-- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter")
+- [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [hlargs](https://github.com/m-demare/hlargs.nvim)
 - [alpha-nvim](https://github.com/goolord/alpha-nvim)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
