@@ -712,7 +712,7 @@ local theme = lush(function(injected_functions)
     -- Fzf-lua fzf colours
     -- FzfLuaFzfNormal { NormalFloat },
     FzfLuaFzfMatch { fg = t.keyword },
-    FzfLuaFzfCursorLine { Visual },
+    FzfLuaFzfCursorLine { Visual, fg = shade(t.fg, 70) },
     FzfLuaFzfInfo { fg = t.attribute },
     -- FzfLuaFzfBorder { NormalFloat, fg = t.punctuation },
     -- FzfLuaFzfGutter { NormalFloat },
