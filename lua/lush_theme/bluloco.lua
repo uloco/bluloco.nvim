@@ -694,7 +694,33 @@ local theme = lush(function(injected_functions)
     -- TelescopeResultsDiffAdd  {},
     -- TelescopeResultsDiffDelete  {},
     -- TelescopeResultsDiffUntracked  {},
-    --
+
+    -- Fzf-lua
+    FzfLuaNormal { NormalFloat },
+    FzfLuaBorder { NormalFloat, fg = t.punctuation },
+    FzfLuaTitle { NormalFloat, fg = t.punctuation },
+    FzfLuaHelpNormal { NormalFloat },
+    FzfLuaHelpBorder { NormalFloat, fg = t.punctuation },
+    FzfLuaPreviewNormal { NormalFloat },
+    FzfLuaPreviewBorder { NormalFloat, fg = t.punctuation },
+    -- FzfLuaPreviewTitle { NormalFloat, fg = t.punctuation },
+    -- FzfLuaCursor { Cursor },
+    FzfLuaCursorLine { Visual },
+    FzfLuaCursorLineNr { Visual },
+    -- FzfLuaSearch { IncSearch },
+
+    -- Fzf-lua fzf colours
+    -- FzfLuaFzfNormal { NormalFloat },
+    FzfLuaFzfMatch { fg = t.keyword },
+    FzfLuaFzfCursorLine { Visual },
+    FzfLuaFzfInfo { fg = t.attribute },
+    -- FzfLuaFzfBorder { NormalFloat, fg = t.punctuation },
+    -- FzfLuaFzfGutter { NormalFloat },
+    -- FzfLuaFzfQuery { NormalFloat },
+    FzfLuaFzfPrompt { fg = t.punctuation },
+    FzfLuaFzfPointer { Visual },
+    -- FzfLuaFzfMarker { Visual },
+    -- FzfLuaFzfHeader { NormalFloat, fg = t.punctuation },
 
     -- lspsaga
     TitleIcon { Function },
