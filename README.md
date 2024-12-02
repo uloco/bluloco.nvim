@@ -9,12 +9,11 @@ consistency, with due regards to aesthetics, contrast and readability.
 There is a light and dark variant.
 Most popular plugins are also supported, see [Plugins](#plugins)
 
-This theme also works very good with blue light filters like Apple's *Nightshift Mode* or *f.lux*.
+This theme also works very good with blue light filters like Apple's _Nightshift Mode_ or _f.lux_.
 
 This is a port of the popular Visual Studio Code Themes
 [Bluloco Light](https://github.com/uloco/theme-bluloco-light) and
 [Bluloco Dark](https://github.com/uloco/theme-bluloco-dark)
-
 
 ### Support
 
@@ -66,6 +65,7 @@ Currently supported (aka. tested) plugins:
 - [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+- [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 - [lsp-config](https://github.com/neovim/lsp-config)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
 - [leap.nvim](https://github.com/ggandor/leap.nvim)
@@ -122,7 +122,7 @@ vim.opt.termguicolors = true
 vim.cmd('colorscheme bluloco')
 ```
 
-You can also apply the style variant directly.  
+You can also apply the style variant directly.
 These are especially helpful when switching in an already running vim session.
 
 ```vim
@@ -146,11 +146,11 @@ require('lualine').setup {
 
 ### style
 
-There are three styles you can configure here: `auto`, `dark` and `light`.  
+There are three styles you can configure here: `auto`, `dark` and `light`.
 The `auto` setting is the default and will adjust automatically to your
 `vim.o.background` value. If you change this value during runtime, it will also adjust accordingly.
 
-> ℹ️ The style value only applies if you set the theme with `vim.cmd('colorscheme bluloco')`.  
+> ℹ️ The style value only applies if you set the theme with `vim.cmd('colorscheme bluloco')`.
 > Setting the theme with a variant directly will override this setting.
 
 ### transparency (default: false)
@@ -165,13 +165,13 @@ This setting will enable italics for _keywords_, _comments_ and _markup attribut
 
 ### terminal (default: true in gui, otherwise false)
 
-This setting will enable the bluloco colors in your integrated terminal. 
+This setting will enable the bluloco colors in your integrated terminal.
 You most likely want to keep your terminal colors instead of overriding them if you are running neovim in a terminal.
 When you are running neovim inside a gui application this setting is enabled per default.
 
 You can skip the `terminal` setting completely to have it disabled in terminals and enabled in gui neovim.
 
-> ℹ️  Please note that some terminals will display bold text as the bright color variant but enabling this feature will override this behavior in the intergrated terminal. This is by design and has nothing to do with this theme. [see](https://github.com/neovim/neovim/issues/11335)
+> ℹ️ Please note that some terminals will display bold text as the bright color variant but enabling this feature will override this behavior in the intergrated terminal. This is by design and has nothing to do with this theme. [see](https://github.com/neovim/neovim/issues/11335)
 
 ### guicursor (default: true)
 
@@ -219,10 +219,10 @@ auto_dark_mode.setup({
 })
 ```
 
-If you are also using lazygit as your git client, you might be interested in this [wiki guide](https://github.com/uloco/bluloco.nvim/wiki/Lazygit-%E2%80%90-Delta-%E2%80%90-Bat-%E2%80%90-Auto-Style) to set it up correctly with bluloco.  
+If you are also using lazygit as your git client, you might be interested in this [wiki guide](https://github.com/uloco/bluloco.nvim/wiki/Lazygit-%E2%80%90-Delta-%E2%80%90-Bat-%E2%80%90-Auto-Style) to set it up correctly with bluloco.
 Auto-dark light mode included.
 
 ## Contributing
 
-I'd be more than happy for any bugs you find and add an [issue](https://github.com/uloco/bluloco.nvim/issues).  
+I'd be more than happy for any bugs you find and add an [issue](https://github.com/uloco/bluloco.nvim/issues).
 Pull requests are warmly welcome especially for missing plugin support.
