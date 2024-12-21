@@ -103,6 +103,7 @@ local dark = {
   rainbowGreen          = hsl("#92f535"),
   rainbowViolet         = hsl("#ff78ff"),
   rainbowCyan           = hsl("#28e4eb"),
+  rainbowIndigo         = hsl("#9F7EFE"),
 }
 
 local light = {
@@ -173,6 +174,7 @@ local light = {
   rainbowGreen          = hsl("#1fc255"),
   rainbowViolet         = hsl("#a557ff"),
   rainbowCyan           = hsl("#0e91a8"),
+  rainbowIndigo         = hsl("#383A42"),
 }
 
 local t = dark
@@ -972,7 +974,7 @@ local theme = lush(function(injected_functions)
     GitConflictAncestorLabel { bg = t.mergeParentLabel, blend = 5 },
     --
 
-    -- notify
+    -- nvim-notify
     NotifyBackground { NormalFloat },
     NotifyERRORBorder { Normal, fg = t.error },
     NotifyWARNBorder { Normal, fg = t.warning },
@@ -1024,6 +1026,39 @@ local theme = lush(function(injected_functions)
     RainbowDelimiterGreen { fg = t.rainbowGreen },
     RainbowDelimiterViolet { fg = t.rainbowViolet },
     RainbowDelimiterCyan { fg = t.rainbowCyan },
+
+    -- snacks.nvim
+
+    -- snacks.nvim indent
+    SnacksIndent { Whitespace },
+    -- SnacksIndentBlank { Whitespace },
+    SnacksIndentScope { LineNr },
+    -- SnacksIndentChunk { LineNr },
+    SnacksIndent1 { fg = t.rainbowRed },
+    SnacksIndent2 { fg = t.rainbowYellow },
+    SnacksIndent3 { fg = t.rainbowBlue },
+    SnacksIndent4 { fg = t.rainbowOrange },
+    SnacksIndent5 { fg = t.rainbowGreen },
+    SnacksIndent6 { fg = t.rainbowViolet },
+    SnacksIndent7 { fg = t.rainbowCyan },
+    SnacksIndent8 { fg = t.rainbowIndigo },
+
+    -- snacks.nvim notifier
+    SnacksNotifierBorderError { Normal, fg = t.error },
+    SnacksNotifierBorderWarn { Normal, fg = t.warning },
+    SnacksNotifierBorderInfo { Normal, fg = t.info },
+    SnacksNotifierBorderDebug { Normal, fg = t.punctuation },
+    SnacksNotifierBorderTrace { Normal, fg = t.property },
+    SnacksNotifierIconError { SnacksNotifierBorderError },
+    SnacksNotifierIconWarn { SnacksNotifierBorderWarn },
+    SnacksNotifierIconInfo { SnacksNotifierBorderInfo },
+    SnacksNotifierIconDebug { SnacksNotifierBorderDebug },
+    SnacksNotifierIconTrace { SnacksNotifierBorderTrace },
+    SnacksNotifierTitleError { SnacksNotifierBorderError },
+    SnacksNotifierTitleWarn { SnacksNotifierBorderWarn },
+    SnacksNotifierTitleInfo { SnacksNotifierBorderInfo },
+    SnacksNotifierTitleDebug { SnacksNotifierBorderDebug },
+    SnacksNotifierTitleTrace { SnacksNotifierBorderTrace },
 
     -- Neotest
     NeotestPassed { fg = t.added },
