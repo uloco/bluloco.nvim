@@ -1119,6 +1119,10 @@ local theme = lush(function(injected_functions)
     LeapLabel { bg = t.keyword, fg = t.bg },
     LeapBackdrop { fg = t.shade40 },
 
+    -- copilot
+    CopilotSuggestion { NonText },
+    -- CopilotAnnotation {},
+
     -- basic highlighting without treesitter
     --
     -- javascript
