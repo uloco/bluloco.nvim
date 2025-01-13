@@ -1121,7 +1121,6 @@ local theme = lush(function(injected_functions)
 
     -- basic highlighting without treesitter
     --
-
     -- javascript
     javaScript { Identifier },
     javaScriptIdentifier { Statement },
@@ -1271,7 +1270,7 @@ local theme = lush(function(injected_functions)
     markdownBlockquote { fg = t.constant },
     markdownUrITitle {},
     markdownLinkText { fg = t.constant },
-    markdownFootnoteDefinition {fg = t.number},
+    markdownFootnoteDefinition { fg = t.number },
     markdownFootnote { fg = t.number },
     -- markdownStrike {},
     markdownItalic { Italic, fg = t.parameter },
