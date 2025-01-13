@@ -58,6 +58,7 @@ Currently supported (aka. tested) plugins:
 - [git-conflict.nvim](https://github.com/akinsho/git-conflict.nvim)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [blink.cmp](https://github.com/Saghen/blink.cmp)
 - [vim-which-key](https://github.com/liuchengxu/vim-which-key)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 - [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
