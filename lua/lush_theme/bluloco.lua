@@ -830,7 +830,7 @@ local theme = lush(function(injected_functions)
     TroubleText {},
     --
 
-    -- Cmp
+    -- Nvim Cmp
     CmpDocumentation { fg = t.fg, bg = t.bgFloat },
     CmpDocumentationBorder { fg = t.punctuation, bg = t.bgFloat },
     CmpItemAbbr { fg = t.fg },
@@ -861,6 +861,40 @@ local theme = lush(function(injected_functions)
     CmpItemKindEnumMember { fg = t.type },
     CmpItemKindOperator { fg = t.punctuation },
     CmpItemKindSnippet { fg = t.label },
+    --
+
+    -- Blink Cmp
+    BlinkCmpDoc { fg = t.fg, bg = t.bgFloat },
+    BlinkCmpDocBorder { fg = t.punctuation, bg = t.bgFloat },
+    BlinkCmpLabel { fg = t.fg },
+    BlinkCmpLabelDeprecated { fg = t.fg, gui = "strikethrough" },
+    BlinkCmpLabelMatch { fg = t.primary },
+    BlinkCmpLabelDetail { fg = t.attribute },
+    BlinkCmpLabelDescription { fg = t.attribute },
+    BlinkCmpSource { fg = t.attribute },
+    BlinkCmpKindText { fg = t.comment },
+    BlinkCmpKindDefault { fg = t.fb },
+    BlinkCmpKindKeyword { fg = t.keyword },
+    BlinkCmpKindVariable { fg = t.fg },
+    BlinkCmpKindConstant { fg = t.constant },
+    BlinkCmpKindReference { fg = t.fg },
+    BlinkCmpKindValue { fg = t.fg },
+    BlinkCmpKindFunction { fg = t.method },
+    BlinkCmpKindMethod { fg = t.method },
+    BlinkCmpKindConstructor { fg = t.type },
+    BlinkCmpKindClass { fg = t.type },
+    BlinkCmpKindInterface { fg = t.type },
+    BlinkCmpKindStruct { fg = t.type },
+    BlinkCmpKindEvent { fg = t.label },
+    BlinkCmpKindEnum { fg = t.type },
+    BlinkCmpKindUnit { fg = t.number },
+    BlinkCmpKindModule { fg = t.keyword },
+    BlinkCmpKindProperty { fg = t.property },
+    BlinkCmpKindField { fg = t.property },
+    BlinkCmpKindTypeParameter { fg = t.type },
+    BlinkCmpKindEnumMember { fg = t.type },
+    BlinkCmpKindOperator { fg = t.punctuation },
+    BlinkCmpKindSnippet { fg = t.label },
     --
 
     -- nvim illuminate
