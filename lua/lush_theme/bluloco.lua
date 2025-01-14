@@ -1120,8 +1120,8 @@ local theme = lush(function(injected_functions)
     LeapBackdrop { fg = t.shade40 },
 
     -- copilot
-    CopilotSuggestion { fg = t.primary.mix(t.bg, 50) },
-    CopilotAnnotation { fg = t.label.mix(t.bg, 40) },
+    CopilotSuggestion { fg = t.primary.mix(t.bg, 40) },
+    CopilotAnnotation { fg = t.label.mix(t.bg, 35) },
 
     -- basic highlighting without treesitter
     --
