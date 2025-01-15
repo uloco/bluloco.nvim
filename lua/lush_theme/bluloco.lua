@@ -79,6 +79,8 @@ local dark = {
   mergeIncomingLabel    = hsl("#305C95"),
   mergeParent           = hsl(235, 28, 32),
   mergeParentLabel      = hsl(235, 29, 41),
+  copilot               = hsl('#95A922'),
+
   -- terminal
   terminalBlack         = hsl("#42444d"),
   terminalRed           = hsl("#fc2e51"),
@@ -150,6 +152,8 @@ local light = {
   mergeIncomingLabel    = hsl("#CAE3F4"),
   mergeParent           = hsl(233, 60, 95),
   mergeParentLabel      = hsl(233, 60, 90),
+  copilot               = hsl("#869900"),
+
   -- terminal
   terminalBlack         = hsl("#373a41"),
   terminalRed           = hsl("#d52652"),
@@ -861,8 +865,8 @@ local theme = lush(function(injected_functions)
     CmpItemKindEnumMember { fg = t.type },
     CmpItemKindOperator { fg = t.punctuation },
     CmpItemKindSnippet { fg = t.label },
+    CmpItemKindCopilot { fg = t.copilot },
     --
-
     -- Blink Cmp
     BlinkCmpDoc { fg = t.fg, bg = t.bgFloat },
     BlinkCmpDocBorder { fg = t.punctuation, bg = t.bgFloat },
@@ -1120,8 +1124,8 @@ local theme = lush(function(injected_functions)
     LeapBackdrop { fg = t.shade40 },
 
     -- copilot
-    CopilotSuggestion { fg = t.primary.mix(t.bg, 40) },
-    CopilotAnnotation { fg = t.label.mix(t.bg, 35) },
+    CopilotSuggestion { fg = t.copilot.mix(t.bg, 20) },
+    CopilotAnnotation { fg = t.copilot.mix(t.primary, 50).mix(t.bg, 30) },
 
     -- basic highlighting without treesitter
     --
