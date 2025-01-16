@@ -866,6 +866,9 @@ local theme = lush(function(injected_functions)
     CmpItemKindOperator { fg = t.punctuation },
     CmpItemKindSnippet { fg = t.label },
     CmpItemKindCopilot { fg = t.copilot },
+    CmpItemKindCodeium { fg = t.copilot },
+    CmpItemKindSupermaven { fg = t.copilot },
+    CmpItemKindTabNine { fg = t.copilot },
     --
 
     -- Blink Cmp
@@ -901,6 +904,9 @@ local theme = lush(function(injected_functions)
     BlinkCmpKindOperator { fg = t.punctuation },
     BlinkCmpKindSnippet { fg = t.label },
     BlinkCmpKindCopilot { fg = t.copilot },
+    BlinkCmpKindCodeium { fg = t.copilot },
+    BlinkCmpKindSupermaven { fg = t.copilot },
+    BlinkCmpKindTabNine { fg = t.copilot },
     --
 
     -- nvim illuminate
