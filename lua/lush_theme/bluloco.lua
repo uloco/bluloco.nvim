@@ -1074,6 +1074,7 @@ local theme = lush(function(injected_functions)
     RainbowDelimiterCyan { fg = t.rainbowCyan },
 
     -- snacks.nvim
+    -- SnacksNormal { NormalFloat },
 
     -- snacks.nvim indent
     SnacksIndent { Whitespace },
@@ -1105,6 +1106,26 @@ local theme = lush(function(injected_functions)
     SnacksNotifierTitleInfo { SnacksNotifierBorderInfo },
     SnacksNotifierTitleDebug { SnacksNotifierBorderDebug },
     SnacksNotifierTitleTrace { SnacksNotifierBorderTrace },
+
+    -- snacks.nvim picker
+    -- SnacksPicker { NormalFloat },
+    SnacksPickerBorder { NormalFloat, fg = t.punctuation },
+    SnacksPickerTitle { NormalFloat, fg = t.punctuation },
+    -- SnacksPickerCursorLine { CursorLine },
+    SnacksPickerSelected { fg = t.primary },
+    SnacksPickerSearch { Visual },
+    SnacksPickerMatch { fg = t.keyword },
+    SnacksPickerPrompt { fg = t.punctuation },
+    SnacksPickerCol { Number },
+    SnacksPickerRow { Number },
+    SnacksPickerFile { fg = t.fg },
+    SnacksPickerDir { Comment },
+    SnacksPickerBufFlags { fg = t.primary },
+    SnacksPickerGitStatusAdded { fg = t.method },
+    SnacksPickerGitStatusModified { fg = t.keyword },
+    SnacksPickerGitStatusRenamed { fg = t.keyword },
+    SnacksPickerGitStatusCopied { fg = t.keyword },
+    SnacksPickerGitStatusDeleted { fg = t.type },
 
     -- Neotest
     NeotestPassed { fg = t.added },
