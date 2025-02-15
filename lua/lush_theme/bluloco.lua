@@ -1125,7 +1125,10 @@ local theme = lush(function(injected_functions)
     SnacksPickerGitStatusModified { fg = t.keyword },
     SnacksPickerGitStatusRenamed { fg = t.keyword },
     SnacksPickerGitStatusCopied { fg = t.keyword },
+    SnacksPickerGitStatusUnmerged { fg = t.number },
     SnacksPickerGitStatusDeleted { fg = t.type },
+    SnacksPickerGitStatusIgnored { fg = t.comment },
+    SnacksPickerGitStatusUntracked { fg = t.comment },
 
     -- Neotest
     NeotestPassed { fg = t.added },
