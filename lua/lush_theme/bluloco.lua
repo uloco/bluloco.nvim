@@ -880,6 +880,7 @@ local theme = lush(function(injected_functions)
     BlinkCmpLabelDetail { fg = t.attribute },
     BlinkCmpLabelDescription { fg = t.attribute },
     BlinkCmpSource { fg = t.attribute },
+    BlinkCmpKind { Special },
     BlinkCmpKindText { fg = t.comment },
     BlinkCmpKindDefault { fg = t.fb },
     BlinkCmpKindKeyword { fg = t.keyword },
