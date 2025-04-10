@@ -1131,6 +1131,7 @@ local theme = lush(function(injected_functions)
 
     -- snacks.nvim picker
     -- SnacksPicker { NormalFloat },
+    SnacksPickerInput { NormalFloat, blend = 0 },
     SnacksPickerBorder { NormalFloat, fg = t.punctuation },
     SnacksPickerTitle { NormalFloat, fg = t.punctuation },
     -- SnacksPickerCursorLine { CursorLine },
