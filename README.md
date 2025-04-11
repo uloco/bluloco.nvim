@@ -116,7 +116,8 @@ require("bluloco").setup({
   transparent = false,
   italics = false,
   terminal = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
-  guicursor   = true,
+  guicursor = true,
+  rainbow_headings = false,     -- if you want different colored headings for each heading level
 })
 
 vim.opt.termguicolors = true
