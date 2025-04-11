@@ -1345,12 +1345,12 @@ local theme = lush(function(injected_functions)
     markdownCode { fg = t.property },
     markdownCodeBlock { fg = t.property },
     markdownId { fg = t.method },
-    markdownH6 { String },
-    markdownH5 { String },
-    markdownH4 { String },
-    markdownH3 { String },
-    markdownH2 { String },
-    markdownH1 { String },
+    markdownH6 { sym("@markup.heading") },
+    markdownH5 { sym("@markup.heading") },
+    markdownH4 { sym("@markup.heading") },
+    markdownH3 { sym("@markup.heading") },
+    markdownH2 { sym("@markup.heading") },
+    markdownH1 { sym("@markup.heading") },
   }
 end)
 return theme
