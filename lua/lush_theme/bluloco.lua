@@ -1199,7 +1199,7 @@ local theme = lush(function(injected_functions)
     typeScriptIdentifier { Statement },
     typescriptVariable { Statement },
     typeScriptFunction { Statement },
-    typescriptPredefinedType { sym("@type.builtin") },
+    typescriptPredefinedType { fg = t.keyword },
     typescriptClassStatic { Statement },
     typescriptNodeGlobal { Statement },
     typescriptExceptions { Statement },
@@ -1249,7 +1249,7 @@ local theme = lush(function(injected_functions)
     xmlEqual { Punctuation },
     xmlEntityPunct { Punctuation },
     xmlEntity { Constant },
-    xmlCdataStart { sym("@label") },
+    xmlCdataStart { fg = t.label },
     --
 
     -- css
@@ -1287,10 +1287,10 @@ local theme = lush(function(injected_functions)
     --
 
     -- python
-    pythonDecorator { sym("@annotation") },
-    pythonDecoratorName { sym("@annotation") },
+    pythonDecorator { fg = t.label },
+    pythonDecoratorName { fg = t.label },
     pythonAttribute { Property },
-    pythonBuiltin { sym("@type.builtin") },
+    pythonBuiltin { fg = t.keyword },
     --
 
     -- yaml
@@ -1339,18 +1339,18 @@ local theme = lush(function(injected_functions)
     markdownItalic { Italic, fg = t.parameter },
     markdownRule { Keyword },
     markdownBold { Bold, fg = t.type },
-    markdownUrl { sym("@markup.link.url") },
-    markdownLink { sym("@markup.link.url") },
+    markdownUrl { fg = t.tag, sp = t.tag, gui = "underline" },
+    markdownLink { fg = t.tag, sp = t.tag, gui = "underline" },
     -- markdownAutomaticLink {},
     markdownCode { fg = t.property },
     markdownCodeBlock { fg = t.property },
     markdownId { fg = t.method },
-    markdownH6 { sym("@markup.heading") },
-    markdownH5 { sym("@markup.heading") },
-    markdownH4 { sym("@markup.heading") },
-    markdownH3 { sym("@markup.heading") },
-    markdownH2 { sym("@markup.heading") },
-    markdownH1 { sym("@markup.heading") },
+    markdownH6 { fg = t.keyword },
+    markdownH5 { fg = t.keyword },
+    markdownH4 { fg = t.keyword },
+    markdownH3 { fg = t.keyword },
+    markdownH2 { fg = t.keyword },
+    markdownH1 { fg = t.keyword },
   }
 end)
 return theme
