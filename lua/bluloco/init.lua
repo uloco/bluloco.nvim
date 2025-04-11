@@ -6,11 +6,12 @@ local M = {}
 local isGui = vim.fn.has("gui_running") == 1
 
 local defaultConfig = {
-  style       = "auto", -- auto | light | dark
-  transparent = false,
-  italics     = false,
-  terminal    = isGui,
-  guicursor   = true,
+  style            = "auto", -- auto | light | dark
+  transparent      = false,
+  italics          = false,
+  terminal         = isGui,
+  guicursor        = true,
+  rainbow_headings = false,
 }
 
 M.config = defaultConfig
@@ -55,6 +56,27 @@ function M.load()
         Comment { theme.Comment, gui = "italic" },
         sym("@tag.attribute") { theme["@tag.attribute"], gui = "italic" },
         sym("@annotation") { theme["@annotation"], gui = "italic" },
+      }
+    end)
+  end
+
+  -- rainbow headings
+  if (M.config.rainbow_headings == true) then
+    theme = lush.extends({ theme }).with(function(injected_functions)
+      local sym = injected_functions.sym
+      return {
+        sym("@markup.heading.1") { theme.RainbowRed },
+        sym("@markup.heading.2") { theme.RainbowYellow },
+        sym("@markup.heading.3") { theme.RainbowBlue },
+        sym("@markup.heading.4") { theme.RainbowOrange },
+        sym("@markup.heading.5") { theme.RainbowGreen },
+        sym("@markup.heading.6") { theme.RainbowViolet },
+        markdownH1 { theme.RainbowRed },
+        markdownH2 { theme.RainbowYellow },
+        markdownH3 { theme.RainbowBlue },
+        markdownH4 { theme.RainbowOrange },
+        markdownH5 { theme.RainbowGreen },
+        markdownH6 { theme.RainbowViolet },
       }
     end)
   end
