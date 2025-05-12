@@ -58,7 +58,7 @@ local dark = {
   -- workspace
   primary               = hsl("#3691ff"),
   selection             = hsl("#274670"),
-  search                = hsl("#1A7247"),
+  search                = hsl("#2DC77C"),
   diffAdd               = hsl("#105B3D"),
   diffChange            = hsl("#10415B"),
   diffDelete            = hsl("#522E34"),
