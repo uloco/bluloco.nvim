@@ -33,7 +33,16 @@ local config = require("bluloco").config
 -- standout:      boolean, enables or disables standout.
 -- nocombine:     boolean, enables or disables nocombine.
 
-
+local function invert_hsl(color)
+  assert(type(color) == "table"
+         and type(color.h) == "number"
+         and type(color.s) == "number"
+         and type(color.l) == "number",
+         "invert_hsl: expected a color with .h, .s, .l fields")
+  -- rotate hue by 180°, wrap into [0,360)
+  local inv_h = (color.h + 180) % 360
+  return M(inv_h, color.s, color.l)
+end
 
 local dark = {
   -- syntax
@@ -263,7 +272,7 @@ local theme = lush(function(injected_functions)
     Comment { fg = t.comment },
     LineNr { fg = t.comment },       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg = t.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    Search { fg = t.bg, bg = t.search },
+    Search { fg = invert_hsl(t.search), bg = t.search },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
     NormalFloat { bg = t.bgFloat, blend = 5 },    -- Normal text in floating windows.
