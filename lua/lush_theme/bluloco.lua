@@ -39,15 +39,15 @@ local config = require("bluloco").config
 -- @param color  A decorated HSL object (the result of M(...))
 -- @return       A new decorated HSL object
 local function invert_hsl(color)
-  -- pull out the raw channels
+
   local h, s, l = color.h, color.s, color.l
 
-  -- compute their “negatives”
+
   local inv_h   = (h + 180) % 360
   local inv_s   = 100 - s
   local inv_l   = 100 - l
 
-  -- **dot** syntax so only your number goes into the op
+
   return color
       .hue(inv_h)
       .saturation(inv_s)
@@ -284,7 +284,7 @@ local theme = lush(function(injected_functions)
     Comment { fg = t.comment },
     LineNr { fg = t.comment },       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg = t.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    Search { fg = t.searchFG, bg = t.search },
+    Search { fg = t.fg, bg = t.search },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
     NormalFloat { bg = t.bgFloat, blend = 5 },    -- Normal text in floating windows.
