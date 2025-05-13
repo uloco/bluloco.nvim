@@ -68,6 +68,7 @@ local dark = {
   primary               = hsl("#3691ff"),
   selection             = hsl("#274670"),
   search                = hsl("#1A7247"),
+  searchFG              = invert_hsl(hsl("#1A7247")),
   diffAdd               = hsl("#105B3D"),
   diffChange            = hsl("#10415B"),
   diffDelete            = hsl("#522E34"),
@@ -272,7 +273,7 @@ local theme = lush(function(injected_functions)
     Comment { fg = t.comment },
     LineNr { fg = t.comment },       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg = t.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    Search { fg = invert_hsl(t.search), bg = t.search },
+    Search { fg = t.searchFG, bg = t.search },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
     NormalFloat { bg = t.bgFloat, blend = 5 },    -- Normal text in floating windows.
