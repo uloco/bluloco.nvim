@@ -33,16 +33,27 @@ local config = require("bluloco").config
 -- standout:      boolean, enables or disables standout.
 -- nocombine:     boolean, enables or disables nocombine.
 
+-- invert.lua
+
+--- Invert an HSL-like colour (standalone).
+-- @param color  A decorated HSL object (the result of M(...))
+-- @return       A new decorated HSL object
 local function invert_hsl(color)
-  assert(type(color) == "table"
-         and type(color.h) == "number"
-         and type(color.s) == "number"
-         and type(color.l) == "number",
-         "invert_hsl: expected a color with .h, .s, .l fields")
-  -- rotate hue by 180°, wrap into [0,360)
-  local inv_h = (color.h + 180) % 360
-  return M(inv_h, color.s, color.l)
+  -- pull out the raw channels
+  local h, s, l = color.h, color.s, color.l
+
+  -- compute their “negatives”
+  local inv_h   = (h + 180) % 360
+  local inv_s   = 100 - s
+  local inv_l   = 100 - l
+
+  -- **dot** syntax so only your number goes into the op
+  return color
+      .hue(inv_h)
+      .saturation(inv_s)
+      .lightness(inv_l)
 end
+
 
 local dark = {
   -- syntax
