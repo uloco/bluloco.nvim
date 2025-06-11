@@ -263,7 +263,7 @@ local theme = lush(function(injected_functions)
     Comment { fg = t.comment },
     LineNr { fg = t.comment },       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg = t.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    Search { bg = t.search },
+    Search { bg = t.search, },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
     NormalFloat { bg = t.bgFloat, blend = 5 },    -- Normal text in floating windows.
@@ -1177,6 +1177,14 @@ local theme = lush(function(injected_functions)
     LeapMatch { fg = t.keyword, gui = "underline", sp = t.keyword },
     LeapLabel { bg = t.keyword, fg = t.bg },
     LeapBackdrop { fg = t.shade40 },
+
+    FlashMatch { LeapMatch },
+    FlashLabel { LeapLabel },
+    FlashBackdrop { LeapBackdrop },
+    -- FlashCurrent {},
+    -- FlashPrompt {},
+    -- FlashPromptIcon {},
+    -- FlashCursor {},
 
     -- copilot
     CopilotSuggestion { fg = t.copilot.mix(t.bg, 20) },
