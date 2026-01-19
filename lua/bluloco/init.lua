@@ -12,6 +12,7 @@ local defaultConfig = {
   terminal         = isGui,
   guicursor        = true,
   rainbow_headings = false,
+  float_window = "default" -- default | transparent
 }
 
 M.config = defaultConfig

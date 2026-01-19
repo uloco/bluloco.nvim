@@ -118,6 +118,7 @@ require("bluloco").setup({
   terminal = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
   guicursor = true,
   rainbow_headings = false,     -- if you want different colored headings for each heading level
+  float_window = "default" -- "default" | "transparent"
 })
 
 vim.opt.termguicolors = true
@@ -180,6 +181,11 @@ You can skip the `terminal` setting completely to have it disabled in terminals 
 This setting sets a guicursor to fix your terminal cursor and make it colorful (as intended).
 It is enabled by default.
 If you want to override this, make sure to set your `:set guicursor` after loading the theme or disable it completely.
+
+### float_window (default: "default")
+
+Controls how floating windows look when `transparent` is enabled.
+The default keeps a solid float background for better contrast, while setting it to `"transparent"` will also make floating windows inherit your terminal background (useful if you prefer a fully transparent UI).
 
 <!-- ## Recipes
 ### Auto switching light & dark themes

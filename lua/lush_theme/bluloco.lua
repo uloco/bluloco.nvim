@@ -1,6 +1,7 @@
 local lush = require('lush')
 local hsl = lush.hsl
 local config = require("bluloco").config
+local isTransparentFloatWindow = config.transparent and config.float_window == "transparent"
 
 -- Lush.hsl provides a number of convenience functions for:
 --
@@ -38,7 +39,7 @@ local config = require("bluloco").config
 local dark = {
   -- syntax
   bg                    = hsl("#282C34"),
-  bgFloat               = hsl("#21242D"),
+  bgFloat               = isTransparentFloatWindow and "NONE" or hsl("#21242D"),
   fg                    = hsl("#ABB2BF"),
   cursor                = hsl("#FFCC00"),
   keyword               = hsl("#10B1FE"),
@@ -111,7 +112,7 @@ local dark = {
 local light = {
   -- syntax
   bg                    = hsl("#F9F9F9"),
-  bgFloat               = hsl("#ECEDEE"),
+  bgFloat               = isTransparentFloatWindow and "NONE" or hsl("#ECEDEE"),
   fg                    = hsl("#383A42"),
   cursor                = hsl("#F31459"),
   keyword               = hsl("#0098DD"),
