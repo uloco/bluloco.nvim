@@ -182,6 +182,11 @@ This setting sets a guicursor to fix your terminal cursor and make it colorful (
 It is enabled by default.
 If you want to override this, make sure to set your `:set guicursor` after loading the theme or disable it completely.
 
+### float_window (default: "default")
+
+Controls how floating windows look when `transparent` is enabled.
+The default keeps a solid float background for better contrast, while setting it to `"transparent"` will also make floating windows inherit your terminal background (useful if you prefer a fully transparent UI).
+
 <!-- ## Recipes
 ### Auto switching light & dark themes
  -->
