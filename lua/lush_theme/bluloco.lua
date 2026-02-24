@@ -1193,6 +1193,10 @@ local theme = lush(function(injected_functions)
     CopilotSuggestion { fg = t.copilot.mix(t.bg, 20) },
     CopilotAnnotation { fg = t.copilot.mix(t.primary, 50).mix(t.bg, 30) },
 
+    -- ufo
+    UfoFolded { bg = t.shade7 },
+    UfoFoldedBg { UfoFolded },
+
     -- basic highlighting without treesitter
     --
     -- javascript
