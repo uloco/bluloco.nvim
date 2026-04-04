@@ -502,8 +502,7 @@ local theme = lush(function(injected_functions)
     sym("@string.special.url") { sym("@text.uri") },
 
 
-    -- semantic highlighting
-
+    -- Semantic highlighting
     sym("@lsp.type.comment") { sym("@comment") },
     sym("@lsp.type.namespace") { sym("@namespace") },
     sym("@lsp.type.type") { sym("@type") },
@@ -535,10 +534,11 @@ local theme = lush(function(injected_functions)
     sym("LspInlayHint") { bg = t.shade2, fg = t.shade25 },
 
     -- gui vim
-    -- VimR
+    -- vimr
     VimrDefaultCursor { fg = t.cursor, bg = t.bg },
     VimrInsertCursor { fg = t.cursor, bg = t.bg },
-    --  gitsigns
+
+    -- gitsigns
     GitSignsAdd { fg = t.added },
     GitSignsChange { fg = t.changed },
     GitSignsDelete { fg = t.deleted },
@@ -593,9 +593,8 @@ local theme = lush(function(injected_functions)
     -- BufferLineErrorSelected { fg = t.error, sp = t.primary, gui = "underline" },
     -- BufferLineInfoSelected { fg = t.info, sp = t.primary, gui = "underline" },
     -- BufferLineHintSelected { fg = t.hint, sp = t.primary, gui = "underline" },
-    --
 
-    -- BarBar
+    -- barbar
     BufferCurrent { Normal },
     BufferCurrentIndex { BufferCurrent },
     BufferCurrentIcon { BufferCurrentIndex },
@@ -643,9 +642,8 @@ local theme = lush(function(injected_functions)
     BufferTabpages { BufferInactive, fg = t.fg },
     BufferTabpageFill { BufferTabpages, fg = t.bg },
     BufferOffset { BufferTabpageFill },
-    --
 
-    -- Telescope
+    -- telescope
     -- Sets the highlight for selected items within the picker.
     -- TelescopeSelection  {},
     -- TelescopeSelectionCaret  {},
@@ -725,7 +723,7 @@ local theme = lush(function(injected_functions)
     -- TelescopeResultsDiffDelete  {},
     -- TelescopeResultsDiffUntracked  {},
 
-    -- Fzf-lua
+    -- fzf-lua
     FzfLuaNormal { NormalFloat },
     FzfLuaBorder { NormalFloat, fg = t.punctuation },
     FzfLuaTitle { NormalFloat, fg = t.punctuation },
@@ -758,7 +756,7 @@ local theme = lush(function(injected_functions)
     FzfLuaFilePart { fg = t.fg },
     FzfLuaLiveSym { fg = t.keyword },
 
-    -- Fzf-lua fzf colours
+    -- fzf-lua fzf colours
     -- FzfLuaFzfNormal { NormalFloat },
     FzfLuaFzfCursorLine { Visual, fg = shade(t.fg, 70) },
     FzfLuaFzfMatch { fg = t.keyword },
@@ -831,9 +829,8 @@ local theme = lush(function(injected_functions)
     SagaWinbarFolderName {},
     SagaWinbarFileIcon {},
     SagaWinbarSep { fg = t.punctuation },
-    --
 
-    -- Trouble
+    -- trouble
     TroubleCount { fg = t.number },
     TroubleNormal { bg = t.bgFloat },
     -- TroubleTextInformation {},
@@ -856,9 +853,8 @@ local theme = lush(function(injected_functions)
     -- TroubleHint {},
     -- TroubleTextHint {},
     TroubleText {},
-    --
 
-    -- Nvim Cmp
+    -- nvim cmp
     CmpDocumentation { fg = t.fg, bg = t.bgFloat },
     CmpDocumentationBorder { fg = t.punctuation, bg = t.bgFloat },
     CmpItemAbbr { fg = t.fg },
@@ -893,9 +889,8 @@ local theme = lush(function(injected_functions)
     CmpItemKindCodeium { fg = t.copilot },
     CmpItemKindSupermaven { fg = t.copilot },
     CmpItemKindTabNine { fg = t.copilot },
-    --
 
-    -- Blink Cmp
+    -- blink cmp
     BlinkCmpDoc { fg = t.fg, bg = t.bgFloat },
     BlinkCmpDocBorder { fg = t.punctuation, bg = t.bgFloat },
     BlinkCmpLabel { fg = t.fg },
@@ -932,19 +927,24 @@ local theme = lush(function(injected_functions)
     BlinkCmpKindCodeium { fg = t.copilot },
     BlinkCmpKindSupermaven { fg = t.copilot },
     BlinkCmpKindTabNine { fg = t.copilot },
-    --
+
+    -- blink pairs
+    BlinkPairs { fg = t.punctuation },
+    BlinkPairsOrange { fg = t.rainbowOrange },
+    BlinkPairsPurple { fg = t.rainbowViolet },
+    BlinkPairsBlue { fg = t.rainbowBlue },
+    BlinkPairsUnmatched { fg = t.error },
+    -- BlinkPairsMatchParen { MatchParen },
 
     -- nvim illuminate
     IlluminatedWordText { bg = t.grey7 },
     IlluminatedWordRead { bg = t.grey7 },
     IlluminatedWordWrite { bg = t.grey7 },
-    --
 
     -- cursor word
     CursorWord = { bg = t.grey7 },
     CursorWord0 = { bg = t.grey7 },
     CursorWord1 = { bg = t.grey7 },
-    --
 
     -- mason
     MasonNormal { NormalFloat },
@@ -962,7 +962,6 @@ local theme = lush(function(injected_functions)
     MasonMutedBlockBold { bg = t.shade40, fg = t.bg, gui = "bold" },
     MasonError { Error },
     MasonHeading { gui = "bold,underline", fg = t.fg },
-    --
 
     -- which-key
     WhichKey { Character },
@@ -974,7 +973,7 @@ local theme = lush(function(injected_functions)
     -- WhichKeyValue { Character },
 
 
-    -- Diffview
+    -- diffview
     DiffviewStatusAdded { fg = t.method },
     DiffviewStatusModified { fg = t.keyword },
     DiffviewStatusRenamed { fg = t.keyword },
@@ -998,7 +997,6 @@ local theme = lush(function(injected_functions)
     -- DiffviewReference {},
     DiffviewPrimary { fg = t.keyword },
     DiffviewSecondary { fg = t.tag },
-    --
 
     -- vim-fugitive
     diffAdded { fg = t.method },
@@ -1018,7 +1016,7 @@ local theme = lush(function(injected_functions)
     -- diffCommon {},
     -- diffComment {},
 
-    -- nvim tree
+    -- Nvim tree
     NvimTreeNormal { bg = t.bgFloat },
     NvimTreeNormalNC { bg = t.bgFloat },
     NvimTreeWindowPicker { fg = t.fg, bg = t.selection, gui = "bold" },
@@ -1034,7 +1032,6 @@ local theme = lush(function(injected_functions)
     NvimTreeGitMerge { fg = t.number },
     NvimTreeGitDeleted { fg = t.deleted },
     NvimTreeGitNew { fg = t.method },
-    --
 
     -- git-conflict
     GitConflictCurrent { bg = t.mergeCurrent, blend = 5 },
@@ -1043,7 +1040,6 @@ local theme = lush(function(injected_functions)
     GitConflictCurrentLabel { bg = t.mergeCurrentLabel, blend = 5 },
     GitConflictIncomingLabel { bg = t.mergeIncomingLabel, blend = 5 },
     GitConflictAncestorLabel { bg = t.mergeParentLabel, blend = 5 },
-    --
 
     -- nvim-notify
     NotifyBackground { NormalFloat },
@@ -1062,22 +1058,18 @@ local theme = lush(function(injected_functions)
     NotifyINFOTitle { NotifyINFOBorder },
     NotifyDEBUGTitle { NotifyDEBUGBorder },
     NotifyTRACETitle { NotifyTRACEBorder },
-    --
 
     -- -- Visual Multi.
     -- VM_Extend = { bg = colors.selection_inactive },
     -- VM_Cursor = { bg = colors.selection_inactive, sp = colors.fg, underline = true },
     -- VM_Insert = { sp = colors.fg, underline = true },
     -- VM_Mono = { fg = colors.bg, bg = colors.comment },
-    --
 
     -- hlargs (semantic parameter highlighting)
     Hlargs { sym("@parameter") },
-    --
 
     -- virt-column
     VirtColumn { Whitespace },
-    --
 
     -- indent blankline
     -- IblScope {},
@@ -1156,7 +1148,7 @@ local theme = lush(function(injected_functions)
     SnacksPickerGitStatusIgnored { fg = t.comment },
     SnacksPickerGitStatusUntracked { fg = t.comment },
 
-    -- Neotest
+    -- neotest
     NeotestPassed { fg = t.added },
     NeotestRunning { DiagnosticInfo },
     NeotestSkipped { DiagnosticWarn },
@@ -1181,6 +1173,7 @@ local theme = lush(function(injected_functions)
     LeapLabel { bg = t.keyword, fg = t.bg },
     LeapBackdrop { fg = t.shade40 },
 
+    -- flash
     FlashMatch { LeapMatch },
     FlashLabel { LeapLabel },
     FlashBackdrop { LeapBackdrop },
@@ -1198,7 +1191,7 @@ local theme = lush(function(injected_functions)
     UfoFoldedBg { UfoFolded },
 
     -- basic highlighting without treesitter
-    --
+
     -- javascript
     javaScript { Identifier },
     javaScriptIdentifier { Statement },
@@ -1206,7 +1199,6 @@ local theme = lush(function(injected_functions)
     javaScriptParens { Punctuation },
     javaScriptBraces { Punctuation },
     javaScriptNumber { Number },
-    --
 
     -- typescript
     typeScriptImport { Statement },
@@ -1234,16 +1226,14 @@ local theme = lush(function(injected_functions)
     typescriptBinaryOp { Operator },
     typescriptDocNotation { fg = t.shade50 },
     typescriptDocTags { typescriptDocNotation },
-    --
 
     -- json
     jsonKeyword { Property },
     jsonQuote { String },
     jsonBraces { Punctuation },
     jsonBraces { jsonBraces },
-    --
 
-    --html
+    -- html
     htmlTagName { Tag },
     htmlSpecialTagName { Tag },
     htmlTag { htmlTagName },
@@ -1251,7 +1241,6 @@ local theme = lush(function(injected_functions)
     htmlTagN { htmlTagName },
     htmlArg { Special },
     htmlSpecialChar { Constant },
-    --
 
     -- xml
     xmlTag { Tag },
@@ -1265,7 +1254,6 @@ local theme = lush(function(injected_functions)
     xmlEntityPunct { Punctuation },
     xmlEntity { Constant },
     xmlCdataStart { fg = t.label },
-    --
 
     -- css
     cssProp { Property },
@@ -1282,7 +1270,6 @@ local theme = lush(function(injected_functions)
     cssTagName { Tag },
     cssUrl { String, gui = "underline" },
     cssUnitDecorators { Constant },
-    --
 
     -- rust
     rustModPathSep { Punctuation },
@@ -1290,7 +1277,6 @@ local theme = lush(function(injected_functions)
     rustBoxPlacementBalance { Punctuation },
     rustSigil { Punctuation },
     rustStorage { Statement },
-    --
 
     -- ruby
     rubyConstant { Constant },
@@ -1299,14 +1285,12 @@ local theme = lush(function(injected_functions)
     rubyInterpolationDelimiter { Punctuation },
     rubyStringDelimiter { String },
     rubyKeywordAsMethod { Function },
-    --
 
     -- python
     pythonDecorator { fg = t.label },
     pythonDecoratorName { fg = t.label },
     pythonAttribute { Property },
     pythonBuiltin { fg = t.keyword },
-    --
 
     -- yaml
     yamlBlockMappingKey { Property },
@@ -1320,7 +1304,6 @@ local theme = lush(function(injected_functions)
     dosiniHeader { Title },
     dosiniNumber { Number },
     dosiniComment { Comment },
-    --
 
     -- markdown
     markdownBoldItalicDelimiter { Punctuation },
