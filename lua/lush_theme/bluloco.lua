@@ -928,6 +928,14 @@ local theme = lush(function(injected_functions)
     BlinkCmpKindSupermaven { fg = t.copilot },
     BlinkCmpKindTabNine { fg = t.copilot },
 
+    -- blink pairs
+    BlinkPairs { fg = t.punctuation },
+    BlinkPairsOrange { fg = t.rainbowOrange },
+    BlinkPairsPurple { fg = t.rainbowViolet },
+    BlinkPairsBlue { fg = t.rainbowBlue },
+    BlinkPairsUnmatched { fg = t.error },
+    -- BlinkPairsMatchParen { MatchParen },
+
     -- nvim illuminate
     IlluminatedWordText { bg = t.grey7 },
     IlluminatedWordRead { bg = t.grey7 },
