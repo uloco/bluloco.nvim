@@ -1041,6 +1041,14 @@ local theme = lush(function(injected_functions)
     GitConflictIncomingLabel { bg = t.mergeIncomingLabel, blend = 5 },
     GitConflictAncestorLabel { bg = t.mergeParentLabel, blend = 5 },
 
+    -- conflict.nvim
+    ConflictCurrent { GitConflictCurrent },
+    ConflictIncoming { GitConflictIncoming },
+    ConflictAncestor { GitConflictAncestor },
+    ConflictCurrentLabel { GitConflictCurrentLabel },
+    ConflictIncomingLabel { GitConflictIncomingLabel },
+    ConflictAncestorLabel { GitConflictAncestorLabel },
+
     -- nvim-notify
     NotifyBackground { NormalFloat },
     NotifyERRORBorder { Normal, fg = t.error },
