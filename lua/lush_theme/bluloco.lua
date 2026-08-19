@@ -998,6 +998,17 @@ local theme = lush(function(injected_functions)
     DiffviewPrimary { fg = t.keyword },
     DiffviewSecondary { fg = t.tag },
 
+    -- codediff.nvim
+    CodeDiffGutterInsertNumber { fg = t.added },
+    CodeDiffGutterDeleteNumber { fg = t.deleted },
+    CodeDiffMoveTo { fg = t.changed },
+    CodeDiffMoveFrom { fg = t.changed.mix(t.bg, 35) },
+    CodeDiffFiller { fg = t.shade20 },
+    CodeDiffStatusAdded { fg = t.method },
+    CodeDiffStatusModified { fg = t.keyword },
+    CodeDiffStatusConflict { fg = t.number },
+    CodeDiffConflictSign { fg = t.number },
+
     -- vim-fugitive
     diffAdded { fg = t.method },
     diffRemoved { fg = t.type },
