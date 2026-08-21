@@ -398,6 +398,7 @@ local theme = lush(function(injected_functions)
     DiagnosticWarn { WarningMsg },                                              -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo { fg = t.info },                                             -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticHint { fg = t.hint },                                             -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticOk { fg = t.method },                                             -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticVirtualTextError { DiagnosticError, bg = t.bg.mix(t.error, 20) }, -- Used for "Error" diagnostic virtual text.
     DiagnosticVirtualTextWarn { DiagnosticWarn, bg = t.bg.mix(t.warning, 20) }, -- Used for "Warn" diagnostic virtual text.
     DiagnosticVirtualTextInfo { DiagnosticInfo, bg = t.bg.mix(t.info, 20) },    -- Used for "Info" diagnostic virtual text.
@@ -493,9 +494,17 @@ local theme = lush(function(injected_functions)
     sym("@markup.strong") { sym("@text.strong") },
     sym("@markup.underline") { sym("@text.underline") },
     sym("@markup.heading") { sym("@text.title") },
+    sym("@markup.heading.1.markdown") { fg = t.keyword },
+    sym("@markup.heading.2.markdown") { fg = t.tag },
+    sym("@markup.heading.3.markdown") { fg = t.constant },
+    sym("@markup.heading.4.markdown") { fg = t.number },
+    sym("@markup.heading.5.markdown") { fg = t.attribute },
+    sym("@markup.heading.6.markdown") { fg = t.property },
     sym("@markup.link.url") { sym("@text.uri") },
     sym("@markup.raw") { sym("@text.literal") },
-    sym("@markup.list") { sym("@punctuation.special") },
+    sym("@markup.list") { Punctuation },
+    sym("@markup.math.markdown") { Number },
+    sym("@markup.quote.markdown") { sym("@symbol") },
 
     -- Helix capture groups
     sym("@function.method") { sym("@method") },
@@ -1208,6 +1217,27 @@ local theme = lush(function(injected_functions)
     -- ufo
     UfoFolded { bg = t.shade7 },
     UfoFoldedBg { UfoFolded },
+
+    -- render-markdown.nvim
+    RenderMarkdownH1 { sym("@markup.heading.1.markdown") },
+    RenderMarkdownH2 { sym("@markup.heading.2.markdown") },
+    RenderMarkdownH3 { sym("@markup.heading.3.markdown") },
+    RenderMarkdownH4 { sym("@markup.heading.4.markdown") },
+    RenderMarkdownH5 { sym("@markup.heading.5.markdown") },
+    RenderMarkdownH6 { sym("@markup.heading.6.markdown") },
+    RenderMarkdownH1Bg { RenderMarkdownH1, bg = RenderMarkdownH1.fg.mix(t.bg, 80) },
+    RenderMarkdownH2Bg { RenderMarkdownH2, bg = RenderMarkdownH2.fg.mix(t.bg, 80) },
+    RenderMarkdownH3Bg { RenderMarkdownH3, bg = RenderMarkdownH3.fg.mix(t.bg, 80) },
+    RenderMarkdownH4Bg { RenderMarkdownH4, bg = RenderMarkdownH4.fg.mix(t.bg, 80) },
+    RenderMarkdownH5Bg { RenderMarkdownH5, bg = RenderMarkdownH5.fg.mix(t.bg, 80) },
+    RenderMarkdownH6Bg { RenderMarkdownH6, bg = RenderMarkdownH6.fg.mix(t.bg, 80) },
+    RenderMarkdownCode { bg = t.bgFloat },
+    RenderMarkdownCodeBorder { fg = t.label, bg = t.bgFloat },
+    RenderMarkdownBullet { sym("@markup.list") },
+    RenderMarkdownQuote { sym("@markup.quote.markdown") },
+    RenderMarkdownLink { sym("@markup.link.url") },
+    RenderMarkdownTableRow { sym("@markup.list") },
+    RenderMarkdownTableHead { sym("@markup.list") },
 
     -- basic highlighting without treesitter
 
