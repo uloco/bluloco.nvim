@@ -1280,7 +1280,6 @@ local theme = lush(function(injected_functions)
     jsonKeyword { Property },
     jsonQuote { String },
     jsonBraces { Punctuation },
-    jsonBraces { jsonBraces },
 
     -- html
     htmlTagName { Tag },
