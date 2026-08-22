@@ -10,7 +10,7 @@ local isTransparentFloatWindow = config.transparent and config.float_window == "
 --   Combination         (mix())
 --   Overrides           (hue(), saturation(), lightness())
 --   Access              (.h, .s, .l)
---   Coercion            (tostring(), "Concatination: " .. color)
+--   Coercion            (tostring(), "Concatenation: " .. color)
 --   Helpers             (readable())
 --
 --   Adjustment functions have shortcut aliases, ro, sa, de, li, da
@@ -290,7 +290,7 @@ local theme = lush(function(injected_functions)
     TermCursorNC {},                              -- cursor in an unfocused terminal
     ErrorMsg { fg = t.error },                    -- error messages on the command line
     VertSplit { fg = t.grey30 },                  -- the column separating vertically split windows
-    Winseparator { VertSplit },                   -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
+    Winseparator { VertSplit },                   -- Separator between window splits. Inherits from |hl-VertSplit| by default, which it will replace eventually.
     Folded { bg = t.shade7, fg = t.tag },         -- line used for closed folds
     SignColumn { Normal },                        -- column where |signs| are displayed
     FoldColumn { SignColumn },                    -- 'foldcolumn'
@@ -389,7 +389,7 @@ local theme = lush(function(injected_functions)
     -- LspReferenceRead            { } , -- Used for highlighting "read" references
     -- LspReferenceWrite           { } , -- Used for highlighting "write" references
     -- LspCodeLens                 { } , -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
-    -- LspCodeLensSeparator        { } , -- Used to color the seperator between two or more code lens.
+    -- LspCodeLensSeparator        { } , -- Used to color the separator between two or more code lens.
     -- LspSignatureActiveParameter { } , -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
@@ -494,12 +494,12 @@ local theme = lush(function(injected_functions)
     sym("@markup.strong") { sym("@text.strong") },
     sym("@markup.underline") { sym("@text.underline") },
     sym("@markup.heading") { sym("@text.title") },
-    sym("@markup.heading.1.markdown") { fg = t.keyword },
-    sym("@markup.heading.2.markdown") { fg = t.tag },
-    sym("@markup.heading.3.markdown") { fg = t.constant },
-    sym("@markup.heading.4.markdown") { fg = t.number },
-    sym("@markup.heading.5.markdown") { fg = t.attribute },
-    sym("@markup.heading.6.markdown") { fg = t.property },
+    sym("@markup.heading.1") { fg = t.keyword },
+    sym("@markup.heading.2") { fg = t.tag },
+    sym("@markup.heading.3") { fg = t.constant },
+    sym("@markup.heading.4") { fg = t.number },
+    sym("@markup.heading.5") { fg = t.attribute },
+    sym("@markup.heading.6") { fg = t.property },
     sym("@markup.link.url") { sym("@text.uri") },
     sym("@markup.raw") { sym("@text.literal") },
     sym("@markup.list") { Punctuation },
@@ -1219,12 +1219,12 @@ local theme = lush(function(injected_functions)
     UfoFoldedBg { UfoFolded },
 
     -- render-markdown.nvim
-    RenderMarkdownH1 { sym("@markup.heading.1.markdown") },
-    RenderMarkdownH2 { sym("@markup.heading.2.markdown") },
-    RenderMarkdownH3 { sym("@markup.heading.3.markdown") },
-    RenderMarkdownH4 { sym("@markup.heading.4.markdown") },
-    RenderMarkdownH5 { sym("@markup.heading.5.markdown") },
-    RenderMarkdownH6 { sym("@markup.heading.6.markdown") },
+    RenderMarkdownH1 { sym("@markup.heading.1") },
+    RenderMarkdownH2 { sym("@markup.heading.2") },
+    RenderMarkdownH3 { sym("@markup.heading.3") },
+    RenderMarkdownH4 { sym("@markup.heading.4") },
+    RenderMarkdownH5 { sym("@markup.heading.5") },
+    RenderMarkdownH6 { sym("@markup.heading.6") },
     RenderMarkdownH1Bg { RenderMarkdownH1, bg = RenderMarkdownH1.fg.mix(t.bg, 80) },
     RenderMarkdownH2Bg { RenderMarkdownH2, bg = RenderMarkdownH2.fg.mix(t.bg, 80) },
     RenderMarkdownH3Bg { RenderMarkdownH3, bg = RenderMarkdownH3.fg.mix(t.bg, 80) },
@@ -1391,12 +1391,12 @@ local theme = lush(function(injected_functions)
     markdownCode { fg = t.property },
     markdownCodeBlock { fg = t.property },
     markdownId { fg = t.method },
-    markdownH6 { fg = t.keyword },
-    markdownH5 { fg = t.keyword },
-    markdownH4 { fg = t.keyword },
-    markdownH3 { fg = t.keyword },
-    markdownH2 { fg = t.keyword },
     markdownH1 { fg = t.keyword },
+    markdownH2 { fg = t.tag },
+    markdownH3 { fg = t.constant },
+    markdownH4 { fg = t.number },
+    markdownH5 { fg = t.attribute },
+    markdownH6 { fg = t.property },
   }
 end)
 return theme

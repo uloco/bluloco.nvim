@@ -61,27 +61,6 @@ function M.load()
     end)
   end
 
-  -- rainbow headings
-  if (M.config.rainbow_headings == true) then
-    theme = lush.extends({ theme }).with(function(injected_functions)
-      local sym = injected_functions.sym
-      return {
-        sym("@markup.heading.1") { theme.RainbowRed },
-        sym("@markup.heading.2") { theme.RainbowYellow },
-        sym("@markup.heading.3") { theme.RainbowBlue },
-        sym("@markup.heading.4") { theme.RainbowOrange },
-        sym("@markup.heading.5") { theme.RainbowGreen },
-        sym("@markup.heading.6") { theme.RainbowViolet },
-        markdownH1 { theme.RainbowRed },
-        markdownH2 { theme.RainbowYellow },
-        markdownH3 { theme.RainbowBlue },
-        markdownH4 { theme.RainbowOrange },
-        markdownH5 { theme.RainbowGreen },
-        markdownH6 { theme.RainbowViolet },
-      }
-    end)
-  end
-
   -- bufferline
   local bufferlineInstalled = pcall(require, 'bufferline')
   if (bufferlineInstalled) then
