@@ -80,13 +80,16 @@ No config needed, works out of the box.
 
 Install Bluloco with your favorite package manager.
 
-### [packer](https://github.com/wbthomason/packer.nvim)
+### vim.pack
 
 ```lua
-use {
-    'uloco/bluloco.nvim',
-    requires = { 'rktjmp/lush.nvim' }
-}
+vim.pack.add({
+    'https://github.com/uloco/bluloco.nvim',
+    'https://github.com/rktjmp/lush.nvim',
+})
+
+-- If configuring the colorscheme is wanted
+require('bluloco').setup({})
 ```
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
@@ -97,9 +100,7 @@ use {
   lazy = false,
   priority = 1000,
   dependencies = { 'rktjmp/lush.nvim' },
-  config = function()
-    -- your optional config goes here, see below.
-  end,
+  opts = {},
 },
 ```
 
@@ -137,11 +138,11 @@ These are especially helpful when switching in an already running vim session.
 Make sure your lualine settings are set to auto:
 
 ```lua
-require('lualine').setup {
+require('lualine').setup({
   options = {
     theme = 'auto'
   }
-}
+})
 ```
 
 ## Config
