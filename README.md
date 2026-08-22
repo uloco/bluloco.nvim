@@ -33,7 +33,7 @@ I want to keep bluloco a great experience for everybody and your help would be i
 ## Features
 
 - Auto switching light & dark style
-- Configureable _transparency_ and _italics_
+- Configurable _transparency_ and _italics_
 - Exhaustive plugin support
 - Written in lua
 
@@ -80,13 +80,16 @@ No config needed, works out of the box.
 
 Install Bluloco with your favorite package manager.
 
-### [packer](https://github.com/wbthomason/packer.nvim)
+### vim.pack
 
 ```lua
-use {
-    'uloco/bluloco.nvim',
-    requires = { 'rktjmp/lush.nvim' }
-}
+vim.pack.add({
+    'https://github.com/uloco/bluloco.nvim',
+    'https://github.com/rktjmp/lush.nvim',
+})
+
+-- If configuring the colorscheme is wanted
+require('bluloco').setup({})
 ```
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
@@ -97,9 +100,7 @@ use {
   lazy = false,
   priority = 1000,
   dependencies = { 'rktjmp/lush.nvim' },
-  config = function()
-    -- your optional config goes here, see below.
-  end,
+  opts = {},
 },
 ```
 
@@ -117,7 +118,6 @@ require("bluloco").setup({
   italics = false,
   terminal = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
   guicursor = true,
-  rainbow_headings = false,     -- if you want different colored headings for each heading level
   float_window = "default" -- "default" | "transparent"
 })
 
@@ -138,11 +138,11 @@ These are especially helpful when switching in an already running vim session.
 Make sure your lualine settings are set to auto:
 
 ```lua
-require('lualine').setup {
+require('lualine').setup({
   options = {
     theme = 'auto'
   }
-}
+})
 ```
 
 ## Config
@@ -174,7 +174,7 @@ When you are running neovim inside a gui application this setting is enabled per
 
 You can skip the `terminal` setting completely to have it disabled in terminals and enabled in gui neovim.
 
-> ℹ️ Please note that some terminals will display bold text as the bright color variant but enabling this feature will override this behavior in the intergrated terminal. This is by design and has nothing to do with this theme. [see](https://github.com/neovim/neovim/issues/11335)
+> ℹ️ Please note that some terminals will display bold text as the bright color variant but enabling this feature will override this behavior in the integrated terminal. This is by design and has nothing to do with this theme. [see](https://github.com/neovim/neovim/issues/11335)
 
 ### guicursor (default: true)
 
