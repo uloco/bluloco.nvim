@@ -1,0 +1,27 @@
+# vim:ft=tmux
+
+## name: Bluloco Dark for oh-my-tmux
+## author: Umut Topuzoğlu
+## license: LGPL-3.0
+## upstream: https://github.com/uloco/bluloco.nvim/blob/main/extra/tmux/.config/tmux/oh-my-tmux/bluloco-dark.conf.local
+
+## Paste these tmux_conf_theme_colour_* assignments into your ~/.tmux.conf.local
+## (https://github.com/gpakosz/.tmux), replacing the defaults it ships with.
+
+tmux_conf_theme_colour_1="#21242D"    # status bg
+tmux_conf_theme_colour_2="#384252"    # pane border / inactive accent
+tmux_conf_theme_colour_3="#636D83"    # dim fg
+tmux_conf_theme_colour_4="#3691FF"    # primary (active window, active border)
+tmux_conf_theme_colour_5="#F9C859"    # yellow (message, bell)
+tmux_conf_theme_colour_6="#282C34"    # fg-on-accent (= bg)
+tmux_conf_theme_colour_7="#ABB2BF"    # fg
+tmux_conf_theme_colour_8="#282C34"    # fg-on-accent (= bg)
+tmux_conf_theme_colour_9="#10B1FE"    # session segment (blue)
+tmux_conf_theme_colour_10="#9F7EFE"   # second segment (purple)
+tmux_conf_theme_colour_11="#3FC56B"   # third segment (green)
+tmux_conf_theme_colour_12="#636D83"   # dim fg
+tmux_conf_theme_colour_13="#ABB2BF"   # fg
+tmux_conf_theme_colour_14="#282C34"   # fg-on-accent (= bg)
+tmux_conf_theme_colour_15="#282C34"   # fg-on-accent (= bg)
+tmux_conf_theme_colour_16="#FF6480"   # red (root/danger segment)
+tmux_conf_theme_colour_17="#ABB2BF"   # fg

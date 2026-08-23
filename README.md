@@ -201,6 +201,15 @@ repository for this, thanks @mbadolato!
 
 They are located at `terminal-themes/`. Please follow your terminals installation guide in how to apply them.
 
+### tmux
+
+A Bluloco theme for tmux (status bar, panes, messages, copy mode) is available at
+[`extra/tmux/`](./extra/tmux/), including an oh-my-tmux variant and a light/dark auto-switch recipe.
+
+```tmux
+source-file ~/.config/tmux/bluloco-dark.conf
+```
+
 ## Switching light and dark theme according your OS settings
 
 This themes light and dark variant are meant to be used during day and night.
