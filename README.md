@@ -73,6 +73,15 @@ Currently supported (aka. tested) plugins:
 - [lsp-config](https://github.com/neovim/lsp-config)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
 - [leap.nvim](https://github.com/ggandor/leap.nvim)
+- [flash.nvim](https://github.com/folke/flash.nvim)
+- [snacks.nvim](https://github.com/folke/snacks.nvim)
+- [neotest](https://github.com/nvim-neotest/neotest)
+- [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim)
+- [copilot.vim](https://github.com/github/copilot.vim)
+- [copilot.lua](https://github.com/zbirenbaum/copilot.lua)
+- [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)
+- [virt-column.nvim](https://github.com/lukas-reineke/virt-column.nvim)
+- [conflict.nvim](https://github.com/is0n/conflict.nvim)
 
 ### Plugin showcase
 
