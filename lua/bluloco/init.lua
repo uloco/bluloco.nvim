@@ -1,18 +1,17 @@
 ---@diagnostic disable: undefined-global
-local lush = require('lush')
+local lush = require("lush")
 local M = {}
-
 
 local isGui = vim.fn.has("gui_running") == 1
 
 local defaultConfig = {
-  style            = "auto", -- auto | light | dark
-  transparent      = false,
-  italics          = false,
-  terminal         = isGui,
-  guicursor        = true,
+  style = "auto", -- auto | light | dark
+  transparent = false,
+  italics = false,
+  terminal = isGui,
+  guicursor = true,
   rainbow_headings = false,
-  float_window = "default" -- default | transparent
+  float_window = "default", -- default | transparent
 }
 
 M.config = defaultConfig
@@ -21,18 +20,18 @@ function M.setup(options)
   M.config = vim.tbl_deep_extend("force", {}, defaultConfig, options or {})
 
   -- Set cursor color
-  if (M.config.guicursor) then
+  if M.config.guicursor then
     vim.opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor"
   end
 end
 
 function M.load()
-  local theme = require('lush_theme.bluloco')
-  vim.g.colors_name = 'bluloco'
-  package.loaded['lush_theme.bluloco'] = nil
+  local theme = require("lush_theme.bluloco")
+  vim.g.colors_name = "bluloco"
+  package.loaded["lush_theme.bluloco"] = nil
 
   -- transparent
-  if (M.config.transparent == true and not isGui) then
+  if M.config.transparent == true and not isGui then
     theme = lush.extends({ theme }).with(function()
       return {
         Normal { theme.Normal, bg = "NONE" }, -- normal text
@@ -42,13 +41,13 @@ function M.load()
         NvimTreeNormal { bg = "NONE" },
         NvimTreeNormalNC { bg = "NONE" },
         BufferInactive { theme.BufferInactive, bg = "NONE" },
-        BufferVisible { theme.BufferCurrent }
+        BufferVisible { theme.BufferCurrent },
       }
     end)
   end
 
   -- italics
-  if (M.config.italics == true) then
+  if M.config.italics == true then
     theme = lush.extends({ theme }).with(function(injected_functions)
       local sym = injected_functions.sym
       return {
@@ -62,15 +61,14 @@ function M.load()
   end
 
   -- bufferline
-  local bufferlineInstalled = pcall(require, 'bufferline')
-  if (bufferlineInstalled) then
+  local bufferlineInstalled = pcall(require, "bufferline")
+  if bufferlineInstalled then
     theme = lush.extends({ theme }).with(function()
       return {
         TabLineSel { bg = theme.Statement.fg }, -- tab pages line, active tab page label
       }
     end)
   end
-
 
   lush(theme)
 end
