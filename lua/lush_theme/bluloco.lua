@@ -898,6 +898,7 @@ local theme = lush(function(injected_functions)
     CmpItemKindCodeium { fg = t.copilot },
     CmpItemKindSupermaven { fg = t.copilot },
     CmpItemKindTabNine { fg = t.copilot },
+    CmpItemKindMinuet { fg = t.copilot },
 
     -- blink cmp
     BlinkCmpDoc { fg = t.fg, bg = t.bgFloat },
@@ -936,6 +937,7 @@ local theme = lush(function(injected_functions)
     BlinkCmpKindCodeium { fg = t.copilot },
     BlinkCmpKindSupermaven { fg = t.copilot },
     BlinkCmpKindTabNine { fg = t.copilot },
+    BlinkCmpKindMinuet { fg = t.copilot },
 
     -- blink pairs
     BlinkPairs { fg = t.punctuation },
@@ -1213,6 +1215,9 @@ local theme = lush(function(injected_functions)
     -- copilot
     CopilotSuggestion { fg = t.copilot.mix(t.bg, 20) },
     CopilotAnnotation { fg = t.copilot.mix(t.primary, 50).mix(t.bg, 30) },
+
+    -- minuet
+    MinuetVirtualText { fg = t.copilot.mix(t.bg, 20) },
 
     -- ufo
     UfoFolded { bg = t.shade7 },
