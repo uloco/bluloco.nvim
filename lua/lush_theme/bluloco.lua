@@ -1,4 +1,4 @@
-local lush = require('lush')
+local lush = require("lush")
 local hsl = lush.hsl
 local config = require("bluloco").config
 local isTransparentFloatWindow = config.transparent and config.float_window == "transparent"
@@ -34,162 +34,160 @@ local isTransparentFloatWindow = config.transparent and config.float_window == "
 -- standout:      boolean, enables or disables standout.
 -- nocombine:     boolean, enables or disables nocombine.
 
-
-
 local dark = {
   -- syntax
-  bg                    = hsl("#282C34"),
-  bgFloat               = isTransparentFloatWindow and "NONE" or hsl("#21242D"),
-  fg                    = hsl("#ABB2BF"),
-  cursor                = hsl("#FFCC00"),
-  keyword               = hsl("#10B1FE"),
-  comment               = hsl("#636D83"),
-  punctuation           = hsl("#7A82DA"),
-  method                = hsl("#3FC56B"),
-  type                  = hsl("#FF6480"),
-  string                = hsl("#F9C859"),
-  number                = hsl("#FF78F8"),
-  constant              = hsl("#9F7EFE"),
-  tag                   = hsl("#3691FF"),
-  attribute             = hsl("#FF936A"),
-  property              = hsl("#CE9887"),
-  parameter             = hsl("#8bcdef"),
-  label                 = hsl("#50acae"),
-  module                = hsl("#FF839B"),
+  bg = hsl("#282C34"),
+  bgFloat = isTransparentFloatWindow and "NONE" or hsl("#21242D"),
+  fg = hsl("#ABB2BF"),
+  cursor = hsl("#FFCC00"),
+  keyword = hsl("#10B1FE"),
+  comment = hsl("#636D83"),
+  punctuation = hsl("#7A82DA"),
+  method = hsl("#3FC56B"),
+  type = hsl("#FF6480"),
+  string = hsl("#F9C859"),
+  number = hsl("#FF78F8"),
+  constant = hsl("#9F7EFE"),
+  tag = hsl("#3691FF"),
+  attribute = hsl("#FF936A"),
+  property = hsl("#CE9887"),
+  parameter = hsl("#8bcdef"),
+  label = hsl("#50acae"),
+  module = hsl("#FF839B"),
   -- workspace
-  primary               = hsl("#3691ff"),
-  selection             = hsl("#274670"),
-  search                = hsl("#1A7247"),
-  diffAdd               = hsl("#105B3D"),
-  diffChange            = hsl("#10415B"),
-  diffDelete            = hsl("#522E34"),
-  added                 = hsl("#177F55"),
-  changed               = hsl("#1B6E9B"),
-  deleted               = hsl("#A14D5B"),
-  diffText              = hsl("#10415B").lighten(12),
-  error                 = hsl("#ff2e3f"),
-  errorBG               = hsl("#FDCFD1"),
-  warning               = hsl("#da7a43"),
-  warningBG             = hsl("#F2DBCF"),
-  info                  = hsl("#3691ff"),
-  infoBG                = hsl("#D4E3FA"),
-  hint                  = hsl("#7982DA"),
-  mergeCurrent          = hsl("#4B3D3F"),
-  mergeCurrentLabel     = hsl("#604B47"),
-  mergeIncoming         = hsl("#2F476B"),
-  mergeIncomingLabel    = hsl("#305C95"),
-  mergeParent           = hsl(235, 28, 32),
-  mergeParentLabel      = hsl(235, 29, 41),
-  copilot               = hsl('#95A922'),
+  primary = hsl("#3691ff"),
+  selection = hsl("#274670"),
+  search = hsl("#1A7247"),
+  diffAdd = hsl("#105B3D"),
+  diffChange = hsl("#10415B"),
+  diffDelete = hsl("#522E34"),
+  added = hsl("#177F55"),
+  changed = hsl("#1B6E9B"),
+  deleted = hsl("#A14D5B"),
+  diffText = hsl("#10415B").lighten(12),
+  error = hsl("#ff2e3f"),
+  errorBG = hsl("#FDCFD1"),
+  warning = hsl("#da7a43"),
+  warningBG = hsl("#F2DBCF"),
+  info = hsl("#3691ff"),
+  infoBG = hsl("#D4E3FA"),
+  hint = hsl("#7982DA"),
+  mergeCurrent = hsl("#4B3D3F"),
+  mergeCurrentLabel = hsl("#604B47"),
+  mergeIncoming = hsl("#2F476B"),
+  mergeIncomingLabel = hsl("#305C95"),
+  mergeParent = hsl(235, 28, 32),
+  mergeParentLabel = hsl(235, 29, 41),
+  copilot = hsl("#95A922"),
 
   -- terminal
-  terminalBlack         = hsl("#42444d"),
-  terminalRed           = hsl("#fc2e51"),
-  terminalGreen         = hsl("#25a45c"),
-  terminalYellow        = hsl("#ff9369"),
-  terminalBlue          = hsl("#3375fe"),
-  terminalMagenta       = hsl("#9f7efe"),
-  terminalCyan          = hsl("#4483aa"),
-  terminalWhite         = hsl("#cdd3e0"),
-  terminalBrightBlack   = hsl("#8f9aae"),
-  terminalBrightRed     = hsl("#ff637f"),
-  terminalBrightGreen   = hsl("#3fc56a"),
-  terminalBrightYellow  = hsl("#f9c858"),
-  terminalBrightBlue    = hsl("#10b0fe"),
+  terminalBlack = hsl("#42444d"),
+  terminalRed = hsl("#fc2e51"),
+  terminalGreen = hsl("#25a45c"),
+  terminalYellow = hsl("#ff9369"),
+  terminalBlue = hsl("#3375fe"),
+  terminalMagenta = hsl("#9f7efe"),
+  terminalCyan = hsl("#4483aa"),
+  terminalWhite = hsl("#cdd3e0"),
+  terminalBrightBlack = hsl("#8f9aae"),
+  terminalBrightRed = hsl("#ff637f"),
+  terminalBrightGreen = hsl("#3fc56a"),
+  terminalBrightYellow = hsl("#f9c858"),
+  terminalBrightBlue = hsl("#10b0fe"),
   terminalBrightMagenta = hsl("#ff78f8"),
-  terminalBrightCyan    = hsl("#5fb9bc"),
-  terminalBrightWhite   = hsl("#ffffff"),
-  rainbowRed            = hsl("#FF6666"),
-  rainbowYellow         = hsl("#f4ff78"),
-  rainbowBlue           = hsl("#44A5FF"),
-  rainbowOrange         = hsl("#ffa023"),
-  rainbowGreen          = hsl("#92f535"),
-  rainbowViolet         = hsl("#ff78ff"),
-  rainbowCyan           = hsl("#28e4eb"),
-  rainbowIndigo         = hsl("#9F7EFE"),
+  terminalBrightCyan = hsl("#5fb9bc"),
+  terminalBrightWhite = hsl("#ffffff"),
+  rainbowRed = hsl("#FF6666"),
+  rainbowYellow = hsl("#f4ff78"),
+  rainbowBlue = hsl("#44A5FF"),
+  rainbowOrange = hsl("#ffa023"),
+  rainbowGreen = hsl("#92f535"),
+  rainbowViolet = hsl("#ff78ff"),
+  rainbowCyan = hsl("#28e4eb"),
+  rainbowIndigo = hsl("#9F7EFE"),
 }
 
 local light = {
   -- syntax
-  bg                    = hsl("#F9F9F9"),
-  bgFloat               = isTransparentFloatWindow and "NONE" or hsl("#ECEDEE"),
-  fg                    = hsl("#383A42"),
-  cursor                = hsl("#F31459"),
-  keyword               = hsl("#0098DD"),
-  comment               = hsl("#A0A1A7"),
-  punctuation           = hsl("#7A82DA"),
-  method                = hsl("#23974A"),
-  type                  = hsl("#D52753"),
-  string                = hsl("#C5A332"),
-  number                = hsl("#CE33C0"),
-  constant              = hsl("#823FF1"),
-  tag                   = hsl("#275FE4"),
-  attribute             = hsl("#DF631C"),
-  property              = hsl("#A05A48"),
-  parameter             = hsl("#40B8C5"),
-  label                 = hsl("#047485"),
-  module                = hsl("#ee5672"),
+  bg = hsl("#F9F9F9"),
+  bgFloat = isTransparentFloatWindow and "NONE" or hsl("#ECEDEE"),
+  fg = hsl("#383A42"),
+  cursor = hsl("#F31459"),
+  keyword = hsl("#0098DD"),
+  comment = hsl("#A0A1A7"),
+  punctuation = hsl("#7A82DA"),
+  method = hsl("#23974A"),
+  type = hsl("#D52753"),
+  string = hsl("#C5A332"),
+  number = hsl("#CE33C0"),
+  constant = hsl("#823FF1"),
+  tag = hsl("#275FE4"),
+  attribute = hsl("#DF631C"),
+  property = hsl("#A05A48"),
+  parameter = hsl("#40B8C5"),
+  label = hsl("#047485"),
+  module = hsl("#ee5672"),
   -- workspace
-  primary               = hsl("#0099e1"),
-  selection             = hsl("#d2ecff"),
-  search                = hsl("#b1eacf"),
-  diffAdd               = hsl("#c5f6c8"),
-  diffChange            = hsl("#C2E4FF"),
-  diffDelete            = hsl("#fac1c6"),
-  added                 = hsl("#3cbc66"),
-  changed               = hsl("#0099e1"),
-  deleted               = hsl("#FA7883"),
-  diffText              = hsl("#C2E4FF").darken(4),
-  error                 = hsl("#ff0000"),
-  errorBG               = hsl("#FCE4E4"),
-  warning               = hsl("#ff8f3a"),
-  warningBG             = hsl("#FBE4D5"),
-  info                  = hsl("#0099e1"),
-  infoBG                = hsl("#D2ECFF"),
-  hint                  = hsl("#7982DA"),
-  mergeCurrent          = hsl("#F1E8E6"),
-  mergeCurrentLabel     = hsl("#E5D4D0"),
-  mergeIncoming         = hsl("#DFEDF6"),
-  mergeIncomingLabel    = hsl("#CAE3F4"),
-  mergeParent           = hsl(233, 60, 95),
-  mergeParentLabel      = hsl(233, 60, 90),
-  copilot               = hsl("#869900"),
+  primary = hsl("#0099e1"),
+  selection = hsl("#d2ecff"),
+  search = hsl("#b1eacf"),
+  diffAdd = hsl("#c5f6c8"),
+  diffChange = hsl("#C2E4FF"),
+  diffDelete = hsl("#fac1c6"),
+  added = hsl("#3cbc66"),
+  changed = hsl("#0099e1"),
+  deleted = hsl("#FA7883"),
+  diffText = hsl("#C2E4FF").darken(4),
+  error = hsl("#ff0000"),
+  errorBG = hsl("#FCE4E4"),
+  warning = hsl("#ff8f3a"),
+  warningBG = hsl("#FBE4D5"),
+  info = hsl("#0099e1"),
+  infoBG = hsl("#D2ECFF"),
+  hint = hsl("#7982DA"),
+  mergeCurrent = hsl("#F1E8E6"),
+  mergeCurrentLabel = hsl("#E5D4D0"),
+  mergeIncoming = hsl("#DFEDF6"),
+  mergeIncomingLabel = hsl("#CAE3F4"),
+  mergeParent = hsl(233, 60, 95),
+  mergeParentLabel = hsl(233, 60, 90),
+  copilot = hsl("#869900"),
 
   -- terminal
-  terminalBlack         = hsl("#373a41"),
-  terminalRed           = hsl("#d52652"),
-  terminalGreen         = hsl("#239749"),
-  terminalYellow        = hsl("#df621b"),
-  terminalBlue          = hsl("#275fe4"),
-  terminalMagenta       = hsl("#823ef0"),
-  terminalCyan          = hsl("#26608c"),
-  terminalWhite         = hsl("#b9bac1"),
-  terminalBrightBlack   = hsl("#676a77"),
-  terminalBrightRed     = hsl("#ff637f"),
-  terminalBrightGreen   = hsl("#3cbc66"),
-  terminalBrightYellow  = hsl("#c5a231"),
-  terminalBrightBlue    = hsl("#0099e0"),
+  terminalBlack = hsl("#373a41"),
+  terminalRed = hsl("#d52652"),
+  terminalGreen = hsl("#239749"),
+  terminalYellow = hsl("#df621b"),
+  terminalBlue = hsl("#275fe4"),
+  terminalMagenta = hsl("#823ef0"),
+  terminalCyan = hsl("#26608c"),
+  terminalWhite = hsl("#b9bac1"),
+  terminalBrightBlack = hsl("#676a77"),
+  terminalBrightRed = hsl("#ff637f"),
+  terminalBrightGreen = hsl("#3cbc66"),
+  terminalBrightYellow = hsl("#c5a231"),
+  terminalBrightBlue = hsl("#0099e0"),
   terminalBrightMagenta = hsl("#ce32c0"),
-  terminalBrightCyan    = hsl("#6d92ba"),
-  terminalBrightWhite   = hsl("#d3d3d3"),
-  rainbowRed            = hsl("#f067f0"),
-  rainbowYellow         = hsl("#B3BA00"),
-  rainbowBlue           = hsl("#0ab6ff"),
-  rainbowOrange         = hsl("#ffa023"),
-  rainbowGreen          = hsl("#1fc255"),
-  rainbowViolet         = hsl("#a557ff"),
-  rainbowCyan           = hsl("#0e91a8"),
-  rainbowIndigo         = hsl("#383A42"),
+  terminalBrightCyan = hsl("#6d92ba"),
+  terminalBrightWhite = hsl("#d3d3d3"),
+  rainbowRed = hsl("#f067f0"),
+  rainbowYellow = hsl("#B3BA00"),
+  rainbowBlue = hsl("#0ab6ff"),
+  rainbowOrange = hsl("#ffa023"),
+  rainbowGreen = hsl("#1fc255"),
+  rainbowViolet = hsl("#a557ff"),
+  rainbowCyan = hsl("#0e91a8"),
+  rainbowIndigo = hsl("#383A42"),
 }
 
 local t = dark
 
-if (vim.o.background == "light") then
+if vim.o.background == "light" then
   t = light
 end
 
 local function shade(color, value)
-  if (vim.o.background == "light") then
+  if vim.o.background == "light" then
     return color.darken(value)
   else
     return color.lighten(value)
@@ -227,23 +225,21 @@ t.grey25 = t.shade25.mix(t.primary, 10)
 t.grey30 = t.shade30.mix(t.primary, 10)
 t.grey40 = t.shade40.mix(t.primary, 12)
 
-
 t.white = hsl("#ffffff")
 t.green = hsl("#008200")
 
-
 -- -- terminal colors
-if (config.terminal == true) then
-  vim.g.terminal_color_0  = t.terminalBlack.hex
-  vim.g.terminal_color_1  = t.terminalRed.hex
-  vim.g.terminal_color_2  = t.terminalGreen.hex
-  vim.g.terminal_color_3  = t.terminalYellow.hex
-  vim.g.terminal_color_4  = t.terminalBlue.hex
-  vim.g.terminal_color_5  = t.terminalMagenta.hex
-  vim.g.terminal_color_6  = t.terminalCyan.hex
-  vim.g.terminal_color_7  = t.terminalWhite.hex
-  vim.g.terminal_color_8  = t.terminalBrightBlack.hex
-  vim.g.terminal_color_9  = t.terminalBrightRed.hex
+if config.terminal == true then
+  vim.g.terminal_color_0 = t.terminalBlack.hex
+  vim.g.terminal_color_1 = t.terminalRed.hex
+  vim.g.terminal_color_2 = t.terminalGreen.hex
+  vim.g.terminal_color_3 = t.terminalYellow.hex
+  vim.g.terminal_color_4 = t.terminalBlue.hex
+  vim.g.terminal_color_5 = t.terminalMagenta.hex
+  vim.g.terminal_color_6 = t.terminalCyan.hex
+  vim.g.terminal_color_7 = t.terminalWhite.hex
+  vim.g.terminal_color_8 = t.terminalBrightBlack.hex
+  vim.g.terminal_color_9 = t.terminalBrightRed.hex
   vim.g.terminal_color_10 = t.terminalBrightGreen.hex
   vim.g.terminal_color_11 = t.terminalBrightYellow.hex
   vim.g.terminal_color_12 = t.terminalBrightBlue.hex
@@ -252,7 +248,6 @@ if (config.terminal == true) then
   vim.g.terminal_color_15 = t.terminalBrightWhite.hex
 end
 
-
 -- Call lush with our lush-spec.
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
@@ -260,85 +255,85 @@ local theme = lush(function(injected_functions)
 
   return {
     Normal { fg = t.fg, bg = t.bg }, -- normal text
-    CursorLine { bg = t.grey7 },     -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
-    CursorColumn { CursorLine },     -- Screen-column at the cursor, when 'cursorcolumn' is set.
+    CursorLine { bg = t.grey7 }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorColumn { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Whitespace { fg = t.grey10 },
     Comment { fg = t.comment },
-    LineNr { fg = t.comment },       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr { fg = t.comment }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     CursorLineNr { fg = t.comment }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
-    Search { bg = t.search, },
+    Search { bg = t.search },
     IncSearch { bg = t.cursor.mix(t.bg, 10), fg = t.bg },
     CurSearch { Search },
-    NormalFloat { bg = t.bgFloat, blend = 5 },    -- Normal text in floating windows.
+    NormalFloat { bg = t.bgFloat, blend = 5 }, -- Normal text in floating windows.
     FloatBorder { fg = t.punctuation },
-    NormalSB { bg = t.bgFloat },                  -- Normal text in floating windows.
-    ColorColumn { bg = t.grey5 },                 -- used for the columns set with 'colorcolumn'
-    Conceal {},                                   -- placeholder characters substituted for concealed text (see 'conceallevel')
-    Cursor { bg = t.cursor, fg = t.bg },          -- character under the cursor
-    lCursor { Cursor },                           -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-    CursorIM { Cursor },                          -- like Cursor, but used when in IME mode |CursorIM|
-    Directory { fg = t.keyword },                 -- directory names (and other special names in listings)
+    NormalSB { bg = t.bgFloat }, -- Normal text in floating windows.
+    ColorColumn { bg = t.grey5 }, -- used for the columns set with 'colorcolumn'
+    Conceal {}, -- placeholder characters substituted for concealed text (see 'conceallevel')
+    Cursor { bg = t.cursor, fg = t.bg }, -- character under the cursor
+    lCursor { Cursor }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+    CursorIM { Cursor }, -- like Cursor, but used when in IME mode |CursorIM|
+    Directory { fg = t.keyword }, -- directory names (and other special names in listings)
     Added { fg = t.method },
-    Changed { fg = t.tag },                       -- diff mode: Changed line |diff.txt|
-    Removed { fg = t.type },                      -- diff mode: Deleted line |diff.txt|
-    DiffAdd { bg = t.diffAdd },                   -- diff mode: Added line |diff.txt|
-    DiffChange { bg = t.diffChange },             -- diff mode: Changed line |diff.txt|
-    DiffDelete { bg = t.diffDelete },             -- diff mode: Deleted line |diff.txt|
-    DiffText { bg = t.diffText },                 -- diff mode: Changed text within a changed line |diff.txt|
-    EndOfBuffer { fg = t.punctuation },           -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-    TermCursor { Cursor },                        -- cursor in a focused terminal
-    TermCursorNC {},                              -- cursor in an unfocused terminal
-    ErrorMsg { fg = t.error },                    -- error messages on the command line
-    VertSplit { fg = t.grey30 },                  -- the column separating vertically split windows
-    Winseparator { VertSplit },                   -- Separator between window splits. Inherits from |hl-VertSplit| by default, which it will replace eventually.
-    Folded { bg = t.shade7, fg = t.tag },         -- line used for closed folds
-    SignColumn { Normal },                        -- column where |signs| are displayed
-    FoldColumn { SignColumn },                    -- 'foldcolumn'
-    Substitute { IncSearch },                     -- |:substitute| replacement text highlighting
+    Changed { fg = t.tag }, -- diff mode: Changed line |diff.txt|
+    Removed { fg = t.type }, -- diff mode: Deleted line |diff.txt|
+    DiffAdd { bg = t.diffAdd }, -- diff mode: Added line |diff.txt|
+    DiffChange { bg = t.diffChange }, -- diff mode: Changed line |diff.txt|
+    DiffDelete { bg = t.diffDelete }, -- diff mode: Deleted line |diff.txt|
+    DiffText { bg = t.diffText }, -- diff mode: Changed text within a changed line |diff.txt|
+    EndOfBuffer { fg = t.punctuation }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+    TermCursor { Cursor }, -- cursor in a focused terminal
+    TermCursorNC {}, -- cursor in an unfocused terminal
+    ErrorMsg { fg = t.error }, -- error messages on the command line
+    VertSplit { fg = t.grey30 }, -- the column separating vertically split windows
+    Winseparator { VertSplit }, -- Separator between window splits. Inherits from |hl-VertSplit| by default, which it will replace eventually.
+    Folded { bg = t.shade7, fg = t.tag }, -- line used for closed folds
+    SignColumn { Normal }, -- column where |signs| are displayed
+    FoldColumn { SignColumn }, -- 'foldcolumn'
+    Substitute { IncSearch }, -- |:substitute| replacement text highlighting
     MatchParen { bg = t.punctuation, fg = t.bg }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    ModeMsg { Normal },                           -- 'showmode' message (e.g., "-- INSERT -- ")
-    MsgArea { Normal },                           -- Area for messages and cmdline
+    ModeMsg { Normal }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    MsgArea { Normal }, -- Area for messages and cmdline
     -- MsgSeparator { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-    MoreMsg { fg = t.primary },                   -- |more-prompt|
-    NonText { fg = t.shade30 },                   -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    NormalNC { Normal },                          -- normal text in non-current windows
+    MoreMsg { fg = t.primary }, -- |more-prompt|
+    NonText { fg = t.shade30 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+    NormalNC { Normal }, -- normal text in non-current windows
     -- Pmenu { bg = t.bg, blend = 5 },
     Pmenu { NormalFloat },
-    PmenuSel { bg = t.selection },                 -- Popup menu: selected item.
-    PmenuSbar { bg = t.grey5 },                    -- Popup menu: scrollbar.
-    PmenuThumb { bg = t.punctuation },             -- Popup menu: Thumb of the scrollbar.
-    Question { fg = t.primary },                   -- |hit-enter| prompt and yes/no questions
+    PmenuSel { bg = t.selection }, -- Popup menu: selected item.
+    PmenuSbar { bg = t.grey5 }, -- Popup menu: scrollbar.
+    PmenuThumb { bg = t.punctuation }, -- Popup menu: Thumb of the scrollbar.
+    Question { fg = t.primary }, -- |hit-enter| prompt and yes/no questions
     QuickFixLine { bg = t.primary, fg = t.white }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    SpecialKey { fg = t.attribute },               -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
+    SpecialKey { fg = t.attribute }, -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     -- TODO: spelling
     -- SpellBad     { gui = "undercurl", sp = t.error  }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal   { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare    { }, -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     --
-    StatusLine { bg = t.grey10, gui = "" },                           -- status line of current window
-    StatusLineNC { bg = t.shade5 },                                   -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    StatusLine { bg = t.grey10, gui = "" }, -- status line of current window
+    StatusLineNC { bg = t.shade5 }, -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
     --
-    TabLine { bg = t.shade3, fg = t.shade30 },                        -- tab pages line, not active tab page label
-    TabLineFill { bg = t.bg },                                        -- tab pages line, where there are no labels
+    TabLine { bg = t.shade3, fg = t.shade30 }, -- tab pages line, not active tab page label
+    TabLineFill { bg = t.bg }, -- tab pages line, where there are no labels
     TabLineSel { bg = t.shade10, sp = t.primary, gui = "underline" }, -- tab pages line, active tab page label
     --
-    File { fg = t.primary },                                          -- titles for output from ":set all", ":autocmd" etc.
-    Title { fg = t.primary },                                         -- titles for output from ":set all", ":autocmd" etc.
-    Visual { bg = t.selection },                                      -- Visual mode selection
-    VisualNOS { bg = t.selection },                                   -- Visual mode selection when vim is "Not Owning the Selection".
-    WarningMsg { fg = t.warning },                                    -- warning messages
-    WildMenu { bg = t.selection },                                    -- current match in 'wildmenu' completion
+    File { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
+    Title { fg = t.primary }, -- titles for output from ":set all", ":autocmd" etc.
+    Visual { bg = t.selection }, -- Visual mode selection
+    VisualNOS { bg = t.selection }, -- Visual mode selection when vim is "Not Owning the Selection".
+    WarningMsg { fg = t.warning }, -- warning messages
+    WildMenu { bg = t.selection }, -- current match in 'wildmenu' completion
     --
-    Constant { fg = t.constant },                                     -- (preferred) any constant
-    String { fg = t.string },                                         --   a string constant: "this is a string"
-    Character { fg = t.attribute },                                   --  a character constant: 'c', '\n'
-    Number { fg = t.number },                                         --   a number constant: 234, 0xff
-    Boolean { fg = t.keyword },                                       --  a boolean constant: TRUE, false
+    Constant { fg = t.constant }, -- (preferred) any constant
+    String { fg = t.string }, --   a string constant: "this is a string"
+    Character { fg = t.attribute }, --  a character constant: 'c', '\n'
+    Number { fg = t.number }, --   a number constant: 234, 0xff
+    Boolean { fg = t.keyword }, --  a boolean constant: TRUE, false
     -- Float          { }, --    a floating point constant: 2.3e10
-    Identifier { fg = t.fg },                                         -- (preferred) any variable name
-    Function { fg = t.method },                                       -- function name (also: methods for classes)
-    Method { fg = t.method },                                         -- function name (also: methods for classes)
+    Identifier { fg = t.fg }, -- (preferred) any variable name
+    Function { fg = t.method }, -- function name (also: methods for classes)
+    Method { fg = t.method }, -- function name (also: methods for classes)
     Property { fg = t.property },
     Field { Property },
     Parameter { fg = t.parameter },
@@ -347,10 +342,10 @@ local theme = lush(function(injected_functions)
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --    case, default, etc.
     Punctuation { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
-    Operator { fg = t.punctuation },    -- "sizeof", "+", "*", etc.
-    Keyword { Statement },              --  any other keyword
+    Operator { fg = t.punctuation }, -- "sizeof", "+", "*", etc.
+    Keyword { Statement }, --  any other keyword
     -- Exception      { }, --  try, catch, throw
-    PreProc { fg = t.keyword },         -- (preferred) generic Preprocessor
+    PreProc { fg = t.keyword }, -- (preferred) generic Preprocessor
     -- Include        { }, --  preprocessor #include
     -- Define         { }, --   preprocessor #define
     -- Macro          { }, --    same as Define
@@ -361,10 +356,10 @@ local theme = lush(function(injected_functions)
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
-    Special { Character },   -- (preferred) any special symbol
+    Special { Character }, -- (preferred) any special symbol
     Attribute { Character }, -- (preferred) any special symbol
     -- SpecialChar {}, --  special character in a constant
-    Tag { fg = t.tag },      --    you can use CTRL-] on this
+    Tag { fg = t.tag }, --    you can use CTRL-] on this
     -- Delimiter {}, --  character that needs attention
     -- SpecialComment { }, -- special things inside a comment
     -- Debug          { }, --    debugging statements
@@ -372,8 +367,8 @@ local theme = lush(function(injected_functions)
     Bold { gui = "bold" },
     Italic { gui = "italic" },
     -- ("Ignore", below, may be invisible...)
-    Ignore { fg = t.bg },               -- (preferred) left blank, hidden  |hl-Ignore|
-    Error { ErrorMsg },                 -- (preferred) any erroneous construct
+    Ignore { fg = t.bg }, -- (preferred) left blank, hidden  |hl-Ignore|
+    Error { ErrorMsg }, -- (preferred) any erroneous construct
     Todo { bg = t.info, fg = t.white }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
     WinBar { fg = t.tag, gui = "bold" },
     WinBarNC { fg = t.fg, gui = "" },
@@ -394,19 +389,19 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    DiagnosticError { Error },                                                  -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticWarn { WarningMsg },                                              -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticInfo { fg = t.info },                                             -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticHint { fg = t.hint },                                             -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    DiagnosticOk { fg = t.method },                                             -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError { Error }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn { WarningMsg }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo { fg = t.info }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint { fg = t.hint }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticOk { fg = t.method }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticVirtualTextError { DiagnosticError, bg = t.bg.mix(t.error, 20) }, -- Used for "Error" diagnostic virtual text.
     DiagnosticVirtualTextWarn { DiagnosticWarn, bg = t.bg.mix(t.warning, 20) }, -- Used for "Warn" diagnostic virtual text.
-    DiagnosticVirtualTextInfo { DiagnosticInfo, bg = t.bg.mix(t.info, 20) },    -- Used for "Info" diagnostic virtual text.
-    DiagnosticVirtualTextHint { DiagnosticHint, bg = t.bg.mix(t.hint, 20) },    -- Used for "Hint" diagnostic virtual text.
-    DiagnosticUnderlineError { gui = "undercurl", sp = t.error },               -- Used to underline "Error" diagnostics.
-    DiagnosticUnderlineWarn { gui = "undercurl", sp = t.warning },              -- Used to underline "Warn" diagnostics.
-    DiagnosticUnderlineInfo { gui = "undercurl", sp = t.info },                 -- Used to underline "Info" diagnostics.
-    DiagnosticUnderlineHint { gui = "undercurl", sp = t.hint },                 -- Used to underline "Hint" diagnostics.
+    DiagnosticVirtualTextInfo { DiagnosticInfo, bg = t.bg.mix(t.info, 20) }, -- Used for "Info" diagnostic virtual text.
+    DiagnosticVirtualTextHint { DiagnosticHint, bg = t.bg.mix(t.hint, 20) }, -- Used for "Hint" diagnostic virtual text.
+    DiagnosticUnderlineError { gui = "undercurl", sp = t.error }, -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn { gui = "undercurl", sp = t.warning }, -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo { gui = "undercurl", sp = t.info }, -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint { gui = "undercurl", sp = t.hint }, -- Used to underline "Hint" diagnostics.
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
@@ -459,14 +454,14 @@ local theme = lush(function(injected_functions)
     sym("@text.title") { fg = t.keyword },
     sym("@text.literal") { Property },
     sym("@text.uri") { fg = t.tag, sp = t.tag, gui = "underline" }, -- Any URI like a link or email.
-    sym("@variable") { Identifier },                                -- Variable names that are defined by the languages, like `this` or `self`.
-    sym("@variable.constant") { Constant },                         -- Variable names that are defined by the languages, like `this` or `self`.
-    sym("@variable.builtin") { Statement },                         -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable") { Identifier }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable.constant") { Constant }, -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@variable.builtin") { Statement }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag") { Tag },
     sym("@tag.builtin") { Tag },
-    sym("@attribute") { fg = t.label },         -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@attribute") { fg = t.label }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@tag.attribute") { fg = t.attribute }, -- Variable names that are defined by the languages, like `this` or `self`.
-    sym("@error") { Error },                    -- Variable names that are defined by the languages, like `this` or `self`.
+    sym("@error") { Error }, -- Variable names that are defined by the languages, like `this` or `self`.
     sym("@warning") { WarningMsg },
     sym("@info") { fg = t.info },
     --
@@ -477,13 +472,12 @@ local theme = lush(function(injected_functions)
 
     -- Language Overrides
     -- JSON
-    sym("@label.json") { fg = t.property },  -- For labels: `label:` in C and `:label:` in Lua.
+    sym("@label.json") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
     sym("@label.jsonc") { fg = t.property }, -- For labels: `label:` in C and `:label:` in Lua.
     -- help files
     sym("@label.help") { sym("@text.uri") },
     -- html
     sym("@text.uri.html") { gui = "underline" },
-
 
     -- Treesitter highlight groups update
     -- Treesitter standard capture groups
@@ -509,7 +503,6 @@ local theme = lush(function(injected_functions)
     -- Helix capture groups
     sym("@function.method") { sym("@method") },
     sym("@string.special.url") { sym("@text.uri") },
-
 
     -- Semantic highlighting
     sym("@lsp.type.comment") { sym("@comment") },
@@ -983,7 +976,6 @@ local theme = lush(function(injected_functions)
     -- WhichKeyBorder {},
     -- WhichKeyValue { Character },
 
-
     -- diffview
     DiffviewStatusAdded { fg = t.method },
     DiffviewStatusModified { fg = t.keyword },
@@ -1405,6 +1397,5 @@ local theme = lush(function(injected_functions)
   }
 end)
 return theme
-
 
 -- -- vi:nowrap
