@@ -25,6 +25,8 @@ jobs:
           treesitter: true
           ignorerawblocks: true
           shiftheadinglevelby: -1
+      - name: add spacing after callouts
+        run: perl -0pi -e 's/(^  (?:Notes?|Warning|Deprecated):.*(?:\n  .*)*)\n(?=\S)/$1\n\n/gmi' doc/bluloco.txt
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(docs): auto generate vimdoc"

@@ -7,6 +7,8 @@
 
 # Bluloco.nvim
 
+## Overview
+
 A fancy and sophisticated designer neovim theme built with [lush.nvim](https://github.com/rktjmp/lush.nvim).
 It features a much more comprehensive usage of syntax scopes and color
 consistency, with due regards to aesthetics, contrast and readability.
@@ -76,8 +78,8 @@ vim.pack.add({
 
 ## Usage
 
-> The `setup()` function is optional but please call it
-> **before** you set the colorscheme if you want to adjust the config.
+> Note: The `setup()` function is optional. Call it before you set the colorscheme
+> if you want to adjust the configuration.
 
 ```lua
 vim.opt.termguicolors = true
@@ -116,30 +118,44 @@ require("bluloco").setup({
 | `guicursor` | `boolean` | `true` | Set a colored `guicursor`. |
 | `float_window` | `"default"` \| `"transparent"` | `"default"` | Control float backgrounds with transparency. |
 
+### style
+
 There are three styles you can configure here: `auto`, `dark` and `light`.
 The `auto` setting is the default and will adjust automatically to your
 `vim.o.background` value. If you change this value during runtime, it will also adjust accordingly.
 
-> The style value only applies if you set the theme with `vim.cmd('colorscheme bluloco')`.
-> Setting the theme with a variant directly will override this setting.
+> Note: The style value only applies if you set the theme with
+> `vim.cmd('colorscheme bluloco')`. Setting a variant directly overrides it.
 
-This setting will disable the background and use the default background of your terminal.
-You need to enable this if you want the terminal to be transparent. You would still need to
+### transparent
+
+Disables the background and uses the default background of your terminal.
+Enable it if you want the terminal to be transparent. You still need to
 configure your terminal accordingly for light and dark backgrounds when switching often.
 
-This setting will enable italics for _keywords_, _comments_ and _markup attributes_.
+### italics
 
-This setting will enable the bluloco colors in your integrated terminal.
+Enables italics for _keywords_, _comments_ and _markup attributes_.
+
+### terminal
+
+Enables the bluloco colors in your integrated terminal.
 You most likely want to keep your terminal colors instead of overriding them if you are running neovim in a terminal.
 When you are running neovim inside a gui application this setting is enabled per default.
 
 You can skip the `terminal` setting completely to have it disabled in terminals and enabled in gui neovim.
 
-> Please note that some terminals will display bold text as the bright color variant but enabling this feature will override this behavior in the integrated terminal. This is by design and has nothing to do with this theme. [see](https://github.com/neovim/neovim/issues/11335)
+> Note: Some terminals display bold text with the bright color variant. This
+> option overrides that behavior in the integrated terminal. This behavior is not
+> related to this theme. [See the Neovim issue](https://github.com/neovim/neovim/issues/11335).
 
-This setting sets a guicursor to fix your terminal cursor and make it colorful (as intended).
+### guicursor
+
+Sets a guicursor to fix your terminal cursor and make it colorful (as intended).
 It is enabled by default.
 If you want to override this, make sure to set your `:set guicursor` after loading the theme or disable it completely.
+
+### float_window
 
 Controls how floating windows look when `transparent` is enabled.
 The default keeps a solid float background for better contrast, while setting it to `"transparent"` will also make floating windows inherit your terminal background (useful if you prefer a fully transparent UI).
