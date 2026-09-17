@@ -25,6 +25,8 @@ Table of Contents                                  *bluloco-table-of-contents*
   - Terminal colors                     |bluloco-integrations-terminal-colors|
 9. Contributing                                         |bluloco-contributing|
 10. Links                                                      |bluloco-links|
+Bluloco.nvim
+
 
 ==============================================================================
 1. Overview                                                 *bluloco-overview*
