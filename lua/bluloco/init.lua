@@ -4,18 +4,26 @@ local M = {}
 
 local isGui = vim.fn.has("gui_running") == 1
 
+---@class Bluloco.Config
+---@field style? "auto"|"dark"|"light"
+---@field transparent? boolean
+---@field italics? boolean
+---@field terminal? boolean
+---@field guicursor? boolean
+---@field float_window? "default"|"transparent"
+---@type Bluloco.Config
 local defaultConfig = {
   style = "auto", -- auto | light | dark
   transparent = false,
   italics = false,
   terminal = isGui,
   guicursor = true,
-  rainbow_headings = false,
   float_window = "default", -- default | transparent
 }
 
 M.config = defaultConfig
 
+---@param options? Bluloco.Config
 function M.setup(options)
   M.config = vim.tbl_deep_extend("force", {}, defaultConfig, options or {})
 
