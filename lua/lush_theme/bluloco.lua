@@ -840,6 +840,13 @@ local theme = lush(function(injected_functions)
     SagaWinbarFileIcon {},
     SagaWinbarSep { fg = t.punctuation },
 
+    -- hover
+    -- HoverWindow and HoverFloating* keep hover.nvim's default links (NormalFloat, DiagnosticFloating*)
+    HoverBorder { NormalFloat, fg = t.punctuation },
+    HoverSourceLine { TabLine, bg = t.bgFloat },
+    HoverActiveSource { TabLineSel, bg = t.bgFloat },
+    HoverInactiveSource { HoverSourceLine },
+
     -- trouble
     TroubleCount { fg = t.number },
     TroubleNormal { bg = t.bgFloat },
