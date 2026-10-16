@@ -197,6 +197,7 @@ Currently supported (aka. tested) plugins:
 - [fzf-lua](https://github.com/ibhagwan/fzf-lua)
 - [lsp-config](https://github.com/neovim/lsp-config)
 - [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- [hover.nvim](https://github.com/lewis6991/hover.nvim)
 - [leap.nvim](https://github.com/ggandor/leap.nvim)
 - [flash.nvim](https://github.com/folke/flash.nvim)
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
