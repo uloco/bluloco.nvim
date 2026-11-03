@@ -573,6 +573,10 @@ local theme = lush(function(injected_functions)
     GitSignsDeleteLnInline { GitSignsDeleteInline },
     GitSignsDeleteVirtLn { DiffDelete },
     GitSignsDeleteVirtLnInLine { GitSignsDeleteVirtLn },
+
+    -- nvim-scrollbar
+    ScrollbarThumb { CursorLine },
+    ScrollbarThumbPressed { bg = t.selection },
     -- TODO: improve bufferline
     BufferlineFill { NormalFloat },
     -- BufferlineBackground { bg = t.bg },
